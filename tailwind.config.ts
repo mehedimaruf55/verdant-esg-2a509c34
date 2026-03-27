@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
-        heading: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        heading: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -54,9 +54,10 @@ export default {
         verdant: {
           dark: "hsl(var(--verdant-dark))",
           light: "hsl(var(--verdant-light))",
-          grey: "hsl(var(--verdant-grey))",
-          "light-bg": "hsl(var(--verdant-light-bg))",
-          "cta-bg": "hsl(var(--verdant-cta-bg))",
+          surface: "hsl(var(--verdant-surface))",
+          "surface-alt": "hsl(var(--verdant-surface-alt))",
+          cta: "hsl(var(--verdant-cta))",
+          glow: "hsl(var(--verdant-glow))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -83,15 +84,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-in-up": {
-          from: { opacity: "0", transform: "translateY(24px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in-up": "fade-in-up 0.7s ease-out forwards",
       },
     },
   },
