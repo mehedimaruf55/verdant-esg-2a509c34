@@ -10,11 +10,11 @@ const points = [
 
 const WhyVerdantSection = () => {
   return (
-    <section id="why" className="relative py-32 lg:py-40 overflow-hidden bg-brand-green-dark">
+    <section id="why" className="relative py-28 lg:py-36 bg-brand-green-dark overflow-hidden">
       <img
         src={leafImg}
         alt=""
-        className="absolute bottom-0 left-[10%] w-[400px] opacity-[0.06] rotate-[-15deg] select-none pointer-events-none"
+        className="absolute bottom-0 right-[5%] w-[450px] opacity-[0.07] rotate-[-15deg] select-none pointer-events-none"
       />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
@@ -24,19 +24,17 @@ const WhyVerdantSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-green-light mb-4 block">
-            Advantage
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-white max-w-2xl">
+          <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-green-light mb-4 block">Advantage</span>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-white">
             Why Verdant
           </h2>
         </motion.div>
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {points.map((point, i) => (
             <motion.div
               key={i}
-              className="group"
+              className="group border border-brand-white/10 rounded-sm p-8 hover:border-brand-green-light/30 transition-colors"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -45,12 +43,8 @@ const WhyVerdantSection = () => {
               <div className="w-8 h-8 rounded-full border border-brand-white/20 flex items-center justify-center text-xs font-mono text-brand-white/50 mb-6 group-hover:border-brand-green-light group-hover:text-brand-green-light transition-colors">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="text-lg font-heading font-semibold text-brand-white mb-3">
-                {point.title}
-              </h3>
-              <p className="text-sm text-brand-white/60 leading-relaxed">
-                {point.description}
-              </p>
+              <h3 className="text-lg font-heading font-semibold text-brand-white mb-3">{point.title}</h3>
+              <p className="text-sm text-brand-white/55 leading-relaxed">{point.description}</p>
             </motion.div>
           ))}
         </div>
