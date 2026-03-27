@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        heading: ['Cedora', 'system-ui', 'sans-serif'],
+        body: ['Cedora', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

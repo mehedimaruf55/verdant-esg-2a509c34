@@ -1,6 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@font-face {
+  font-family: 'Cedora';
+  src: url('/fonts/Cedora.woff2') format('woff2'),
+       url('/fonts/Cedora.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cedora';
+  src: url('/fonts/Cedora-Bold.woff2') format('woff2'),
+       url('/fonts/Cedora-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 @tailwind components;
 @tailwind utilities;
 
