@@ -32,11 +32,11 @@ const WhyVerdantSection = () => {
           </h2>
         </motion.div>
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-white/10">
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {points.map((point, i) => (
             <motion.div
               key={i}
-              className="bg-brand-green-dark p-8 lg:p-10 group"
+              className="group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
