@@ -51,13 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        verdant: {
-          dark: "hsl(var(--verdant-dark))",
-          light: "hsl(var(--verdant-light))",
-          surface: "hsl(var(--verdant-surface))",
-          "surface-alt": "hsl(var(--verdant-surface-alt))",
-          cta: "hsl(var(--verdant-cta))",
-          glow: "hsl(var(--verdant-glow))",
+        brand: {
+          "green-dark": "hsl(var(--brand-green-dark))",
+          "green-light": "hsl(var(--brand-green-light))",
+          black: "hsl(var(--brand-black))",
+          grey: "hsl(var(--brand-grey))",
+          white: "hsl(var(--brand-white))",
+          "grey-light": "hsl(var(--brand-grey-light))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
