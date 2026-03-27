@@ -3,11 +3,11 @@ import leafImg from "@/assets/leaf.png";
 
 const MissionVisionSection = () => {
   return (
-    <section id="mission" className="relative py-32 lg:py-40 overflow-hidden bg-brand-black">
+    <section id="mission" className="relative py-32 lg:py-40 overflow-hidden bg-brand-green-dark">
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] opacity-[0.05] select-none pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] opacity-[0.06] select-none pointer-events-none"
       />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
@@ -25,47 +25,45 @@ const MissionVisionSection = () => {
           </h2>
         </motion.div>
 
-        <div className="mt-16 grid lg:grid-cols-2 gap-px bg-brand-grey/20">
-          {/* Mission */}
+        <div className="mt-16 grid lg:grid-cols-2 gap-px bg-brand-white/10">
           <motion.div
-            className="bg-brand-black p-10 lg:p-14"
+            className="bg-brand-green-dark p-10 lg:p-14"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-brand-green-dark" />
-              <span className="text-xs font-medium tracking-[0.15em] uppercase text-brand-grey">
+              <div className="w-2 h-2 rounded-full bg-brand-green-light" />
+              <span className="text-xs font-medium tracking-[0.15em] uppercase text-brand-white/50">
                 Our Mission
               </span>
             </div>
             <h3 className="text-2xl lg:text-3xl font-heading font-bold text-brand-white leading-tight tracking-[-0.01em]">
               To empower organizations with the clarity and tools they need to embed sustainability at the heart of their strategy.
             </h3>
-            <p className="mt-6 text-[15px] text-brand-grey leading-relaxed">
+            <p className="mt-6 text-[15px] text-brand-white/60 leading-relaxed">
               We bridge the gap between ambition and action — delivering data-driven ESG solutions that create measurable value for businesses, communities, and the environment.
             </p>
           </motion.div>
 
-          {/* Vision */}
           <motion.div
-            className="bg-brand-black p-10 lg:p-14"
+            className="bg-brand-green-dark p-10 lg:p-14"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-brand-green-light" />
-              <span className="text-xs font-medium tracking-[0.15em] uppercase text-brand-grey">
+              <div className="w-2 h-2 rounded-full bg-brand-white" />
+              <span className="text-xs font-medium tracking-[0.15em] uppercase text-brand-white/50">
                 Our Vision
               </span>
             </div>
             <h3 className="text-2xl lg:text-3xl font-heading font-bold text-brand-white leading-tight tracking-[-0.01em]">
               A world where every business decision accounts for its impact on people and the planet.
             </h3>
-            <p className="mt-6 text-[15px] text-brand-grey leading-relaxed">
+            <p className="mt-6 text-[15px] text-brand-white/60 leading-relaxed">
               We envision a future where sustainability is not a separate initiative but an integral part of how organizations operate, innovate, and grow — creating long-term value for all stakeholders.
             </p>
           </motion.div>
