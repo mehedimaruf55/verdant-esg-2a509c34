@@ -11,23 +11,17 @@ const points = [
 const WhyVerdantSection = () => {
   return (
     <section id="why" className="relative py-28 lg:py-36 bg-brand-green-dark overflow-hidden">
+      {/* Leaf cropped on left edge */}
       <img
         src={leafImg}
         alt=""
-        className="absolute bottom-0 right-[5%] w-[450px] opacity-[0.07] rotate-[-15deg] select-none pointer-events-none"
+        className="absolute top-1/2 -translate-y-1/2 -left-[12%] w-[450px] opacity-[0.08] select-none pointer-events-none"
       />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
           <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-green-light mb-4 block">Advantage</span>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-white">
-            Why Verdant
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-white">Why Verdant</h2>
         </motion.div>
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
