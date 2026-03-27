@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl flex items-center justify-between h-16 px-6">
         <a href="/" className="flex items-center">
-          <img src={logo} alt="Verdant ESG" className="h-6" />
+          <img src={logo} alt="Verdant ESG" className="h-10" />
         </a>
 
         {/* Desktop */}
