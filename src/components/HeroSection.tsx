@@ -9,11 +9,9 @@ const HeroSection = () => {
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] opacity-[0.08] select-none pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] opacity-[0.07] select-none pointer-events-none"
       />
-
-      {/* Glow */}
-      <div className="absolute top-[25%] right-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light/[0.08] blur-[140px] pointer-events-none" />
+      <div className="absolute top-[25%] right-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light/[0.07] blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pb-16 lg:pb-24">
         <div className="grid lg:grid-cols-12 gap-8 items-end">
@@ -29,7 +27,6 @@ const HeroSection = () => {
                   ESG Consultancy
                 </span>
               </div>
-
               <h1 className="text-[clamp(2.8rem,7vw,6.5rem)] font-heading font-bold leading-[0.92] tracking-[-0.03em] text-brand-white">
                 Sustainable
                 <br />
@@ -52,7 +49,7 @@ const HeroSection = () => {
               We help organizations integrate ESG into their core strategy with clarity and precision — turning compliance into competitive advantage.
             </p>
             <a href="#contact" className="group inline-flex items-center gap-3 self-start">
-              <span className="px-6 py-3.5 text-[13px] font-semibold tracking-wide bg-brand-white text-brand-black rounded-full group-hover:bg-brand-grey-light transition-colors">
+              <span className="px-6 py-3.5 text-[13px] font-semibold tracking-wide bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors">
                 Get Started
               </span>
               <span className="w-11 h-11 rounded-full border border-brand-white/20 flex items-center justify-center group-hover:border-brand-white/40 transition-colors">
