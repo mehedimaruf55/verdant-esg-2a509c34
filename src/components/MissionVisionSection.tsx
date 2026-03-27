@@ -25,9 +25,9 @@ const MissionVisionSection = () => {
           </h2>
         </motion.div>
 
-        <div className="mt-16 grid lg:grid-cols-2 gap-px bg-brand-white/10">
+        <div className="mt-16 grid lg:grid-cols-2 gap-12 lg:gap-16">
           <motion.div
-            className="bg-brand-green-dark p-10 lg:p-14"
+            className="p-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -48,7 +48,7 @@ const MissionVisionSection = () => {
           </motion.div>
 
           <motion.div
-            className="bg-brand-green-dark p-10 lg:p-14"
+            className="p-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
