@@ -99,8 +99,8 @@ const DropdownPanel = ({
       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className={`absolute ${
         level === 0
-          ? "top-full left-1/2 -translate-x-1/2 mt-3"
-          : "top-[-6px] left-full ml-1.5"
+          ? "top-full left-0 mt-2"
+          : "top-[-6px] left-full ml-1"
       } min-w-[260px] z-50`}
     >
       <div className="rounded-xl bg-white border border-brand-black/[0.06] shadow-[0_24px_80px_-16px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.03)] overflow-hidden">
