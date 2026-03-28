@@ -263,7 +263,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Verdant ESG"
-            className={`transition-all duration-500 ${scrolled ? "h-8" : "h-10"}`}
+            className={`transition-all duration-500 ${scrolled ? "h-6" : "h-8"}`}
           />
         </a>
 
