@@ -26,8 +26,8 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       className={`fixed top-4 left-4 right-4 z-50 rounded-2xl transition-all duration-500 ${
         scrolled
-          ? "bg-background/70 backdrop-blur-xl border border-border/40 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
-          : "bg-background/50 backdrop-blur-lg border border-border/25"
+          ? "bg-background/40 backdrop-blur-xl border border-border/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+          : "bg-background/20 backdrop-blur-md border border-border/15"
       }`}
     >
       <div className="mx-auto max-w-7xl flex items-center justify-between h-20 px-6 lg:px-10">
@@ -41,7 +41,7 @@ const Navbar = () => {
             <a
               key={l.label}
               href={l.href}
-              className="relative px-5 py-2 text-[13px] font-bold uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 group"
+              className="relative px-5 py-2 text-[13px] font-bold uppercase tracking-[0.15em] text-foreground hover:text-primary transition-colors duration-300 group"
             >
               {l.label}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-primary group-hover:w-3/4 transition-all duration-300" />
