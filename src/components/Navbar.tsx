@@ -120,7 +120,7 @@ const DropdownPanel = ({
             >
               <a
                 href={item.href}
-                className={`group flex items-center justify-between px-5 py-3 text-[13px] tracking-wide transition-all duration-200 ${
+                className={`group flex items-center justify-between px-5 py-3.5 text-[15px] tracking-normal transition-all duration-200 ${
                   openSub === item.label
                     ? "text-brand-green-dark bg-brand-green-light/[0.08]"
                     : "text-brand-black/75 hover:text-brand-green-dark hover:bg-brand-green-light/[0.06]"
@@ -194,10 +194,10 @@ const MobileSubMenu = ({
               <a
                 href={child.href}
                 onClick={() => !child.children && onClose()}
-                className={`flex-1 py-2.5 text-[13px] transition-colors ${
+                className={`flex-1 py-2.5 text-[15px] transition-colors ${
                   level === 0
-                    ? "text-brand-black/70 hover:text-brand-green-dark font-medium"
-                    : "text-brand-black/55 hover:text-brand-green-dark"
+                    ? "text-brand-black/75 hover:text-brand-green-dark font-medium"
+                    : "text-brand-black/60 hover:text-brand-green-dark"
                 }`}
               >
                 {child.label}
@@ -285,7 +285,7 @@ const Navbar = () => {
             >
               <a
                 href={l.href}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-[12.5px] font-bold uppercase tracking-[0.14em] transition-all duration-300 group ${
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
                   activeDropdown === l.label
                     ? "text-brand-green-dark"
                     : "text-brand-black/65 hover:text-brand-green-dark"
@@ -321,7 +321,7 @@ const Navbar = () => {
           <div className="ml-4 h-6 w-px bg-gradient-to-b from-transparent via-brand-black/10 to-transparent" />
           <a
             href="#contact"
-            className="ml-4 px-6 py-2.5 text-[11.5px] font-bold uppercase tracking-[0.16em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
+            className="ml-4 px-6 py-2.5 text-[13px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
           >
             Contact
           </a>
@@ -368,7 +368,7 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.04, duration: 0.3 }}
-                      className="flex-1 py-3 text-[13px] font-bold uppercase tracking-[0.13em] text-brand-black/80 hover:text-brand-green-dark transition-colors"
+                      className="flex-1 py-3 text-sm font-bold uppercase tracking-[0.12em] text-brand-black/85 hover:text-brand-green-dark transition-colors"
                     >
                       {l.label}
                     </motion.a>
@@ -400,7 +400,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="mt-4 text-center px-5 py-3.5 text-[12px] font-bold uppercase tracking-[0.16em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
+                className="mt-4 text-center px-5 py-3.5 text-[13px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
               >
                 Contact
               </motion.a>
