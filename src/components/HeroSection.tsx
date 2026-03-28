@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDownRight } from "lucide-react";
+import { ArrowDownRight, ChevronDown } from "lucide-react";
 import leafImg from "@/assets/leaf.png";
 
 const lineVariants = {
@@ -7,38 +7,61 @@ const lineVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay: 0.15 * i, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+    transition: { duration: 0.9, delay: 0.18 * i, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   }),
 };
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden pt-16 bg-brand-green-dark">
-      <img
+    <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden bg-brand-green-dark">
+      {/* Leaf — large, beautifully visible, right-aligned */}
+      <motion.img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[650px] opacity-[0.08] select-none pointer-events-none"
+        className="absolute top-[8%] -right-[5%] w-[55vw] max-w-[800px] min-w-[400px] opacity-[0.18] select-none pointer-events-none"
+        initial={{ opacity: 0, scale: 1.08, rotate: -3 }}
+        animate={{ opacity: 0.18, scale: 1, rotate: 0 }}
+        transition={{ duration: 2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      <div className="absolute top-[15%] right-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light opacity-[0.06] blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-brand-green-dark opacity-[0.15] blur-[120px] pointer-events-none" />
+      {/* Secondary leaf — subtle, bottom-left for depth */}
+      <motion.img
+        src={leafImg}
+        alt=""
+        className="absolute -bottom-[10%] -left-[12%] w-[35vw] max-w-[500px] opacity-[0.07] select-none pointer-events-none rotate-[140deg]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.07 }}
+        transition={{ duration: 2, delay: 0.8 }}
+      />
 
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-10 pb-16 lg:pb-24">
-        <div className="grid lg:grid-cols-12 gap-8 items-end">
-          <div className="lg:col-span-8">
+      {/* Ambient light orbs */}
+      <div className="absolute top-[10%] right-[15%] w-[600px] h-[600px] rounded-full bg-brand-green-light opacity-[0.08] blur-[200px] pointer-events-none" />
+      <div className="absolute bottom-[15%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light opacity-[0.04] blur-[180px] pointer-events-none" />
+      <div className="absolute top-[50%] left-[40%] w-[300px] h-[300px] rounded-full bg-brand-white opacity-[0.02] blur-[120px] pointer-events-none" />
+
+      {/* Top spacer for navbar */}
+      <div className="pt-32 lg:pt-40" />
+
+      {/* Main content */}
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-10 flex-1 flex flex-col justify-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          {/* Left — headline */}
+          <div className="lg:col-span-7 xl:col-span-8">
             <motion.div
-              className="flex items-center gap-3 mb-8"
+              className="flex items-center gap-3 mb-10"
               custom={0}
               variants={lineVariants}
               initial="hidden"
               animate="visible"
             >
-              <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-brand-white/70">ESG Consultancy</span>
+              <span className="inline-block w-10 h-[2px] rounded-full bg-brand-green-light" />
+              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-brand-white/60">
+                ESG Consultancy
+              </span>
             </motion.div>
 
-            <h1 className="text-[clamp(2.8rem,7vw,6.5rem)] font-heading font-bold leading-[0.92] tracking-[-0.03em] text-brand-white">
-              {["A New", "Direction", "Balanced", "Future."].map((line, i) => (
+            <h1 className="text-[clamp(3rem,8vw,7.5rem)] font-heading font-bold leading-[0.88] tracking-[-0.04em] text-brand-white">
+              {["A New", "Direction.", "Balanced", "Future."].map((line, i) => (
                 <motion.span
                   key={line}
                   className="block"
@@ -47,8 +70,11 @@ const HeroSection = () => {
                   initial="hidden"
                   animate="visible"
                 >
-                  {line === "Direction" ? (
-                    <>Direction<span className="text-brand-green-light">.</span></>
+                  {line === "Direction." ? (
+                    <>
+                      Direction
+                      <span className="text-brand-green-light">.</span>
+                    </>
                   ) : line === "Balanced" ? (
                     <span className="text-brand-green-light">Balanced</span>
                   ) : (
@@ -59,56 +85,65 @@ const HeroSection = () => {
             </h1>
           </div>
 
+          {/* Right — description + CTA */}
           <motion.div
-            className="lg:col-span-4 flex flex-col gap-6"
+            className="lg:col-span-5 xl:col-span-4 flex flex-col gap-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="glass-dark rounded-2xl p-6">
-              <p className="text-[15px] leading-relaxed text-brand-white/80">
-                We help organizations integrate ESG into their core strategy with clarity and precision — turning compliance into competitive advantage.
+            <div className="glass-dark rounded-2xl p-7">
+              <p className="text-[15px] leading-[1.7] text-brand-white/80">
+                We help organizations integrate ESG into their core strategy
+                with clarity and precision — turning compliance into competitive
+                advantage.
               </p>
             </div>
+
             <motion.a
               href="#contact"
               className="group inline-flex items-center gap-3 self-start"
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <span className="px-7 py-3.5 text-[13px] font-bold tracking-wide bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors">
+              <span className="px-8 py-4 text-[13px] font-bold tracking-[0.05em] uppercase bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors duration-300">
                 Find Out More
               </span>
-              <span className="w-11 h-11 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors">
-                <ArrowDownRight size={16} className="text-brand-white" />
+              <span className="w-12 h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
+                <ArrowDownRight size={18} className="text-brand-white" />
               </span>
             </motion.a>
           </motion.div>
         </div>
+      </div>
 
-        <motion.div
-          className="mt-16 pt-6 border-t border-brand-white/20 flex items-center justify-between text-[11px] tracking-[0.15em] uppercase text-brand-white/50"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-        >
-          <span className="animate-gentle-bounce inline-block">
-            Scroll to explore
-          </span>
-          <div className="flex gap-8">
+      {/* Bottom bar */}
+      <motion.div
+        className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-10 pb-10 lg:pb-14"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.3, duration: 0.7 }}
+      >
+        <div className="pt-6 border-t border-brand-white/15 flex items-center justify-between">
+          <div className="flex items-center gap-3 text-[11px] tracking-[0.15em] uppercase text-brand-white/40">
+            <ChevronDown size={14} className="animate-gentle-bounce" />
+            <span>Scroll to explore</span>
+          </div>
+          <div className="hidden sm:flex gap-10">
             {["Environmental", "Social", "Governance"].map((w, i) => (
               <motion.span
                 key={w}
+                className="text-[11px] tracking-[0.18em] uppercase text-brand-white/35 font-semibold"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.4 + i * 0.15 }}
+                transition={{ delay: 1.5 + i * 0.15 }}
               >
                 {w}
               </motion.span>
             ))}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 };
