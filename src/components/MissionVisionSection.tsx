@@ -11,31 +11,34 @@ const MissionVisionSection = () => {
         className="absolute top-1/2 -translate-y-1/2 -right-[12%] w-[400px] opacity-[0.04] select-none pointer-events-none"
       />
 
+      {/* Subtle ambient */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-brand-green-light/[0.05] blur-[120px] pointer-events-none" />
+
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-brand-green-light" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-green-light glow-dot" />
             <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">Purpose</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] text-brand-green-dark">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black">
             Mission & Vision
           </h2>
         </motion.div>
 
-        <div className="mt-14 grid lg:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
+        <div className="mt-14 grid lg:grid-cols-2 gap-6">
           <motion.div
-            className="bg-brand-white p-10 lg:p-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="glass-strong rounded-3xl p-10 lg:p-12 hover:shadow-[0_20px_60px_hsla(0,0%,0%,0.08)] transition-all duration-500"
+            initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="w-10 h-[3px] bg-brand-green-dark mb-6" />
+            <div className="w-10 h-[3px] rounded-full bg-brand-green-dark mb-6" />
             <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-grey">Our Mission</span>
             <h3 className="mt-4 text-xl lg:text-2xl font-heading font-bold text-brand-black leading-snug">
               To empower organizations with the clarity and tools they need to embed sustainability at the heart of their strategy.
@@ -46,13 +49,13 @@ const MissionVisionSection = () => {
           </motion.div>
 
           <motion.div
-            className="bg-brand-white p-10 lg:p-14 border-t lg:border-t-0 lg:border-l border-border"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="glass-strong rounded-3xl p-10 lg:p-12 hover:shadow-[0_20px_60px_hsla(0,0%,0%,0.08)] transition-all duration-500"
+            initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <div className="w-10 h-[3px] bg-brand-green-light mb-6" />
+            <div className="w-10 h-[3px] rounded-full bg-brand-green-light mb-6" />
             <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-grey">Our Vision</span>
             <h3 className="mt-4 text-xl lg:text-2xl font-heading font-bold text-brand-black leading-snug">
               A world where every business decision accounts for its impact on people and the planet.

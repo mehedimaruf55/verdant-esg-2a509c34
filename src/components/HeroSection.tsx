@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import leafImg from "@/assets/leaf.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-brand-green-dark">
+    <section className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden pt-16 bg-brand-green-dark mesh-dark">
       {/* Cropped leaf — 70% visible, anchored right */}
       <img
         src={leafImg}
@@ -12,61 +12,63 @@ const HeroSection = () => {
         className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[650px] opacity-[0.07] select-none pointer-events-none"
       />
 
-      {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-brand-green-light" />
+      {/* Ambient glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[15%] right-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light/[0.06] blur-[160px]" />
+        <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full bg-brand-green-dark/[0.12] blur-[120px]" />
+      </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-10 py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl"
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-8 h-px bg-brand-green-light" />
-            <p className="text-brand-green-light text-[13px] font-medium tracking-[0.15em] uppercase">
-              ESG Consultancy
-            </p>
-          </div>
-          <h1 className="text-5xl md:text-6xl lg:text-[5.5rem] font-heading font-bold leading-[0.95] tracking-[-0.03em] text-brand-white">
-            A New Direction<br />
-            for a Balanced<br />
-            <span className="text-brand-green-light">Future</span>
-          </h1>
-          <p className="mt-10 text-[17px] text-brand-white/60 max-w-lg leading-[1.7]">
-            We help organizations integrate ESG into their core strategy with clarity and precision — turning compliance into competitive advantage.
-          </p>
-          <div className="mt-12 flex items-center gap-6">
-            <a
-              href="#services"
-              className="px-8 py-3.5 bg-brand-white text-brand-green-dark text-[14px] font-bold tracking-wide rounded-sm hover:bg-brand-grey-light transition-colors duration-300"
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-10 pb-16 lg:pb-24">
+        <div className="grid lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              Find Out More
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3.5 border border-brand-white/30 text-brand-white text-[14px] font-medium rounded-sm hover:border-brand-white/60 transition-colors duration-300"
-            >
-              Contact Us
-            </a>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="inline-block w-2 h-2 rounded-full bg-brand-green-light glow-dot" />
+                <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-brand-white/50">ESG Consultancy</span>
+              </div>
+              <h1 className="text-[clamp(2.8rem,7vw,6.5rem)] font-heading font-bold leading-[0.92] tracking-[-0.03em] text-brand-white">
+                A New<br />Direction<span className="text-brand-green-light">.</span><br />
+                <span className="text-brand-green-light">Balanced</span><br />Future.
+              </h1>
+            </motion.div>
           </div>
-        </motion.div>
 
-        {/* Bottom bar */}
+          <motion.div
+            className="lg:col-span-4 flex flex-col gap-6"
+            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="glass-dark rounded-2xl p-6">
+              <p className="text-[15px] leading-relaxed text-brand-white/65 max-w-sm">
+                We help organizations integrate ESG into their core strategy with clarity and precision — turning compliance into competitive advantage.
+              </p>
+            </div>
+            <a href="#contact" className="group inline-flex items-center gap-3 self-start">
+              <span className="px-7 py-3.5 text-[13px] font-bold tracking-wide bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors shadow-[0_4px_24px_hsla(0,0%,100%,0.15)]">
+                Find Out More
+              </span>
+              <span className="w-11 h-11 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/10 transition-colors">
+                <ArrowDownRight size={16} className="text-brand-white" />
+              </span>
+            </a>
+          </motion.div>
+        </div>
+
         <motion.div
-          className="absolute bottom-0 left-0 right-0 border-t border-brand-white/10 py-6 px-6 lg:px-10 flex items-center justify-between"
+          className="mt-16 pt-6 border-t border-brand-white/10 flex items-center justify-between text-[11px] tracking-[0.15em] uppercase text-brand-white/30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          <div className="flex gap-10 text-[12px] tracking-[0.15em] uppercase text-brand-white/30">
-            <span>Environmental</span>
-            <span>Social</span>
-            <span>Governance</span>
+          <span>Scroll to explore</span>
+          <div className="flex gap-8">
+            <span>Environmental</span><span>Social</span><span>Governance</span>
           </div>
-          <a href="#about" className="text-brand-white/30 hover:text-brand-white/60 transition-colors">
-            <ArrowDown size={18} />
-          </a>
         </motion.div>
       </div>
     </section>

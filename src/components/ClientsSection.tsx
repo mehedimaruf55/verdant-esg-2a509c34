@@ -16,20 +16,22 @@ const ClientsSection = () => {
         className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[400px] opacity-[0.04] select-none pointer-events-none"
       />
 
+      {/* Subtle ambient */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] rounded-full bg-brand-green-light/[0.04] blur-[100px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 justify-center mb-6">
-            <div className="w-8 h-px bg-brand-green-light" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-green-light glow-dot" />
             <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">Trusted By</span>
-            <div className="w-8 h-px bg-brand-green-light" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-green-dark">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-black">
             Our Clients
           </h2>
         </motion.div>
@@ -40,11 +42,11 @@ const ClientsSection = () => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
-            <div className="flex animate-scroll gap-6 items-center">
+            <div className="flex animate-scroll gap-5 items-center">
               {[...clients, ...clients].map((name, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 px-8 py-4 border border-border bg-brand-white text-brand-grey font-heading font-bold text-[15px] whitespace-nowrap hover:text-brand-green-dark hover:border-brand-green-dark/20 transition-all duration-300"
+                  className="flex-shrink-0 glass rounded-2xl px-8 py-5 text-brand-grey font-heading font-bold text-[15px] whitespace-nowrap hover:text-brand-green-dark transition-colors duration-300"
                 >
                   {name}
                 </div>
@@ -53,7 +55,7 @@ const ClientsSection = () => {
           </div>
         </div>
 
-        <p className="text-center text-[12px] text-brand-grey/50 mt-10 tracking-wide">
+        <p className="text-center text-[12px] text-brand-grey/40 mt-10 tracking-wide">
           Placeholder — replace with your actual client logos
         </p>
       </div>
