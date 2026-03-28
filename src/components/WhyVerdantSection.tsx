@@ -2,35 +2,30 @@ import { motion } from "framer-motion";
 import leafImg from "@/assets/leaf.png";
 
 const points = [
-  {
-    title: "Data-Driven Approach",
-    description: "Every recommendation grounded in rigorous analysis, real-world benchmarks, and industry-leading frameworks.",
-  },
-  {
-    title: "Industry Expertise",
-    description: "Deep knowledge across finance, energy, real estate, and manufacturing — tailored to your sector's unique challenges.",
-  },
-  {
-    title: "Measurable Results",
-    description: "Clear KPIs and impact metrics that demonstrate tangible progress to boards, investors, and stakeholders.",
-  },
-  {
-    title: "Long-Term Focus",
-    description: "Strategies designed for enduring value and resilience — not just short-term compliance or box-ticking.",
-  },
+  { title: "Data-Driven Approach", description: "Every recommendation grounded in rigorous analysis, real-world benchmarks, and industry-leading frameworks." },
+  { title: "Industry Expertise", description: "Deep knowledge across finance, energy, real estate, and manufacturing — tailored to your sector's unique challenges." },
+  { title: "Measurable Results", description: "Clear KPIs and impact metrics that demonstrate tangible progress to boards, investors, and stakeholders." },
+  { title: "Long-Term Focus", description: "Strategies designed for enduring value and resilience — not just short-term compliance or box-ticking." },
 ];
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const cardFade = {
+  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
+};
 
 const WhyVerdantSection = () => {
   return (
     <section id="why" className="relative py-28 lg:py-36 bg-brand-green-dark overflow-hidden">
-      {/* Cropped leaf — 70% visible, anchored left */}
       <img
         src={leafImg}
         alt=""
         className="absolute top-1/2 -translate-y-1/2 -left-[12%] w-[450px] opacity-[0.08] select-none pointer-events-none"
       />
-
-      {/* Subtle glow */}
       <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
@@ -54,21 +49,25 @@ const WhyVerdantSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
             We deliver practical sustainability solutions grounded in expertise, precision, and a commitment to long-term impact across every engagement.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <motion.div
+          className="grid md:grid-cols-2 gap-5"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {points.map((point, i) => (
             <motion.div
               key={i}
               className="group relative overflow-hidden glass-dark rounded-3xl p-10 lg:p-12 hover:bg-brand-white/10 transition-all duration-500 cursor-pointer"
-              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              variants={cardFade}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
             >
               <div className="flex items-start justify-between gap-6">
                 <div>
@@ -86,7 +85,7 @@ const WhyVerdantSection = () => {
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500 rounded-full" />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
