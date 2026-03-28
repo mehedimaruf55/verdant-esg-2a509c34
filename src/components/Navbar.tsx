@@ -26,7 +26,7 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       className={`fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? "top-3 w-[calc(100%-3rem)] max-w-4xl rounded-2xl glass-strong"
+          ? "top-3 w-[calc(100%-3rem)] max-w-[56rem] rounded-2xl glass-strong"
           : "top-4 w-[calc(100%-2rem)] max-w-6xl rounded-2xl glass"
       }`}
     >
