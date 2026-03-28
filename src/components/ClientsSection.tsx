@@ -47,19 +47,16 @@ const ClientsSection = () => {
               {[...clients, ...clients].map((name, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 bg-brand-white rounded-2xl px-8 py-5 border border-border flex items-center gap-3 whitespace-nowrap hover:border-brand-green-dark/30 transition-colors duration-300"
+                  className="flex-shrink-0 bg-brand-white rounded-2xl px-6 py-4 border border-border flex items-center justify-center hover:border-brand-green-dark/30 transition-colors duration-300"
                 >
                   <img
                     src={logos[i % logos.length]}
                     alt={name}
                     loading="lazy"
-                    width={28}
-                    height={28}
-                    className="w-7 h-7 object-contain opacity-70"
+                    width={512}
+                    height={512}
+                    className="w-14 h-14 object-contain"
                   />
-                  <span className="text-brand-grey font-heading font-bold text-[15px] tracking-wide">
-                    {name}
-                  </span>
                 </div>
               ))}
             </div>
