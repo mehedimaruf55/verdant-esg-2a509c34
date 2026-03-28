@@ -30,6 +30,7 @@ const Index = () => {
         ServicesSection,
         WhyVerdantSection,
         ClientsSection,
+        InsightsSection,
         CtaSection,
         Footer,
       ].map((Section, i) => (
