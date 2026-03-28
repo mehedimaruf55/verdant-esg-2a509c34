@@ -248,6 +248,7 @@ const Navbar = () => {
           ? "top-3 left-[3%] right-[3%] rounded-2xl glass-strong shadow-[0_8px_32px_-8px_rgba(50,98,52,0.12)]"
           : "top-4 left-4 right-4 rounded-2xl glass"
       }`}
+      style={{ position: "fixed" }}
     >
       <div
         className={`mx-auto flex items-center justify-between transition-all duration-700 ${
@@ -268,9 +269,10 @@ const Navbar = () => {
           {navLinks.map((l) => (
             <div
               key={l.label}
-              className="relative"
+              className="relative static-dropdown-parent"
               onMouseEnter={() => l.children ? handleMouseEnter(l.label) : setActiveDropdown(null)}
               onMouseLeave={handleMouseLeave}
+              style={{ position: "static" }}
             >
               <a
                 href={l.href}
