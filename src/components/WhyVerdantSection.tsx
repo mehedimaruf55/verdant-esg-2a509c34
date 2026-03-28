@@ -65,7 +65,7 @@ const WhyVerdantSection = () => {
           {points.map((point, i) => (
             <motion.div
               key={i}
-              className="group relative glass-dark rounded-2xl p-10 lg:p-12 hover:bg-brand-white/[0.08] transition-all duration-500 cursor-pointer hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)]"
+              className="group relative overflow-hidden glass-dark rounded-2xl p-10 lg:p-12 hover:bg-brand-white/[0.08] transition-all duration-500 cursor-pointer hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)]"
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-50px" }}
