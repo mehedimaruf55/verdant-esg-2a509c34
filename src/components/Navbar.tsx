@@ -62,6 +62,7 @@ const navLinks: NavItem[] = [
   },
   { label: "Projects", href: "#" },
   { label: "Insights", href: "#" },
+  { label: "Resources", href: "#" },
   {
     label: "Team",
     href: "#",
