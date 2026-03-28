@@ -19,7 +19,7 @@ const MissionVisionSection = () => {
         className="absolute -top-[5%] -right-[6%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.10] select-none pointer-events-none rotate-[25deg]"
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

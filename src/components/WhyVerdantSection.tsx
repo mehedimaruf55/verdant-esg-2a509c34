@@ -28,7 +28,7 @@ const WhyVerdantSection = () => {
       />
       <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

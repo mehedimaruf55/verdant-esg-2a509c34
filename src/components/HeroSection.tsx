@@ -43,7 +43,7 @@ const HeroSection = () => {
       <div className="pt-32 lg:pt-40" />
 
       {/* Main content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-10 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 mx-auto max-w-6xl w-full px-6 lg:px-10 flex-1 flex flex-col justify-center">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           {/* Left — headline */}
           <div className="lg:col-span-7 xl:col-span-8">
@@ -119,7 +119,7 @@ const HeroSection = () => {
 
       {/* Bottom bar */}
       <motion.div
-        className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-10 pb-10 lg:pb-14"
+        className="relative z-10 mx-auto max-w-6xl w-full px-6 lg:px-10 pb-10 lg:pb-14"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.3, duration: 0.7 }}

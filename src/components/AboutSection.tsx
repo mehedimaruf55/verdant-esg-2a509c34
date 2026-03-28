@@ -21,7 +21,7 @@ const AboutSection = () => {
         className="absolute top-[10%] -left-[8%] w-[45vw] max-w-[600px] min-w-[300px] opacity-[0.12] select-none pointer-events-none rotate-[-15deg]"
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             variants={container}

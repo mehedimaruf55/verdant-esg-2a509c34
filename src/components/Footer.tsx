@@ -4,7 +4,7 @@ import logo from "@/assets/verdant-esg-logo.png";
 const Footer = () => {
   return (
     <footer className="bg-brand-green-dark">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <motion.div
           className="py-14 grid md:grid-cols-3 gap-10 items-start"
           initial={{ opacity: 0, y: 20 }}
