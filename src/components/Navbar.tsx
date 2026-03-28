@@ -255,7 +255,7 @@ const Navbar = () => {
     >
       <div
         className={`mx-auto flex items-center justify-between transition-all duration-700 ${
-          scrolled ? "px-4 lg:px-5 h-11" : "px-5 lg:px-7 h-14"
+          scrolled ? "px-4 lg:px-5 h-12" : "px-5 lg:px-7 h-16"
         }`}
       >
         {/* Logo */}
@@ -263,7 +263,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Verdant ESG"
-            className={`transition-all duration-500 ${scrolled ? "h-6" : "h-8"}`}
+            className={`transition-all duration-500 ${scrolled ? "h-7" : "h-9"}`}
           />
         </a>
 
@@ -278,7 +278,7 @@ const Navbar = () => {
             >
               <a
                 href={l.href}
-                className={`relative flex items-center gap-1 px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
+                className={`relative flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
                   activeDropdown === l.label
                     ? "text-brand-green-dark"
                     : "text-brand-black/65 hover:text-brand-green-dark"
@@ -314,7 +314,7 @@ const Navbar = () => {
           <div className="ml-3 h-5 w-px bg-gradient-to-b from-transparent via-brand-black/10 to-transparent" />
           <a
             href="#contact"
-            className="ml-3 px-5 py-2 text-[11px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
+            className="ml-3 px-5 py-2 text-[12px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
           >
             Contact
           </a>
