@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 import leafImg from "@/assets/leaf.png";
 
 const clients = [
-  { name: "Accenture", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" },
-  { name: "Deloitte", logo: "https://upload.wikimedia.org/wikipedia/commons/5/56/Deloitte.svg" },
-  { name: "McKinsey", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a0/McKinsey_and_Company_Logo_1.svg" },
-  { name: "KPMG", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/KPMG_logo.svg" },
-  { name: "PwC", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/PricewaterhouseCoopers_Logo.svg" },
-  { name: "EY", logo: "https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" },
-  { name: "BCG", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/BCG_Corporate_Logo.svg" },
-  { name: "Goldman Sachs", logo: "https://upload.wikimedia.org/wikipedia/commons/6/61/Goldman_Sachs.svg" },
-  { name: "Unilever", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Unilever_logo_2023.svg" },
-  { name: "Nestlé", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Nestl%C3%A9.svg" },
-  { name: "BlackRock", logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/BlackRock_wordmark.svg" },
-  { name: "Bain", logo: "https://upload.wikimedia.org/wikipedia/commons/7/71/Bain_and_Company_Logo_1.svg" },
+  { name: "Accenture", logo: "https://logo.clearbit.com/accenture.com" },
+  { name: "Deloitte", logo: "https://logo.clearbit.com/deloitte.com" },
+  { name: "McKinsey", logo: "https://logo.clearbit.com/mckinsey.com" },
+  { name: "KPMG", logo: "https://logo.clearbit.com/kpmg.com" },
+  { name: "PwC", logo: "https://logo.clearbit.com/pwc.com" },
+  { name: "EY", logo: "https://logo.clearbit.com/ey.com" },
+  { name: "BCG", logo: "https://logo.clearbit.com/bcg.com" },
+  { name: "Goldman Sachs", logo: "https://logo.clearbit.com/goldmansachs.com" },
+  { name: "Unilever", logo: "https://logo.clearbit.com/unilever.com" },
+  { name: "Nestlé", logo: "https://logo.clearbit.com/nestle.com" },
+  { name: "BlackRock", logo: "https://logo.clearbit.com/blackrock.com" },
+  { name: "Bain", logo: "https://logo.clearbit.com/bain.com" },
 ];
 
 const ClientsSection = () => {
