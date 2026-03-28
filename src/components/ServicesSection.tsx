@@ -21,7 +21,7 @@ const cardFade = {
 const ServicesSection = () => {
   return (
     <section id="services" className="py-28 lg:py-36 bg-brand-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

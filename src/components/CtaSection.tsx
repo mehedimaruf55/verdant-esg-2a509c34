@@ -11,7 +11,7 @@ const CtaSection = () => {
         className="absolute -bottom-[8%] -left-[6%] w-[40vw] max-w-[520px] min-w-[280px] opacity-[0.10] select-none pointer-events-none rotate-[160deg]"
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
         <motion.div
           className="bg-brand-green-dark rounded-[2rem] p-12 lg:p-20 flex flex-col items-center text-center relative overflow-hidden"
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
