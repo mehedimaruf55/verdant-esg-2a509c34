@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyVerdantSection from "@/components/WhyVerdantSection";
+import ClientsSection from "@/components/ClientsSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
@@ -28,6 +29,7 @@ const Index = () => {
         MissionVisionSection,
         ServicesSection,
         WhyVerdantSection,
+        ClientsSection,
         CtaSection,
         Footer,
       ].map((Section, i) => (

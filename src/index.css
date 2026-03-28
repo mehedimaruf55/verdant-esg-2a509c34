@@ -102,6 +102,19 @@
 }
 
 @layer utilities {
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
   .text-gradient {
     background: linear-gradient(135deg, hsl(var(--brand-green-dark)) 0%, hsl(var(--brand-green-light)) 100%);
     -webkit-background-clip: text;
