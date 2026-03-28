@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react";
 import logo from "@/assets/verdant-esg-logo.png";
 
 type NavItem = {
@@ -72,42 +72,161 @@ const navLinks: NavItem[] = [
   },
 ];
 
-const DropdownMenu = ({ items, level = 0 }: { items: NonNullable<NavItem["children"]>; level?: number }) => {
+/* ─── Dropdown (recursive, supports fly-out submenus) ─── */
+const DropdownPanel = ({
+  items,
+  level = 0,
+}: {
+  items: NonNullable<NavItem["children"]>;
+  level?: number;
+}) => {
   const [openSub, setOpenSub] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleEnter = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpenSub(label);
+  };
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpenSub(null), 120);
+  };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: level === 0 ? 8 : 0, x: level > 0 ? -4 : 0 }}
-      animate={{ opacity: 1, y: 0, x: 0 }}
-      exit={{ opacity: 0, y: level === 0 ? 8 : 0, x: level > 0 ? -4 : 0 }}
-      transition={{ duration: 0.2 }}
-      className={`absolute ${level === 0 ? "top-full left-1/2 -translate-x-1/2 mt-2" : "top-0 left-full ml-1"} min-w-[220px] glass-strong rounded-xl py-2 shadow-lg border border-border z-50`}
+      initial={{ opacity: 0, y: level === 0 ? 10 : 0, x: level > 0 ? -6 : 0, scale: 0.97 }}
+      animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+      exit={{ opacity: 0, y: level === 0 ? 6 : 0, x: level > 0 ? -4 : 0, scale: 0.97 }}
+      transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+      className={`absolute ${
+        level === 0
+          ? "top-full left-1/2 -translate-x-1/2 mt-3"
+          : "top-[-8px] left-full ml-2"
+      } min-w-[240px] z-50`}
     >
-      {items.map((item) => (
-        <div
-          key={item.label}
-          className="relative"
-          onMouseEnter={() => item.children && setOpenSub(item.label)}
-          onMouseLeave={() => setOpenSub(null)}
-        >
-          <a
-            href={item.href}
-            className="flex items-center justify-between px-4 py-2.5 text-[13px] text-brand-black/80 hover:text-brand-green-dark hover:bg-brand-green-light/10 transition-colors"
-          >
-            {item.label}
-            {item.children && <ChevronDown size={12} className="-rotate-90 ml-2 opacity-50" />}
-          </a>
-          <AnimatePresence>
-            {item.children && openSub === item.label && (
-              <DropdownMenu items={item.children} level={level + 1} />
-            )}
-          </AnimatePresence>
+      {/* Dropdown card */}
+      <div className="rounded-2xl bg-white/90 backdrop-blur-2xl border border-brand-green-dark/[0.08] shadow-[0_20px_60px_-12px_rgba(50,98,52,0.15),0_8px_24px_-8px_rgba(0,0,0,0.08)] overflow-hidden">
+        {/* Subtle green accent bar at top for level-0 */}
+        {level === 0 && (
+          <div className="h-[2px] bg-gradient-to-r from-brand-green-dark via-brand-green-light to-transparent" />
+        )}
+
+        <div className="py-2">
+          {items.map((item, idx) => (
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => item.children ? handleEnter(item.label) : setOpenSub(null)}
+              onMouseLeave={handleLeave}
+            >
+              <a
+                href={item.href}
+                className={`group flex items-center justify-between px-5 py-3 text-[13px] tracking-wide transition-all duration-200 ${
+                  openSub === item.label
+                    ? "text-brand-green-dark bg-brand-green-light/[0.08]"
+                    : "text-brand-black/75 hover:text-brand-green-dark hover:bg-brand-green-light/[0.06]"
+                }`}
+              >
+                <span className="flex items-center gap-3">
+                  {/* Active indicator dot */}
+                  <span
+                    className={`w-1 h-1 rounded-full transition-all duration-200 ${
+                      openSub === item.label
+                        ? "bg-brand-green-light scale-100"
+                        : "bg-transparent scale-0 group-hover:bg-brand-green-light/60 group-hover:scale-100"
+                    }`}
+                  />
+                  <span className="font-medium">{item.label}</span>
+                </span>
+                {item.children && (
+                  <ChevronRight
+                    size={13}
+                    className={`transition-all duration-200 ${
+                      openSub === item.label
+                        ? "opacity-100 translate-x-0.5 text-brand-green-dark"
+                        : "opacity-30 group-hover:opacity-60"
+                    }`}
+                  />
+                )}
+              </a>
+
+              {/* Separator between groups — only after items with children */}
+              {item.children && idx < items.length - 1 && (
+                <div className="mx-5 my-1 h-px bg-brand-black/[0.04]" />
+              )}
+
+              <AnimatePresence>
+                {item.children && openSub === item.label && (
+                  <DropdownPanel items={item.children} level={level + 1} />
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </motion.div>
   );
 };
 
+/* ─── Mobile Sub-Menu (with nested accordion) ─── */
+const MobileSubMenu = ({
+  items,
+  level = 0,
+  onClose,
+}: {
+  items: NonNullable<NavItem["children"]>;
+  level?: number;
+  onClose: () => void;
+}) => {
+  const [expanded, setExpanded] = useState<string | null>(null);
+
+  return (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ height: "auto", opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+      className="overflow-hidden"
+    >
+      <div className={`${level === 0 ? "pl-4 ml-2 border-l-2 border-brand-green-light/20" : "pl-3 ml-1 border-l border-brand-green-light/10"}`}>
+        {items.map((child) => (
+          <div key={child.label}>
+            <div className="flex items-center justify-between">
+              <a
+                href={child.href}
+                onClick={() => !child.children && onClose()}
+                className={`flex-1 py-2.5 text-[13px] transition-colors ${
+                  level === 0
+                    ? "text-brand-black/70 hover:text-brand-green-dark font-medium"
+                    : "text-brand-black/55 hover:text-brand-green-dark"
+                }`}
+              >
+                {child.label}
+              </a>
+              {child.children && (
+                <button
+                  onClick={() => setExpanded(expanded === child.label ? null : child.label)}
+                  className="p-1.5 text-brand-black/40 hover:text-brand-green-dark transition-colors"
+                >
+                  <ChevronDown
+                    size={12}
+                    className={`transition-transform duration-200 ${expanded === child.label ? "rotate-180" : ""}`}
+                  />
+                </button>
+              )}
+            </div>
+            <AnimatePresence>
+              {child.children && expanded === child.label && (
+                <MobileSubMenu items={child.children} level={level + 1} onClose={onClose} />
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+/* ─── Main Navbar ─── */
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -127,137 +246,164 @@ const Navbar = () => {
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 180);
   };
 
   return (
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
-      className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] rounded-2xl ${
+      transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
+      className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? "top-3 left-[5%] right-[5%] glass-strong"
-          : "top-4 left-4 right-4 glass"
+          ? "top-3 left-[3%] right-[3%] rounded-2xl glass-strong shadow-[0_8px_32px_-8px_rgba(50,98,52,0.12)]"
+          : "top-4 left-4 right-4 rounded-2xl glass"
       }`}
     >
-      <div className={`mx-auto flex items-center justify-between px-6 lg:px-8 transition-all duration-700 ${
-        scrolled ? "h-14" : "h-20"
-      }`}>
-        <a href="/" className="flex items-center">
-          <img src={logo} alt="Verdant ESG" className="h-10" />
+      <div
+        className={`mx-auto flex items-center justify-between transition-all duration-700 ${
+          scrolled ? "px-5 lg:px-6 h-14" : "px-6 lg:px-8 h-[72px]"
+        }`}
+      >
+        {/* Logo */}
+        <a href="/" className="flex items-center shrink-0">
+          <img
+            src={logo}
+            alt="Verdant ESG"
+            className={`transition-all duration-500 ${scrolled ? "h-8" : "h-10"}`}
+          />
         </a>
 
-        {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-0.5">
+        {/* ── Desktop Nav ── */}
+        <div className="hidden lg:flex items-center">
           {navLinks.map((l) => (
             <div
               key={l.label}
               className="relative"
-              onMouseEnter={() => l.children && handleMouseEnter(l.label)}
+              onMouseEnter={() => l.children ? handleMouseEnter(l.label) : setActiveDropdown(null)}
               onMouseLeave={handleMouseLeave}
             >
               <a
                 href={l.href}
-                className="relative flex items-center gap-1 px-4 py-2 text-[13px] font-bold uppercase tracking-[0.12em] text-brand-black/70 hover:text-brand-green-dark transition-colors duration-300 group"
+                className={`relative flex items-center gap-1.5 px-4 py-2 text-[12.5px] font-bold uppercase tracking-[0.14em] transition-all duration-300 group ${
+                  activeDropdown === l.label
+                    ? "text-brand-green-dark"
+                    : "text-brand-black/65 hover:text-brand-green-dark"
+                }`}
               >
                 {l.label}
-                {l.children && <ChevronDown size={12} className="opacity-50 group-hover:opacity-100 transition-opacity" />}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-brand-green-dark group-hover:w-3/4 transition-all duration-300" />
+                {l.children && (
+                  <ChevronDown
+                    size={11}
+                    className={`transition-all duration-300 ${
+                      activeDropdown === l.label
+                        ? "opacity-100 rotate-180 text-brand-green-dark"
+                        : "opacity-40 group-hover:opacity-70"
+                    }`}
+                  />
+                )}
+                {/* Hover underline */}
+                <span
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-gradient-to-r from-brand-green-dark to-brand-green-light transition-all duration-300 ${
+                    activeDropdown === l.label ? "w-3/4" : "w-0 group-hover:w-1/2"
+                  }`}
+                />
               </a>
               <AnimatePresence>
                 {l.children && activeDropdown === l.label && (
-                  <DropdownMenu items={l.children} />
+                  <DropdownPanel items={l.children} />
                 )}
               </AnimatePresence>
             </div>
           ))}
-          <div className="ml-3 h-5 w-px bg-brand-black/10" />
+
+          {/* Divider + CTA */}
+          <div className="ml-4 h-6 w-px bg-gradient-to-b from-transparent via-brand-black/10 to-transparent" />
           <a
             href="#contact"
-            className="ml-3 px-5 py-2.5 text-[12px] font-bold uppercase tracking-[0.15em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
+            className="ml-4 px-6 py-2.5 text-[11.5px] font-bold uppercase tracking-[0.16em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
           >
             Contact
           </a>
         </div>
 
-        {/* Mobile toggle */}
+        {/* ── Mobile Toggle ── */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-brand-black"
+          className="lg:hidden p-2 text-brand-black/70 hover:text-brand-green-dark transition-colors"
           aria-label="Toggle menu"
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          <AnimatePresence mode="wait">
+            {open ? (
+              <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                <X size={20} />
+              </motion.span>
+            ) : (
+              <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                <Menu size={20} />
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* ── Mobile Menu ── */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden border-t border-brand-black/5 glass-strong rounded-b-2xl max-h-[70vh] overflow-y-auto"
+            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+            className="lg:hidden overflow-hidden"
           >
-            <div className="px-6 py-6 flex flex-col gap-1">
+            <div className="border-t border-brand-black/[0.06]" />
+            <div className="px-6 py-5 flex flex-col gap-0.5 max-h-[65vh] overflow-y-auto">
               {navLinks.map((l, i) => (
                 <div key={l.label}>
                   <div className="flex items-center justify-between">
                     <motion.a
                       href={l.href}
                       onClick={() => !l.children && setOpen(false)}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.05 }}
-                      className="flex-1 py-2.5 text-sm font-bold uppercase tracking-[0.12em] text-brand-black"
+                      transition={{ delay: i * 0.04, duration: 0.3 }}
+                      className="flex-1 py-3 text-[13px] font-bold uppercase tracking-[0.13em] text-brand-black/80 hover:text-brand-green-dark transition-colors"
                     >
                       {l.label}
                     </motion.a>
                     {l.children && (
-                      <button
+                      <motion.button
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: i * 0.04 + 0.1 }}
                         onClick={() => setMobileExpanded(mobileExpanded === l.label ? null : l.label)}
-                        className="p-2 text-brand-black/50"
+                        className="p-2 text-brand-black/40 hover:text-brand-green-dark transition-colors rounded-lg hover:bg-brand-green-light/[0.06]"
                       >
                         <ChevronDown
                           size={14}
-                          className={`transition-transform duration-200 ${mobileExpanded === l.label ? "rotate-180" : ""}`}
+                          className={`transition-transform duration-250 ${mobileExpanded === l.label ? "rotate-180" : ""}`}
                         />
-                      </button>
+                      </motion.button>
                     )}
                   </div>
                   <AnimatePresence>
                     {l.children && mobileExpanded === l.label && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden pl-4 border-l-2 border-brand-green-light/30 ml-1"
-                      >
-                        {l.children.map((child) => (
-                          <a
-                            key={child.label}
-                            href={child.href}
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-[13px] text-brand-black/70 hover:text-brand-green-dark transition-colors"
-                          >
-                            {child.label}
-                          </a>
-                        ))}
-                      </motion.div>
+                      <MobileSubMenu items={l.children} onClose={() => setOpen(false)} />
                     )}
                   </AnimatePresence>
                 </div>
               ))}
-              <a
+              <motion.a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-3 text-center px-5 py-3 text-[12px] font-bold uppercase tracking-[0.15em] bg-brand-green-dark text-brand-white rounded-full"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                className="mt-4 text-center px-5 py-3.5 text-[12px] font-bold uppercase tracking-[0.16em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
               >
                 Contact
-              </a>
+              </motion.a>
             </div>
           </motion.div>
         )}
