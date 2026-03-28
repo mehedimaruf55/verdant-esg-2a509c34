@@ -9,11 +9,11 @@ const clients = [
 const ClientsSection = () => {
   return (
     <section className="relative py-24 lg:py-32 bg-brand-grey-light overflow-hidden">
-      {/* Cropped leaf — 70% visible, anchored right */}
+      {/* Leaf watermark */}
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[400px] opacity-[0.05] select-none pointer-events-none"
+        className="absolute top-[5%] -right-[8%] w-[38vw] max-w-[480px] min-w-[260px] opacity-[0.08] select-none pointer-events-none rotate-[10deg]"
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">

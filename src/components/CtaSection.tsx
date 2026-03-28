@@ -8,7 +8,7 @@ const CtaSection = () => {
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -left-[15%] w-[350px] opacity-[0.05] select-none pointer-events-none"
+        className="absolute -bottom-[8%] -left-[6%] w-[40vw] max-w-[520px] min-w-[280px] opacity-[0.10] select-none pointer-events-none rotate-[160deg]"
       />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">

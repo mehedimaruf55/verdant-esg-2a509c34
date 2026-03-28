@@ -18,7 +18,7 @@ const AboutSection = () => {
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -left-[15%] w-[500px] opacity-[0.05] select-none pointer-events-none"
+        className="absolute top-[10%] -left-[8%] w-[45vw] max-w-[600px] min-w-[300px] opacity-[0.12] select-none pointer-events-none rotate-[-15deg]"
       />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">

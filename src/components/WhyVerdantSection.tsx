@@ -24,7 +24,7 @@ const WhyVerdantSection = () => {
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -left-[12%] w-[450px] opacity-[0.08] select-none pointer-events-none"
+        className="absolute bottom-[5%] -left-[6%] w-[45vw] max-w-[600px] min-w-[300px] opacity-[0.15] select-none pointer-events-none rotate-[-20deg]"
       />
       <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
 
