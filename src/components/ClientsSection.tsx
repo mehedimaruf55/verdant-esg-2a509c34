@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import leafImg from "@/assets/leaf.png";
 
 const clients = [
   "Accenture", "Deloitte", "McKinsey", "KPMG", "PwC", "EY",
@@ -7,34 +8,43 @@ const clients = [
 
 const ClientsSection = () => {
   return (
-    <section className="py-24 lg:py-32 bg-brand-white border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section className="relative py-24 lg:py-32 bg-brand-grey-light overflow-hidden">
+      {/* Cropped leaf — 70% visible, anchored right */}
+      <img
+        src={leafImg}
+        alt=""
+        className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[400px] opacity-[0.04] select-none pointer-events-none"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
+          <div className="flex items-center gap-3 justify-center mb-6">
+            <div className="w-8 h-px bg-brand-green-light" />
+            <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">Trusted By</span>
+            <div className="w-8 h-px bg-brand-green-light" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-green-dark">
             Our Clients
           </h2>
-          <p className="mt-4 text-[15px] text-brand-grey">
-            Thanks to our broad range of specialists, our clients include the following:
-          </p>
         </motion.div>
 
         {/* Scrolling carousel */}
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-brand-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-brand-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
-            <div className="flex animate-scroll gap-8 items-center">
+            <div className="flex animate-scroll gap-6 items-center">
               {[...clients, ...clients].map((name, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 px-8 py-4 border border-border rounded-lg text-brand-grey font-heading font-bold text-base whitespace-nowrap hover:text-brand-green-dark hover:border-brand-green-dark/30 transition-colors duration-300"
+                  className="flex-shrink-0 px-8 py-4 border border-border bg-brand-white text-brand-grey font-heading font-bold text-[15px] whitespace-nowrap hover:text-brand-green-dark hover:border-brand-green-dark/20 transition-all duration-300"
                 >
                   {name}
                 </div>
@@ -43,7 +53,7 @@ const ClientsSection = () => {
           </div>
         </div>
 
-        <p className="text-center text-[13px] text-brand-grey/60 mt-10">
+        <p className="text-center text-[12px] text-brand-grey/50 mt-10 tracking-wide">
           Placeholder — replace with your actual client logos
         </p>
       </div>

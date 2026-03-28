@@ -10,7 +10,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-28 lg:py-36 bg-brand-grey-light">
+    <section id="services" className="py-28 lg:py-36 bg-brand-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -18,21 +18,32 @@ const ServicesSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-brand-green-light text-sm font-medium tracking-wide mb-3">We Take Care of What Matters</p>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.1] text-brand-black max-w-2xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-brand-green-light" />
+            <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">
+              What We Do
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] text-brand-green-dark max-w-2xl">
             Our Services
           </h2>
+          <p className="mt-4 text-[16px] text-brand-grey max-w-xl leading-relaxed">
+            We deliver practical environmental sustainability solutions across a portfolio of work areas.
+          </p>
         </motion.div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-6">
+        <div className="mt-14 grid md:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
           {services.map((service, i) => (
-            <motion.div
+            <motion.a
               key={service.title}
-              className="group bg-brand-white rounded-lg p-8 lg:p-10 border border-border hover:border-brand-green-dark/20 hover:shadow-lg transition-all duration-300 cursor-pointer"
+              href="#contact"
+              className={`group relative bg-brand-white p-8 lg:p-10 hover:bg-brand-grey-light transition-colors duration-300 ${
+                i >= 2 ? "border-t border-border" : ""
+              } ${i % 2 !== 0 ? "md:border-l border-border" : ""}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -43,11 +54,13 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
                 </div>
-                <div className="shrink-0 w-10 h-10 rounded-full border border-border flex items-center justify-center text-brand-grey group-hover:bg-brand-green-dark group-hover:text-brand-white group-hover:border-brand-green-dark transition-all duration-300">
-                  <ArrowUpRight size={16} />
+                <div className="shrink-0 w-9 h-9 rounded-full border border-brand-grey/20 flex items-center justify-center text-brand-grey/40 group-hover:bg-brand-green-dark group-hover:text-brand-white group-hover:border-brand-green-dark transition-all duration-300">
+                  <ArrowUpRight size={14} />
                 </div>
               </div>
-            </motion.div>
+              {/* Bottom accent on hover */}
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500" />
+            </motion.a>
           ))}
         </div>
 
@@ -60,9 +73,10 @@ const ServicesSection = () => {
         >
           <a
             href="#contact"
-            className="inline-block text-brand-green-dark font-semibold text-[15px] border-b-2 border-brand-green-dark hover:text-brand-green-light hover:border-brand-green-light transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-brand-green-dark font-semibold text-[14px] tracking-wide hover:text-brand-green-light transition-colors duration-300 group"
           >
             More About our Services
+            <span className="w-6 h-px bg-brand-green-dark group-hover:w-10 group-hover:bg-brand-green-light transition-all duration-300" />
           </a>
         </motion.div>
       </div>
