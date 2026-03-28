@@ -24,7 +24,9 @@ const Footer = () => {
               {[
                 { label: "About", href: "#about" },
                 { label: "Services", href: "#services" },
-                { label: "Why Verdant", href: "#why" },
+                { label: "Projects", href: "#" },
+                { label: "Insights", href: "#" },
+                { label: "Team", href: "#" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 <motion.a
