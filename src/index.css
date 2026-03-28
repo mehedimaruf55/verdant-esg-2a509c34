@@ -31,16 +31,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 122 33% 29%;
+    --primary: 123 32% 29%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 104 46% 50%;
+    --secondary: 101 46% 50%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 50%;
 
-    --accent: 104 46% 50%;
+    --accent: 101 46% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -48,13 +48,13 @@
 
     --border: 0 0% 85%;
     --input: 0 0% 85%;
-    --ring: 122 33% 29%;
+    --ring: 123 32% 29%;
 
     --radius: 1rem;
 
     /* Brand tokens */
-    --brand-green-dark: 122 33% 29%;
-    --brand-green-light: 104 46% 50%;
+    --brand-green-dark: 123 32% 29%;
+    --brand-green-light: 101 46% 50%;
     --brand-black: 0 0% 0%;
     --brand-grey: 0 0% 50%;
     --brand-white: 0 0% 100%;
