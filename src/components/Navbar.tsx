@@ -24,10 +24,10 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+      className={`fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? "top-3 left-[10%] right-[10%] rounded-2xl glass-strong"
-          : "top-4 left-4 right-4 rounded-2xl glass"
+          ? "top-3 w-[calc(100%-2rem)] max-w-5xl rounded-2xl glass-strong"
+          : "top-4 w-[calc(100%-2rem)] max-w-7xl rounded-2xl glass"
       }`}
     >
       <div className={`mx-auto flex items-center justify-between px-6 lg:px-10 transition-all duration-700 ${
