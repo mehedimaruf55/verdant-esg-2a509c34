@@ -10,21 +10,22 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-28 lg:py-36 bg-brand-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="services" className="relative py-28 lg:py-36 bg-brand-white overflow-hidden mesh-light">
+      {/* Ambient glow */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-green-light/[0.04] blur-[150px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-brand-green-light" />
-            <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">
-              What We Do
-            </span>
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-green-light glow-dot" />
+            <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">What We Do</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] text-brand-green-dark max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black max-w-2xl">
             Our Services
           </h2>
           <p className="mt-4 text-[16px] text-brand-grey max-w-xl leading-relaxed">
@@ -32,53 +33,35 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-0 border border-border rounded-sm overflow-hidden">
+        <div className="mt-14 grid md:grid-cols-2 gap-5">
           {services.map((service, i) => (
-            <motion.a
+            <motion.div
               key={service.title}
-              href="#contact"
-              className={`group relative bg-brand-white p-8 lg:p-10 hover:bg-brand-grey-light transition-colors duration-300 ${
-                i >= 2 ? "border-t border-border" : ""
-              } ${i % 2 !== 0 ? "md:border-l border-border" : ""}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="group glass rounded-3xl p-8 lg:p-10 cursor-pointer hover:shadow-[0_20px_60px_hsla(0,0%,0%,0.08)] transition-all duration-500 relative overflow-hidden"
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="text-xl lg:text-2xl font-heading font-bold text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
+                  <span className="text-[11px] text-brand-grey/40 tracking-[0.2em] font-medium">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-3 text-xl lg:text-2xl font-heading font-bold text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="mt-4 text-[15px] text-brand-grey leading-relaxed">
                     {service.description}
                   </p>
                 </div>
-                <div className="shrink-0 w-9 h-9 rounded-full border border-brand-grey/20 flex items-center justify-center text-brand-grey/40 group-hover:bg-brand-green-dark group-hover:text-brand-white group-hover:border-brand-green-dark transition-all duration-300">
-                  <ArrowUpRight size={14} />
+                <div className="shrink-0 w-10 h-10 rounded-full glass flex items-center justify-center text-brand-grey/50 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:shadow-[0_4px_16px_hsl(var(--primary)/0.3)]">
+                  <ArrowUpRight size={15} />
                 </div>
               </div>
-              {/* Bottom accent on hover */}
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500" />
-            </motion.a>
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-brand-green-light to-transparent group-hover:w-full transition-all duration-500 rounded-full" />
+            </motion.div>
           ))}
         </div>
-
-        <motion.div
-          className="mt-10 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 text-brand-green-dark font-semibold text-[14px] tracking-wide hover:text-brand-green-light transition-colors duration-300 group"
-          >
-            More About our Services
-            <span className="w-6 h-px bg-brand-green-dark group-hover:w-10 group-hover:bg-brand-green-light transition-all duration-300" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );

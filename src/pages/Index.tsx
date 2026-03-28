@@ -9,12 +9,13 @@ import ClientsSection from "@/components/ClientsSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
+const blurFade = {
+  hidden: { opacity: 0, filter: "blur(10px)", y: 25 },
   visible: {
     opacity: 1,
+    filter: "blur(0px)",
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
+    transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
   },
 };
 
@@ -34,7 +35,7 @@ const Index = () => {
       ].map((Section, i) => (
         <motion.div
           key={i}
-          variants={fadeIn}
+          variants={blurFade}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
