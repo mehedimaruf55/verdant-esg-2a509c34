@@ -8,6 +8,16 @@ const services = [
   { title: "Risk & Governance", description: "Assess and mitigate ESG-related risks with robust governance structures and oversight frameworks." },
 ];
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const cardFade = {
+  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
 const ServicesSection = () => {
   return (
     <section id="services" className="py-28 lg:py-36 bg-brand-white">
@@ -30,15 +40,19 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-5">
+        <motion.div
+          className="mt-14 grid md:grid-cols-2 gap-5"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {services.map((service, i) => (
             <motion.div
               key={service.title}
               className="group bg-brand-grey-light rounded-3xl p-8 lg:p-10 cursor-pointer hover:shadow-lg border border-transparent hover:border-border transition-all duration-500 relative overflow-hidden"
-              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              variants={cardFade}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -50,14 +64,17 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
                 </div>
-                <div className="shrink-0 w-10 h-10 rounded-full bg-brand-white border border-border flex items-center justify-center text-brand-grey group-hover:bg-brand-green-dark group-hover:text-brand-white group-hover:border-brand-green-dark transition-all duration-300">
+                <motion.div
+                  className="shrink-0 w-10 h-10 rounded-full bg-brand-white border border-border flex items-center justify-center text-brand-grey group-hover:bg-brand-green-dark group-hover:text-brand-white group-hover:border-brand-green-dark transition-all duration-300"
+                  whileHover={{ rotate: 45, transition: { duration: 0.25 } }}
+                >
                   <ArrowUpRight size={15} />
-                </div>
+                </motion.div>
               </div>
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500 rounded-full" />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
