@@ -269,10 +269,9 @@ const Navbar = () => {
           {navLinks.map((l) => (
             <div
               key={l.label}
-              className="relative static-dropdown-parent"
+              className="relative"
               onMouseEnter={() => l.children ? handleMouseEnter(l.label) : setActiveDropdown(null)}
               onMouseLeave={handleMouseLeave}
-              style={{ position: "static" }}
             >
               <a
                 href={l.href}
