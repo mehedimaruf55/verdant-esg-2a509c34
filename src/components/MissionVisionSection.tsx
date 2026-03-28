@@ -8,11 +8,8 @@ const MissionVisionSection = () => {
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -right-[12%] w-[400px] opacity-[0.04] select-none pointer-events-none"
+        className="absolute top-1/2 -translate-y-1/2 -right-[12%] w-[400px] opacity-[0.05] select-none pointer-events-none"
       />
-
-      {/* Subtle ambient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-brand-green-light/[0.05] blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
         <motion.div
@@ -32,7 +29,7 @@ const MissionVisionSection = () => {
 
         <div className="mt-14 grid lg:grid-cols-2 gap-6">
           <motion.div
-            className="glass-strong rounded-3xl p-10 lg:p-12 hover:shadow-[0_20px_60px_hsla(0,0%,0%,0.08)] transition-all duration-500"
+            className="bg-brand-white rounded-3xl p-10 lg:p-12 border border-border hover:shadow-lg transition-all duration-500"
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-50px" }}
@@ -49,7 +46,7 @@ const MissionVisionSection = () => {
           </motion.div>
 
           <motion.div
-            className="glass-strong rounded-3xl p-10 lg:p-12 hover:shadow-[0_20px_60px_hsla(0,0%,0%,0.08)] transition-all duration-500"
+            className="bg-brand-white rounded-3xl p-10 lg:p-12 border border-border hover:shadow-lg transition-all duration-500"
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-50px" }}
@@ -61,7 +58,7 @@ const MissionVisionSection = () => {
               A world where every business decision accounts for its impact on people and the planet.
             </h3>
             <p className="mt-5 text-[15px] text-brand-grey leading-relaxed">
-              We envision a future where sustainability is not a separate initiative but an integral part of how organizations operate, innovate, and grow — creating long-term value for all stakeholders.
+              We envision a future where sustainability is not a separate initiative but an integral part of how organizations operate, innovate, and grow.
             </p>
           </motion.div>
         </div>

@@ -22,13 +22,16 @@ const points = [
 
 const WhyVerdantSection = () => {
   return (
-    <section id="why" className="relative py-28 lg:py-36 bg-brand-green-dark overflow-hidden mesh-dark">
+    <section id="why" className="relative py-28 lg:py-36 bg-brand-green-dark overflow-hidden">
       {/* Cropped leaf — 70% visible, anchored left */}
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -left-[12%] w-[450px] opacity-[0.06] select-none pointer-events-none"
+        className="absolute top-1/2 -translate-y-1/2 -left-[12%] w-[450px] opacity-[0.08] select-none pointer-events-none"
       />
+
+      {/* Subtle glow */}
+      <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-14">
@@ -47,7 +50,7 @@ const WhyVerdantSection = () => {
             </h2>
           </motion.div>
           <motion.p
-            className="text-[15px] text-brand-white/55 leading-[1.75] max-w-lg"
+            className="text-[15px] text-brand-white/70 leading-[1.75] max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -61,7 +64,7 @@ const WhyVerdantSection = () => {
           {points.map((point, i) => (
             <motion.div
               key={i}
-              className="group relative overflow-hidden glass-dark rounded-3xl p-10 lg:p-12 hover:bg-brand-white/[0.06] transition-all duration-500 cursor-pointer hover:shadow-[0_16px_48px_hsla(0,0%,0%,0.2)]"
+              className="group relative overflow-hidden glass-dark rounded-3xl p-10 lg:p-12 hover:bg-brand-white/10 transition-all duration-500 cursor-pointer"
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-50px" }}
@@ -72,15 +75,15 @@ const WhyVerdantSection = () => {
                   <h3 className="text-xl lg:text-2xl font-heading font-bold text-brand-white mb-4 group-hover:text-brand-green-light transition-colors duration-300">
                     {point.title}
                   </h3>
-                  <p className="text-[14px] text-brand-white/45 leading-relaxed max-w-md">
+                  <p className="text-[14px] text-brand-white/60 leading-relaxed max-w-md">
                     {point.description}
                   </p>
                 </div>
-                <span className="shrink-0 text-[11px] tracking-[0.2em] text-brand-white/15 mt-1 font-medium">
+                <span className="shrink-0 text-[11px] tracking-[0.2em] text-brand-white/30 mt-1 font-medium">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-brand-green-light to-transparent group-hover:w-full transition-all duration-500 rounded-full" />
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500 rounded-full" />
             </motion.div>
           ))}
         </div>

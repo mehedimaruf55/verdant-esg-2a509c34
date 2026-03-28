@@ -10,11 +10,8 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="relative py-28 lg:py-36 bg-brand-white overflow-hidden mesh-light">
-      {/* Ambient glow */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-green-light/[0.04] blur-[150px] pointer-events-none" />
-
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+    <section id="services" className="py-28 lg:py-36 bg-brand-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -37,7 +34,7 @@ const ServicesSection = () => {
           {services.map((service, i) => (
             <motion.div
               key={service.title}
-              className="group glass rounded-3xl p-8 lg:p-10 cursor-pointer hover:shadow-[0_20px_60px_hsla(0,0%,0%,0.08)] transition-all duration-500 relative overflow-hidden"
+              className="group bg-brand-grey-light rounded-3xl p-8 lg:p-10 cursor-pointer hover:shadow-lg border border-transparent hover:border-border transition-all duration-500 relative overflow-hidden"
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-50px" }}
@@ -45,7 +42,7 @@ const ServicesSection = () => {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="text-[11px] text-brand-grey/40 tracking-[0.2em] font-medium">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-[11px] text-brand-grey tracking-[0.2em] font-medium">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-3 text-xl lg:text-2xl font-heading font-bold text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
                     {service.title}
                   </h3>
@@ -53,12 +50,11 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
                 </div>
-                <div className="shrink-0 w-10 h-10 rounded-full glass flex items-center justify-center text-brand-grey/50 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:shadow-[0_4px_16px_hsl(var(--primary)/0.3)]">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-brand-white border border-border flex items-center justify-center text-brand-grey group-hover:bg-brand-green-dark group-hover:text-brand-white group-hover:border-brand-green-dark transition-all duration-300">
                   <ArrowUpRight size={15} />
                 </div>
               </div>
-              {/* Bottom accent */}
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-brand-green-light to-transparent group-hover:w-full transition-all duration-500 rounded-full" />
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500 rounded-full" />
             </motion.div>
           ))}
         </div>
