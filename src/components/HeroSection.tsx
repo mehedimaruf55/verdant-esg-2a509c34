@@ -3,11 +3,10 @@ import { ArrowDownRight } from "lucide-react";
 import leafImg from "@/assets/leaf.png";
 
 const lineVariants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(12px)" },
+  hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.8, delay: 0.15 * i, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   }),
 };
@@ -62,8 +61,8 @@ const HeroSection = () => {
 
           <motion.div
             className="lg:col-span-4 flex flex-col gap-6"
-            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="glass-dark rounded-2xl p-6">
@@ -93,12 +92,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <motion.span
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
+          <span className="animate-gentle-bounce inline-block">
             Scroll to explore
-          </motion.span>
+          </span>
           <div className="flex gap-8">
             {["Environmental", "Social", "Governance"].map((w, i) => (
               <motion.span
