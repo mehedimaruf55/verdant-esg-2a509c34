@@ -26,12 +26,12 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       className={`fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? "top-3 w-[calc(100%-2rem)] max-w-5xl rounded-2xl glass-strong"
-          : "top-4 w-[calc(100%-2rem)] max-w-7xl rounded-2xl glass"
+          ? "top-3 w-[calc(100%-3rem)] max-w-4xl rounded-2xl glass-strong"
+          : "top-4 w-[calc(100%-2rem)] max-w-6xl rounded-2xl glass"
       }`}
     >
-      <div className={`mx-auto flex items-center justify-between px-6 lg:px-10 transition-all duration-700 ${
-        scrolled ? "h-14 max-w-5xl" : "h-20 max-w-7xl"
+      <div className={`w-full flex items-center justify-between px-6 lg:px-10 transition-all duration-700 ${
+        scrolled ? "h-14" : "h-20"
       }`}>
         <a href="/" className="flex items-center">
           <img src={logo} alt="Verdant ESG" className="h-10" />
