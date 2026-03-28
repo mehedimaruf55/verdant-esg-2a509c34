@@ -93,53 +93,55 @@ const DropdownPanel = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: level === 0 ? 12 : 0, x: level > 0 ? -8 : 0 }}
-      animate={{ opacity: 1, y: 0, x: 0 }}
-      exit={{ opacity: 0, y: level === 0 ? 8 : 0, x: level > 0 ? -4 : 0 }}
-      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: level === 0 ? 16 : 0, x: level > 0 ? -10 : 0, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+      exit={{ opacity: 0, y: level === 0 ? 10 : 0, x: level > 0 ? -6 : 0, scale: 0.96 }}
+      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
       className={`absolute ${
         level === 0
-          ? "top-full left-0 mt-5"
-          : "top-[-6px] left-full ml-1"
-      } min-w-[260px] z-50`}
+          ? "top-full left-0 mt-6"
+          : "top-[-8px] left-full ml-2"
+      } min-w-[270px] z-50`}
     >
-      <div className="rounded-xl bg-white border border-brand-black/[0.06] shadow-[0_24px_80px_-16px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.03)] overflow-hidden">
-        <div className="py-1.5">
+      <div className="rounded-2xl bg-white/70 backdrop-blur-2xl backdrop-saturate-[1.6] border border-white/50 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.12),0_0_0_1px_rgba(255,255,255,0.6)_inset,0_1px_3px_rgba(0,0,0,0.04)] overflow-hidden">
+        <div className="py-2.5 px-1.5">
           {items.map((item, idx) => {
             const hasChildren = !!item.children;
             const isActive = openSub === item.label;
 
             return (
-              <div
+              <motion.div
                 key={item.label}
                 className="relative"
+                initial={level === 0 ? { opacity: 0, y: 6 } : false}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: level === 0 ? idx * 0.03 : 0, duration: 0.2 }}
                 onMouseEnter={() => hasChildren ? handleEnter(item.label) : setOpenSub(null)}
                 onMouseLeave={handleLeave}
               >
                 <a
                   href={item.href}
-                  className={`group relative flex items-center justify-between mx-1.5 px-4 py-2.5 rounded-lg text-[14.5px] transition-all duration-150 ${
+                  className={`group relative flex items-center justify-between px-4 py-3 rounded-xl text-[15px] transition-all duration-200 ${
                     isActive
-                      ? "text-brand-green-dark bg-brand-green-dark/[0.06] font-medium"
-                      : "text-brand-black/80 hover:text-brand-black hover:bg-brand-black/[0.04] font-normal"
+                      ? "text-brand-green-dark bg-brand-green-dark/[0.07] font-medium"
+                      : "text-brand-black/75 hover:text-brand-black hover:bg-white/60 font-normal"
                   }`}
                 >
                   <span>{item.label}</span>
                   {hasChildren && (
                     <ChevronRight
                       size={14}
-                      className={`transition-all duration-150 ${
+                      className={`transition-all duration-200 ${
                         isActive
-                          ? "opacity-80 translate-x-0.5 text-brand-green-dark"
-                          : "opacity-25 group-hover:opacity-50"
+                          ? "opacity-90 translate-x-0.5 text-brand-green-dark"
+                          : "opacity-20 group-hover:opacity-50"
                       }`}
                     />
                   )}
                 </a>
 
-                {/* Separator line between category groups */}
                 {hasChildren && idx < items.length - 1 && (
-                  <div className="mx-4 my-1 h-px bg-brand-black/[0.05]" />
+                  <div className="mx-4 my-1.5 h-px bg-brand-black/[0.04]" />
                 )}
 
                 <AnimatePresence>
@@ -147,7 +149,7 @@ const DropdownPanel = ({
                     <DropdownPanel items={item.children!} level={level + 1} />
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>
