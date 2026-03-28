@@ -99,7 +99,7 @@ const DropdownPanel = ({
       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className={`absolute ${
         level === 0
-          ? "top-full left-0 mt-2"
+          ? "top-full left-0 mt-5"
           : "top-[-6px] left-full ml-1"
       } min-w-[260px] z-50`}
     >
