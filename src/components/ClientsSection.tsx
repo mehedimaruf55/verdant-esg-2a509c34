@@ -19,8 +19,8 @@ const ClientsSection = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
         >

@@ -10,10 +10,9 @@ import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
 const blurFade = {
-  hidden: { opacity: 0, filter: "blur(10px)", y: 25 },
+  hidden: { opacity: 0, y: 25 },
   visible: {
     opacity: 1,
-    filter: "blur(0px)",
     y: 0,
     transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
   },
