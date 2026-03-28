@@ -43,16 +43,16 @@ const Navbar = () => {
             <a
               key={l.label}
               href={l.href}
-              className="relative px-5 py-2 text-[13px] font-bold uppercase tracking-[0.15em] text-foreground/70 hover:text-primary transition-colors duration-300 group"
+              className="relative px-5 py-2 text-[13px] font-bold uppercase tracking-[0.15em] text-brand-black/70 hover:text-brand-green-dark transition-colors duration-300 group"
             >
               {l.label}
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-primary group-hover:w-3/4 transition-all duration-300" />
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-brand-green-dark group-hover:w-3/4 transition-all duration-300" />
             </a>
           ))}
-          <div className="ml-4 h-5 w-px bg-foreground/10" />
+          <div className="ml-4 h-5 w-px bg-brand-black/10" />
           <a
             href="#contact"
-            className="ml-4 px-6 py-2.5 text-[12px] font-bold uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-all duration-300 shadow-[0_2px_16px_hsl(var(--primary)/0.25)]"
+            className="ml-4 px-6 py-2.5 text-[12px] font-bold uppercase tracking-[0.2em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
           >
             Get in Touch
           </a>
@@ -61,7 +61,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-brand-black"
           aria-label="Toggle menu"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -76,7 +76,7 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden border-t border-foreground/5 glass-strong rounded-b-2xl"
+            className="md:hidden overflow-hidden border-t border-brand-black/5 glass-strong rounded-b-2xl"
           >
             <div className="px-6 py-8 flex flex-col gap-5">
               {navLinks.map((l, i) => (
@@ -87,7 +87,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.08 }}
-                  className="text-sm font-bold uppercase tracking-[0.15em] text-foreground"
+                  className="text-sm font-bold uppercase tracking-[0.15em] text-brand-black"
                 >
                   {l.label}
                 </motion.a>
@@ -95,7 +95,7 @@ const Navbar = () => {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-3 text-center px-5 py-3 text-[12px] font-bold uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-full"
+                className="mt-3 text-center px-5 py-3 text-[12px] font-bold uppercase tracking-[0.2em] bg-brand-green-dark text-brand-white rounded-full"
               >
                 Get in Touch
               </a>

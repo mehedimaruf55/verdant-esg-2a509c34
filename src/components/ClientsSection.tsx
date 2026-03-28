@@ -13,11 +13,8 @@ const ClientsSection = () => {
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[400px] opacity-[0.04] select-none pointer-events-none"
+        className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[400px] opacity-[0.05] select-none pointer-events-none"
       />
-
-      {/* Subtle ambient */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] rounded-full bg-brand-green-light/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         <motion.div
@@ -36,7 +33,6 @@ const ClientsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Scrolling carousel */}
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
@@ -46,7 +42,7 @@ const ClientsSection = () => {
               {[...clients, ...clients].map((name, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 glass rounded-2xl px-8 py-5 text-brand-grey font-heading font-bold text-[15px] whitespace-nowrap hover:text-brand-green-dark transition-colors duration-300"
+                  className="flex-shrink-0 bg-brand-white rounded-2xl px-8 py-5 border border-border text-brand-grey font-heading font-bold text-[15px] whitespace-nowrap hover:text-brand-green-dark hover:border-brand-green-dark/30 transition-colors duration-300"
                 >
                   {name}
                 </div>
@@ -55,7 +51,7 @@ const ClientsSection = () => {
           </div>
         </div>
 
-        <p className="text-center text-[12px] text-brand-grey/40 mt-10 tracking-wide">
+        <p className="text-center text-[12px] text-brand-grey mt-10 tracking-wide">
           Placeholder — replace with your actual client logos
         </p>
       </div>
