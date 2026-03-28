@@ -278,7 +278,7 @@ const Navbar = () => {
             >
               <a
                 href={l.href}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
+                className={`relative flex items-center gap-1 px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
                   activeDropdown === l.label
                     ? "text-brand-green-dark"
                     : "text-brand-black/65 hover:text-brand-green-dark"
