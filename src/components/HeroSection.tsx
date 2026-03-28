@@ -13,20 +13,9 @@ const lineVariants = {
 const HeroSection = () => {
   return (
     <section className="relative min-h-[85dvh] flex flex-col justify-between overflow-hidden">
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
-
-      {/* Dark green overlay for brand consistency and text readability */}
-      <div className="absolute inset-0 bg-brand-green-dark/75" />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/40 to-brand-green-dark/60" />
+      {/* Dark green background */}
+      <div className="absolute inset-0 bg-brand-green-dark" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/80 to-brand-green-dark/90" />
 
       {/* Ambient light orbs */}
       <div className="absolute top-[10%] right-[15%] w-[600px] h-[600px] rounded-full bg-brand-green-light opacity-[0.06] blur-[200px] pointer-events-none" />
