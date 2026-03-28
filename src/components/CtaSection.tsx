@@ -1,34 +1,29 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import leafImg from "@/assets/leaf.png";
 
 const CtaSection = () => {
   return (
-    <section id="contact" className="relative py-28 lg:py-36 bg-muted overflow-hidden">
-      <img
-        src={leafImg}
-        alt=""
-        className="absolute top-1/2 -translate-y-1/2 -right-[18%] w-[400px] opacity-[0.05] rotate-[-10deg] select-none pointer-events-none"
-      />
-
-      {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-green-light/[0.06] blur-[150px] pointer-events-none" />
-
-      <div className="mx-auto max-w-7xl px-6 relative z-10">
+    <section id="contact" className="py-28 lg:py-36 bg-brand-grey-light">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div
-          className="glass-strong rounded-3xl p-12 lg:p-20 flex flex-col items-center text-center"
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          className="bg-brand-green-dark rounded-lg p-12 lg:p-20 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-black max-w-3xl">Ready to build a sustainable future?</h2>
-          <p className="mt-6 text-[15px] text-brand-grey max-w-md leading-relaxed">Let's start a conversation about your ESG goals and how we can help you achieve them.</p>
-          <a href="mailto:hello@verdantesg.com" className="mt-10 group inline-flex items-center gap-3">
-            <span className="px-7 py-4 text-[13px] font-semibold tracking-wide bg-primary text-primary-foreground rounded-full group-hover:bg-secondary transition-colors shadow-[0_4px_20px_hsl(var(--primary)/0.3)]">Contact Us</span>
-            <span className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:shadow-[0_4px_16px_hsl(var(--primary)/0.2)] transition-all duration-300">
-              <ArrowRight size={16} className="text-brand-green-dark" />
-            </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.1] text-brand-white max-w-3xl mx-auto">
+            Ready to build a sustainable future?
+          </h2>
+          <p className="mt-6 text-[16px] text-brand-white/70 max-w-md mx-auto leading-relaxed">
+            Let's start a conversation about your ESG goals and how we can help you achieve them.
+          </p>
+          <a
+            href="mailto:hello@verdantesg.com"
+            className="mt-10 inline-flex items-center gap-2 px-8 py-3.5 border-2 border-brand-white text-brand-white text-[14px] font-semibold rounded-full hover:bg-brand-white hover:text-brand-green-dark transition-all duration-300"
+          >
+            Contact Us
+            <ArrowRight size={16} />
           </a>
         </motion.div>
       </div>

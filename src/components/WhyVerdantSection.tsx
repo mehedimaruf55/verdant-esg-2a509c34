@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import leafImg from "@/assets/leaf.png";
 
 const points = [
   {
@@ -22,36 +21,21 @@ const points = [
 
 const WhyVerdantSection = () => {
   return (
-    <section id="why" className="relative py-28 lg:py-36 bg-brand-green-dark overflow-hidden">
-      {/* Ambient mesh */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light/[0.06] blur-[140px]" />
-        <div className="absolute bottom-[15%] left-[5%] w-[350px] h-[350px] rounded-full bg-brand-green-dark/[0.2] blur-[100px]" />
-      </div>
-
-      <img
-        src={leafImg}
-        alt=""
-        className="absolute top-1/2 -translate-y-1/2 -left-[12%] w-[450px] opacity-[0.06] select-none pointer-events-none"
-      />
-
-      <div className="mx-auto max-w-7xl px-6 relative z-10">
+    <section id="why" className="py-28 lg:py-36 bg-brand-green-dark">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end">
           <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-green-light mb-4 block">
-              Advantage
-            </span>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-white">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.1] text-brand-white">
               Why Verdant
             </h2>
           </motion.div>
           <motion.p
-            className="text-[15px] text-brand-white/60 leading-relaxed max-w-lg"
+            className="text-[16px] text-brand-white/70 leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -61,30 +45,25 @@ const WhyVerdantSection = () => {
           </motion.p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-4">
+        <div className="mt-14 grid md:grid-cols-2 gap-px bg-brand-white/10 rounded-lg overflow-hidden">
           {points.map((point, i) => (
             <motion.div
               key={i}
-              className="group relative overflow-hidden glass-dark rounded-2xl p-10 lg:p-12 hover:bg-brand-white/[0.08] transition-all duration-500 cursor-pointer hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)]"
-              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              className="group bg-brand-green-dark p-10 lg:p-12 hover:bg-brand-green-dark/80 transition-colors duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="flex items-start justify-between gap-6">
-                <div>
-                  <h3 className="text-xl lg:text-2xl font-heading font-bold text-brand-white mb-4 group-hover:text-brand-green-light transition-colors">
-                    {point.title}
-                  </h3>
-                  <p className="text-sm text-brand-white/50 leading-relaxed max-w-md">
-                    {point.description}
-                  </p>
-                </div>
-                <span className="shrink-0 text-xs font-mono text-brand-white/20 mt-1">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-brand-green-light to-transparent group-hover:w-full transition-all duration-500 rounded-full" />
+              <span className="text-xs text-brand-white/30 font-medium">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 text-xl lg:text-2xl font-heading font-bold text-brand-white group-hover:text-brand-green-light transition-colors duration-300">
+                {point.title}
+              </h3>
+              <p className="mt-4 text-[15px] text-brand-white/50 leading-relaxed">
+                {point.description}
+              </p>
             </motion.div>
           ))}
         </div>
