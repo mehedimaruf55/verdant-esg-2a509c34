@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight, ChevronDown } from "lucide-react";
-import leafImg from "@/assets/leaf.png";
 
 const lineVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -13,31 +12,25 @@ const lineVariants = {
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85dvh] flex flex-col justify-between overflow-hidden bg-brand-green-dark">
-      {/* Leaf — large, beautifully visible, right-aligned */}
-      <motion.img
-        src={leafImg}
-        alt=""
-        className="absolute top-[8%] -right-[5%] w-[55vw] max-w-[800px] min-w-[400px] opacity-[0.18] select-none pointer-events-none"
-        initial={{ opacity: 0, scale: 1.08, rotate: -3 }}
-        animate={{ opacity: 0.18, scale: 1, rotate: 0 }}
-        transition={{ duration: 2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      />
+    <section className="relative min-h-[85dvh] flex flex-col justify-between overflow-hidden">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
 
-      {/* Secondary leaf — subtle, bottom-left for depth */}
-      <motion.img
-        src={leafImg}
-        alt=""
-        className="absolute -bottom-[10%] -left-[12%] w-[35vw] max-w-[500px] opacity-[0.07] select-none pointer-events-none rotate-[140deg]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.07 }}
-        transition={{ duration: 2, delay: 0.8 }}
-      />
+      {/* Dark green overlay for brand consistency and text readability */}
+      <div className="absolute inset-0 bg-brand-green-dark/75" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/40 to-brand-green-dark/60" />
 
       {/* Ambient light orbs */}
-      <div className="absolute top-[10%] right-[15%] w-[600px] h-[600px] rounded-full bg-brand-green-light opacity-[0.08] blur-[200px] pointer-events-none" />
-      <div className="absolute bottom-[15%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light opacity-[0.04] blur-[180px] pointer-events-none" />
-      <div className="absolute top-[50%] left-[40%] w-[300px] h-[300px] rounded-full bg-brand-white opacity-[0.02] blur-[120px] pointer-events-none" />
+      <div className="absolute top-[10%] right-[15%] w-[600px] h-[600px] rounded-full bg-brand-green-light opacity-[0.06] blur-[200px] pointer-events-none" />
+      <div className="absolute bottom-[15%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light opacity-[0.03] blur-[180px] pointer-events-none" />
 
       {/* Top spacer for navbar */}
       <div className="pt-32 lg:pt-40" />
