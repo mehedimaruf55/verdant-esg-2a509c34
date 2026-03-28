@@ -249,13 +249,13 @@ const Navbar = () => {
       transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
       className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? "top-3 left-[3%] right-[3%] rounded-2xl glass-strong shadow-[0_8px_32px_-8px_rgba(50,98,52,0.12)]"
-          : "top-4 left-4 right-4 rounded-2xl glass"
+          ? "top-2.5 left-[5%] right-[5%] rounded-xl bg-white/60 backdrop-blur-xl backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
+          : "top-3 left-3 right-3 rounded-xl bg-white/40 backdrop-blur-lg backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
       }`}
     >
       <div
         className={`mx-auto flex items-center justify-between transition-all duration-700 ${
-          scrolled ? "px-5 lg:px-6 h-14" : "px-6 lg:px-8 h-[72px]"
+          scrolled ? "px-4 lg:px-5 h-11" : "px-5 lg:px-7 h-14"
         }`}
       >
         {/* Logo */}
@@ -263,7 +263,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Verdant ESG"
-            className={`transition-all duration-500 ${scrolled ? "h-8" : "h-10"}`}
+            className={`transition-all duration-500 ${scrolled ? "h-6" : "h-8"}`}
           />
         </a>
 
@@ -278,7 +278,7 @@ const Navbar = () => {
             >
               <a
                 href={l.href}
-                className={`relative flex items-center gap-1.5 px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
+                className={`relative flex items-center gap-1 px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
                   activeDropdown === l.label
                     ? "text-brand-green-dark"
                     : "text-brand-black/65 hover:text-brand-green-dark"
@@ -311,10 +311,10 @@ const Navbar = () => {
           ))}
 
           {/* Divider + CTA */}
-          <div className="ml-4 h-6 w-px bg-gradient-to-b from-transparent via-brand-black/10 to-transparent" />
+          <div className="ml-3 h-5 w-px bg-gradient-to-b from-transparent via-brand-black/10 to-transparent" />
           <a
             href="#contact"
-            className="ml-4 px-6 py-2.5 text-[13px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
+            className="ml-3 px-5 py-2 text-[11px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
           >
             Contact
           </a>
