@@ -247,10 +247,10 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
-      className={`fixed z-50 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+      className={`fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? "top-2.5 max-w-5xl rounded-xl bg-white/60 backdrop-blur-xl backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
-          : "top-3 max-w-6xl rounded-xl bg-white/40 backdrop-blur-lg backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
+          ? "top-2.5 w-[92%] max-w-4xl rounded-xl bg-white/60 backdrop-blur-xl backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
+          : "top-3 w-[94%] max-w-5xl rounded-xl bg-white/40 backdrop-blur-lg backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
       }`}
     >
       <div
