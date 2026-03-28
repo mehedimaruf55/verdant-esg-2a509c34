@@ -19,12 +19,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {
-    /* Strict brand palette: #326234, #6ABA45, #000000, #808080, #FFFFFF */
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
@@ -53,7 +50,7 @@
     --input: 0 0% 85%;
     --ring: 122 33% 29%;
 
-    --radius: 0.375rem;
+    --radius: 1rem;
 
     /* Brand tokens */
     --brand-green-dark: 122 33% 29%;
@@ -61,7 +58,15 @@
     --brand-black: 0 0% 0%;
     --brand-grey: 0 0% 50%;
     --brand-white: 0 0% 100%;
-    --brand-grey-light: 0 0% 95%;
+    --brand-grey-light: 120 10% 97%;
+
+    /* Glass tokens */
+    --glass-bg: 0 0% 100% / 0.45;
+    --glass-bg-strong: 0 0% 100% / 0.65;
+    --glass-border: 0 0% 100% / 0.35;
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    --glass-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    --glass-blur: 20px;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -106,5 +111,44 @@
 
   .glow-dot {
     box-shadow: 0 0 16px 3px hsl(var(--brand-green-light) / 0.5);
+  }
+
+  .glass {
+    background: hsla(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsla(var(--glass-border));
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-strong {
+    background: hsla(var(--glass-bg-strong));
+    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.5);
+    border: 1px solid hsla(var(--glass-border));
+    box-shadow: var(--glass-shadow-lg);
+  }
+
+  .glass-dark {
+    background: hsla(0 0% 0% / 0.25);
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
+    border: 1px solid hsla(0 0% 100% / 0.08);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-dark-strong {
+    background: hsla(0 0% 0% / 0.4);
+    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.5);
+    border: 1px solid hsla(0 0% 100% / 0.12);
+    box-shadow: var(--glass-shadow-lg);
+  }
+
+  .mesh-gradient {
+    background:
+      radial-gradient(ellipse at 20% 50%, hsl(var(--brand-green-light) / 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, hsl(var(--brand-green-dark) / 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, hsl(var(--brand-green-light) / 0.06) 0%, transparent 50%);
   }
 }
