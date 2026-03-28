@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 import leafImg from "@/assets/leaf.png";
+import clientLogo1 from "@/assets/client-logo-1.png";
+import clientLogo2 from "@/assets/client-logo-2.png";
+import clientLogo3 from "@/assets/client-logo-3.png";
+import clientLogo4 from "@/assets/client-logo-4.png";
+
+const logos = [clientLogo1, clientLogo2, clientLogo3, clientLogo4];
 
 const clients = [
   "Accenture", "Deloitte", "McKinsey", "KPMG", "PwC", "EY",
@@ -41,9 +47,19 @@ const ClientsSection = () => {
               {[...clients, ...clients].map((name, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 bg-brand-white rounded-2xl px-8 py-5 border border-border text-brand-grey font-heading font-bold text-[15px] tracking-wide whitespace-nowrap hover:text-brand-green-dark hover:border-brand-green-dark/30 transition-colors duration-300"
+                  className="flex-shrink-0 bg-brand-white rounded-2xl px-8 py-5 border border-border flex items-center gap-3 whitespace-nowrap hover:border-brand-green-dark/30 transition-colors duration-300"
                 >
-                  {name}
+                  <img
+                    src={logos[i % logos.length]}
+                    alt={name}
+                    loading="lazy"
+                    width={28}
+                    height={28}
+                    className="w-7 h-7 object-contain opacity-70"
+                  />
+                  <span className="text-brand-grey font-heading font-bold text-[15px] tracking-wide">
+                    {name}
+                  </span>
                 </div>
               ))}
             </div>
