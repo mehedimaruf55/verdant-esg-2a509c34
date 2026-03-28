@@ -93,74 +93,63 @@ const DropdownPanel = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: level === 0 ? 10 : 0, x: level > 0 ? -6 : 0, scale: 0.97 }}
-      animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-      exit={{ opacity: 0, y: level === 0 ? 6 : 0, x: level > 0 ? -4 : 0, scale: 0.97 }}
-      transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+      initial={{ opacity: 0, y: level === 0 ? 12 : 0, x: level > 0 ? -8 : 0 }}
+      animate={{ opacity: 1, y: 0, x: 0 }}
+      exit={{ opacity: 0, y: level === 0 ? 8 : 0, x: level > 0 ? -4 : 0 }}
+      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className={`absolute ${
         level === 0
           ? "top-full left-1/2 -translate-x-1/2 mt-3"
-          : "top-[-8px] left-full ml-2"
-      } min-w-[240px] z-50`}
+          : "top-[-6px] left-full ml-1.5"
+      } min-w-[260px] z-50`}
     >
-      {/* Dropdown card */}
-      <div className="rounded-2xl bg-white/90 backdrop-blur-2xl border border-brand-green-dark/[0.08] shadow-[0_20px_60px_-12px_rgba(50,98,52,0.15),0_8px_24px_-8px_rgba(0,0,0,0.08)] overflow-hidden">
-        {/* Subtle green accent bar at top for level-0 */}
-        {level === 0 && (
-          <div className="h-[2px] bg-gradient-to-r from-brand-green-dark via-brand-green-light to-transparent" />
-        )}
+      <div className="rounded-xl bg-white border border-brand-black/[0.06] shadow-[0_24px_80px_-16px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.03)] overflow-hidden">
+        <div className="py-1.5">
+          {items.map((item, idx) => {
+            const hasChildren = !!item.children;
+            const isActive = openSub === item.label;
 
-        <div className="py-2">
-          {items.map((item, idx) => (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => item.children ? handleEnter(item.label) : setOpenSub(null)}
-              onMouseLeave={handleLeave}
-            >
-              <a
-                href={item.href}
-                className={`group flex items-center justify-between px-5 py-3.5 text-[15px] tracking-normal transition-all duration-200 ${
-                  openSub === item.label
-                    ? "text-brand-green-dark bg-brand-green-light/[0.08]"
-                    : "text-brand-black/75 hover:text-brand-green-dark hover:bg-brand-green-light/[0.06]"
-                }`}
+            return (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => hasChildren ? handleEnter(item.label) : setOpenSub(null)}
+                onMouseLeave={handleLeave}
               >
-                <span className="flex items-center gap-3">
-                  {/* Active indicator dot */}
-                  <span
-                    className={`w-1 h-1 rounded-full transition-all duration-200 ${
-                      openSub === item.label
-                        ? "bg-brand-green-light scale-100"
-                        : "bg-transparent scale-0 group-hover:bg-brand-green-light/60 group-hover:scale-100"
-                    }`}
-                  />
-                  <span className="font-medium">{item.label}</span>
-                </span>
-                {item.children && (
-                  <ChevronRight
-                    size={13}
-                    className={`transition-all duration-200 ${
-                      openSub === item.label
-                        ? "opacity-100 translate-x-0.5 text-brand-green-dark"
-                        : "opacity-30 group-hover:opacity-60"
-                    }`}
-                  />
-                )}
-              </a>
+                <a
+                  href={item.href}
+                  className={`group relative flex items-center justify-between mx-1.5 px-4 py-2.5 rounded-lg text-[14.5px] transition-all duration-150 ${
+                    isActive
+                      ? "text-brand-green-dark bg-brand-green-dark/[0.06] font-medium"
+                      : "text-brand-black/80 hover:text-brand-black hover:bg-brand-black/[0.04] font-normal"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {hasChildren && (
+                    <ChevronRight
+                      size={14}
+                      className={`transition-all duration-150 ${
+                        isActive
+                          ? "opacity-80 translate-x-0.5 text-brand-green-dark"
+                          : "opacity-25 group-hover:opacity-50"
+                      }`}
+                    />
+                  )}
+                </a>
 
-              {/* Separator between groups — only after items with children */}
-              {item.children && idx < items.length - 1 && (
-                <div className="mx-5 my-1 h-px bg-brand-black/[0.04]" />
-              )}
-
-              <AnimatePresence>
-                {item.children && openSub === item.label && (
-                  <DropdownPanel items={item.children} level={level + 1} />
+                {/* Separator line between category groups */}
+                {hasChildren && idx < items.length - 1 && (
+                  <div className="mx-4 my-1 h-px bg-brand-black/[0.05]" />
                 )}
-              </AnimatePresence>
-            </div>
-          ))}
+
+                <AnimatePresence>
+                  {hasChildren && isActive && (
+                    <DropdownPanel items={item.children!} level={level + 1} />
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
     </motion.div>
