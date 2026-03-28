@@ -16,7 +16,7 @@ const MissionVisionSection = () => {
       <img
         src={leafImg}
         alt=""
-        className="absolute top-1/2 -translate-y-1/2 -right-[12%] w-[400px] opacity-[0.05] select-none pointer-events-none"
+        className="absolute -top-[5%] -right-[6%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.10] select-none pointer-events-none rotate-[25deg]"
       />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
