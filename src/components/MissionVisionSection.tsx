@@ -28,8 +28,8 @@ const MissionVisionSection = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-green-light glow-dot" />
-            <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">Purpose</span>
+            <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
+            <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">Purpose</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black">
             Mission & Vision

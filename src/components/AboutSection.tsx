@@ -30,8 +30,8 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-80px" }}
           >
             <motion.div variants={fadeUp} className="flex items-center gap-3 mb-6">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-green-light glow-dot" />
-              <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">About Us</span>
+              <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
+              <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">About Us</span>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-green-dark">
               Delivering Holistic and Credible Sustainable Solutions
@@ -77,18 +77,14 @@ const AboutSection = () => {
               />
             </div>
             <motion.div
-              className="absolute -bottom-4 -left-4 glass-strong rounded-xl px-4 py-3 flex items-center gap-2"
+              className="absolute -bottom-4 -left-4 glass-strong rounded-xl px-5 py-3 flex items-center gap-3"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              <motion.div
-                className="w-2 h-2 rounded-full bg-brand-green-light glow-dot"
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <span className="text-xs font-medium text-brand-green-dark">Active since 2019</span>
+              <span className="w-8 h-[2px] rounded-full bg-brand-green-light" />
+              <span className="text-xs font-semibold tracking-wide text-brand-green-dark">ESG Consultancy</span>
             </motion.div>
           </motion.div>
         </div>

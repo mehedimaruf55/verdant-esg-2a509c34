@@ -34,12 +34,8 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
             >
-              <motion.span
-                className="inline-block w-2 h-2 rounded-full bg-brand-green-light glow-dot"
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-brand-white/70">ESG Consultancy</span>
+              <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
+              <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-brand-white/70">ESG Consultancy</span>
             </motion.div>
 
             <h1 className="text-[clamp(2.8rem,7vw,6.5rem)] font-heading font-bold leading-[0.92] tracking-[-0.03em] text-brand-white">
