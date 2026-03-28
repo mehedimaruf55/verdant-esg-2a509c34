@@ -24,10 +24,10 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className={`fixed z-50 rounded-2xl transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
+      className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? "top-3 left-[10%] right-[10%] bg-background/40 backdrop-blur-xl border border-border/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
-          : "top-4 left-4 right-4 bg-background/20 backdrop-blur-md border border-border/15"
+          ? "top-3 left-[10%] right-[10%] rounded-2xl glass-strong"
+          : "top-4 left-4 right-4 rounded-2xl glass"
       }`}
     >
       <div className={`mx-auto flex items-center justify-between px-6 lg:px-10 transition-all duration-700 ${
@@ -43,16 +43,16 @@ const Navbar = () => {
             <a
               key={l.label}
               href={l.href}
-              className="relative px-5 py-2 text-[13px] font-bold uppercase tracking-[0.15em] text-foreground hover:text-primary transition-colors duration-300 group"
+              className="relative px-5 py-2 text-[13px] font-bold uppercase tracking-[0.15em] text-foreground/80 hover:text-primary transition-colors duration-300 group"
             >
               {l.label}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-primary group-hover:w-3/4 transition-all duration-300" />
             </a>
           ))}
-          <div className="ml-6 h-5 w-px bg-border" />
+          <div className="ml-6 h-5 w-px bg-foreground/10" />
           <a
             href="#contact"
-            className="ml-6 px-6 py-2.5 text-[12px] font-bold uppercase tracking-[0.2em] bg-foreground text-background rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            className="ml-6 px-6 py-2.5 text-[12px] font-bold uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-all duration-300 shadow-[0_2px_12px_hsl(var(--primary)/0.25)]"
           >
             Get in Touch
           </a>
@@ -76,7 +76,7 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden border-t border-border/50 bg-background/95 backdrop-blur-2xl"
+            className="md:hidden overflow-hidden border-t border-foreground/5 glass-strong rounded-b-2xl"
           >
             <div className="px-6 py-8 flex flex-col gap-5">
               {navLinks.map((l, i) => (
@@ -95,7 +95,7 @@ const Navbar = () => {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-3 text-center px-5 py-3 text-[12px] font-bold uppercase tracking-[0.2em] bg-foreground text-background rounded-full"
+                className="mt-3 text-center px-5 py-3 text-[12px] font-bold uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-full"
               >
                 Get in Touch
               </a>
