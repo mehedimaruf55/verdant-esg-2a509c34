@@ -25,8 +25,8 @@ const ClientsSection = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 justify-center mb-6">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-green-light glow-dot" />
-            <span className="text-[12px] font-medium tracking-[0.15em] uppercase text-brand-green-light">Trusted By</span>
+            <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
+            <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">Trusted By</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-black">
             Our Clients
