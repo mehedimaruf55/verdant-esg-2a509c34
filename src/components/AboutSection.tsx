@@ -8,8 +8,8 @@ const container = {
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 const AboutSection = () => {
@@ -60,8 +60,8 @@ const AboutSection = () => {
 
           <motion.div
             className="relative"
-            initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >

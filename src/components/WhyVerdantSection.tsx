@@ -14,8 +14,8 @@ const container = {
 };
 
 const cardFade = {
-  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 const WhyVerdantSection = () => {
@@ -31,8 +31,8 @@ const WhyVerdantSection = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-14">
           <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
           >

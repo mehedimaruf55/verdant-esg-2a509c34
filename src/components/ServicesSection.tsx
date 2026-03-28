@@ -14,8 +14,8 @@ const container = {
 };
 
 const cardFade = {
-  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 const ServicesSection = () => {
@@ -23,8 +23,8 @@ const ServicesSection = () => {
     <section id="services" className="py-28 lg:py-36 bg-brand-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >

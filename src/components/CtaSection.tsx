@@ -14,8 +14,8 @@ const CtaSection = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
         <motion.div
           className="bg-brand-green-dark rounded-[2rem] p-12 lg:p-20 flex flex-col items-center text-center relative overflow-hidden"
-          initial={{ opacity: 0, y: 40, scale: 0.97, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 40, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >

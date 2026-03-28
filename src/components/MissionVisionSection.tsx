@@ -2,11 +2,10 @@ import { motion } from "framer-motion";
 import leafImg from "@/assets/leaf.png";
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   }),
 };
@@ -22,8 +21,8 @@ const MissionVisionSection = () => {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
