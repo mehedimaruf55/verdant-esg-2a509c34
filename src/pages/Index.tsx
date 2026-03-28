@@ -6,6 +6,7 @@ import MissionVisionSection from "@/components/MissionVisionSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyVerdantSection from "@/components/WhyVerdantSection";
 import ClientsSection from "@/components/ClientsSection";
+import InsightsSection from "@/components/InsightsSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
