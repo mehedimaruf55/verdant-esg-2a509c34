@@ -2,18 +2,8 @@ import { motion } from "framer-motion";
 import leafImg from "@/assets/leaf.png";
 
 const clients = [
-  { name: "Accenture", logo: "https://logo.clearbit.com/accenture.com" },
-  { name: "Deloitte", logo: "https://logo.clearbit.com/deloitte.com" },
-  { name: "McKinsey", logo: "https://logo.clearbit.com/mckinsey.com" },
-  { name: "KPMG", logo: "https://logo.clearbit.com/kpmg.com" },
-  { name: "PwC", logo: "https://logo.clearbit.com/pwc.com" },
-  { name: "EY", logo: "https://logo.clearbit.com/ey.com" },
-  { name: "BCG", logo: "https://logo.clearbit.com/bcg.com" },
-  { name: "Goldman Sachs", logo: "https://logo.clearbit.com/goldmansachs.com" },
-  { name: "Unilever", logo: "https://logo.clearbit.com/unilever.com" },
-  { name: "Nestlé", logo: "https://logo.clearbit.com/nestle.com" },
-  { name: "BlackRock", logo: "https://logo.clearbit.com/blackrock.com" },
-  { name: "Bain", logo: "https://logo.clearbit.com/bain.com" },
+  "Accenture", "Deloitte", "McKinsey", "KPMG", "PwC", "EY",
+  "BCG", "Bain & Co", "Goldman Sachs", "BlackRock", "Unilever", "Nestlé",
 ];
 
 const ClientsSection = () => {
@@ -47,17 +37,13 @@ const ClientsSection = () => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
-            <div className="flex animate-scroll gap-8 items-center">
-              {[...clients, ...clients].map((client, i) => (
+            <div className="flex animate-scroll gap-5 items-center">
+              {[...clients, ...clients].map((name, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 bg-brand-white rounded-2xl px-8 py-5 border border-border flex items-center justify-center h-[72px] min-w-[160px] hover:border-brand-green-dark/30 transition-colors duration-300"
+                  className="flex-shrink-0 bg-brand-white rounded-2xl px-8 py-5 border border-border text-brand-grey font-heading font-bold text-[15px] tracking-wide whitespace-nowrap hover:text-brand-green-dark hover:border-brand-green-dark/30 transition-colors duration-300"
                 >
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="h-8 max-w-[120px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                  />
+                  {name}
                 </div>
               ))}
             </div>
