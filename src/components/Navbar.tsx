@@ -24,10 +24,10 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-4 left-4 right-4 z-50 rounded-2xl transition-all duration-500 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-2xl border-b border-border/50 shadow-sm"
-          : "bg-transparent"
+          ? "bg-background/40 backdrop-blur-xl border border-border/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+          : "bg-background/20 backdrop-blur-md border border-border/15"
       }`}
     >
       <div className="mx-auto max-w-7xl flex items-center justify-between h-20 px-6 lg:px-10">
