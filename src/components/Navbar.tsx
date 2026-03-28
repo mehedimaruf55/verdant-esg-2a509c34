@@ -125,8 +125,8 @@ const DropdownPanel = ({
                   href={item.href}
                   className={`group relative flex items-center justify-between px-4 py-3 rounded-xl text-[15px] transition-all duration-200 ${
                     isActive
-                      ? "text-brand-green-dark bg-brand-green-dark/[0.07] font-medium"
-                      : "text-brand-black/75 hover:text-brand-black hover:bg-white/60 font-normal"
+                      ? "text-brand-green-dark bg-brand-green-dark/[0.12] font-medium"
+                      : "text-brand-black/80 hover:text-brand-green-dark hover:bg-brand-green-dark/[0.06] font-normal"
                   }`}
                 >
                   <span>{item.label}</span>
