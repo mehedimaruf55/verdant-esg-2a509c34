@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         heading: ['Cedora', 'system-ui', 'sans-serif'],
         body: ['Cedora', 'system-ui', 'sans-serif'],
+        mono: ['Cedora', 'system-ui', 'sans-serif'],
+        sans: ['Cedora', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
