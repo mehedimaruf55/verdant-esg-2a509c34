@@ -76,16 +76,6 @@ const AboutSection = () => {
                 whileHover={{ scale: 1.03, transition: { duration: 0.6, ease: "easeOut" } }}
               />
             </div>
-            <motion.div
-              className="absolute -bottom-4 -left-4 glass-strong rounded-xl px-5 py-3 flex items-center gap-3"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              <span className="w-8 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-xs font-semibold tracking-wide text-brand-green-dark">ESG Consultancy</span>
-            </motion.div>
           </motion.div>
         </div>
       </div>
