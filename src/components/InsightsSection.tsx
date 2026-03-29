@@ -42,10 +42,14 @@ const InsightsSection = () => {
   return (
     <section className="relative py-20 lg:py-36 bg-brand-white overflow-hidden">
       {/* Leaf watermark */}
-      <img
+      <motion.img
         src={leafImg}
         alt=""
         className="absolute -bottom-[10%] -right-[8%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.08] select-none pointer-events-none rotate-[30deg] hidden sm:block"
+        initial={{ opacity: 0, rotate: 25 }}
+        whileInView={{ opacity: 0.08, rotate: 30 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 lg:px-10">
@@ -72,7 +76,18 @@ const InsightsSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Our Insights
+              {"Our Insights".split(" ").map((word, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block mr-[0.3em]"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </motion.h2>
 
             <motion.p
@@ -80,7 +95,7 @@ const InsightsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
             >
               Read our informed perspectives on some of the key sustainability
               opportunities and challenges facing businesses today.
@@ -94,6 +109,7 @@ const InsightsSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            whileHover={{ x: 4, transition: { duration: 0.2 } }}
           >
             View All Insights
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -106,12 +122,13 @@ const InsightsSection = () => {
             <motion.a
               key={item.title}
               href="#"
-              className="group block rounded-2xl lg:rounded-3xl overflow-hidden bg-brand-grey-light hover:shadow-xl transition-shadow duration-500"
+              className="group block rounded-2xl lg:rounded-3xl overflow-hidden bg-brand-grey-light border border-transparent hover:border-border hover:shadow-xl transition-all duration-500"
               custom={i}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
             >
               {/* Image */}
               <div className="relative overflow-hidden aspect-[3/2]">

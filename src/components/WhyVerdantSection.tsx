@@ -14,17 +14,21 @@ const container = {
 };
 
 const cardFade = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 const WhyVerdantSection = () => {
   return (
     <section id="why" className="relative py-20 lg:py-36 overflow-hidden" style={{ background: "linear-gradient(135deg, #326234 0%, #3a7a3a 60%, #6ABA45 100%)" }}>
-      <img
+      <motion.img
         src={leafImg}
         alt=""
         className="absolute bottom-[5%] -left-[6%] w-[45vw] max-w-[600px] min-w-[200px] opacity-[0.15] select-none pointer-events-none rotate-[-20deg] hidden sm:block"
+        initial={{ opacity: 0, rotate: -25 }}
+        whileInView={{ opacity: 0.15, rotate: -20 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       />
       <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
 
@@ -41,7 +45,18 @@ const WhyVerdantSection = () => {
               <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">Advantage</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-white">
-              Why Verdant
+              {"Why Verdant".split(" ").map((word, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block mr-[0.3em]"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </h2>
           </motion.div>
           <motion.p
@@ -49,7 +64,7 @@ const WhyVerdantSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             We deliver practical sustainability solutions grounded in expertise, precision, and a commitment to long-term impact across every engagement.
           </motion.p>
@@ -78,9 +93,15 @@ const WhyVerdantSection = () => {
                     {point.description}
                   </p>
                 </div>
-                <span className="shrink-0 text-xs lg:text-sm tracking-[0.2em] text-brand-white/30 mt-1 font-medium">
+                <motion.span
+                  className="shrink-0 text-xs lg:text-sm tracking-[0.2em] text-brand-white/30 mt-1 font-medium"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                >
                   {String(i + 1).padStart(2, "0")}
-                </span>
+                </motion.span>
               </div>
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500 rounded-full" />
             </motion.div>

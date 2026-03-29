@@ -25,6 +25,16 @@ const footerNav = {
   ],
 };
 
+const columnStagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const columnFade = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -51,9 +61,15 @@ const Footer = () => {
         >
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8">
             <div>
-              <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
+              <motion.span
+                className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light inline-block"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
                 Stay Updated
-              </span>
+              </motion.span>
               <h3 className="mt-2 lg:mt-3 text-xl md:text-2xl lg:text-3xl font-heading font-bold text-brand-white leading-tight">
                 Subscribe to Our Newsletter
               </h3>
@@ -61,7 +77,14 @@ const Footer = () => {
                 Get the latest ESG insights, industry trends, and sustainability updates delivered to your inbox.
               </p>
             </div>
-            <form onSubmit={handleSubscribe} className="flex w-full lg:max-w-md">
+            <motion.form
+              onSubmit={handleSubscribe}
+              className="flex w-full lg:max-w-md"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <div className="relative flex-1">
                 <input
                   type="email"
@@ -78,7 +101,7 @@ const Footer = () => {
                   <ArrowRight size={14} className="text-brand-white group-hover:text-brand-green-dark transition-colors" />
                 </button>
               </div>
-            </form>
+            </motion.form>
           </div>
           {subscribed && (
             <motion.p
@@ -94,13 +117,13 @@ const Footer = () => {
         {/* Main Footer Grid */}
         <motion.div
           className="py-10 lg:py-14 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={columnStagger}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
         >
           {/* Brand Column */}
-          <div className="col-span-2 md:col-span-1">
+          <motion.div className="col-span-2 md:col-span-1" variants={columnFade}>
             <img src={logo} alt="Verdant ESG" className="h-7 lg:h-8 brightness-0 invert" />
             <p className="mt-3 lg:mt-4 text-xs lg:text-sm text-brand-white/45 leading-relaxed max-w-xs">
               A sustainability consultancy grounded in reality — delivering measurable ESG impact.
@@ -111,11 +134,11 @@ const Footer = () => {
             >
               hello@verdantesg.com
             </a>
-          </div>
+          </motion.div>
 
           {/* Nav Columns */}
           {Object.entries(footerNav).map(([title, links]) => (
-            <div key={title}>
+            <motion.div key={title} variants={columnFade}>
               <h4 className="text-xs lg:text-sm font-bold tracking-[0.2em] uppercase text-brand-white/30 mb-4 lg:mb-5">
                 {title}
               </h4>
@@ -131,18 +154,24 @@ const Footer = () => {
                   </motion.a>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-brand-white/10 py-5 lg:py-6 flex flex-col md:flex-row items-center justify-between gap-3 lg:gap-4">
+        <motion.div
+          className="border-t border-brand-white/10 py-5 lg:py-6 flex flex-col md:flex-row items-center justify-between gap-3 lg:gap-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <p className="text-xs lg:text-sm text-brand-white/30">© 2026 Verdant ESG. All rights reserved.</p>
           <div className="flex gap-5 lg:gap-6">
             <a href="#" className="text-xs lg:text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Privacy Policy</a>
             <a href="#" className="text-xs lg:text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Terms of Use</a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

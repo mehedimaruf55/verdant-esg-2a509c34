@@ -10,12 +10,12 @@ const services = [
 
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 const cardFade = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 const ServicesSection = () => {
@@ -33,11 +33,28 @@ const ServicesSection = () => {
             <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">What We Do</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black max-w-2xl">
-            Our Services
+            {"Our Services".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                className="inline-block mr-[0.3em]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </h2>
-          <p className="mt-3 lg:mt-4 text-sm lg:text-base text-brand-grey max-w-xl leading-relaxed">
+          <motion.p
+            className="mt-3 lg:mt-4 text-sm lg:text-base text-brand-grey max-w-xl leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+          >
             We deliver practical environmental sustainability solutions across a portfolio of work areas.
-          </p>
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -56,7 +73,15 @@ const ServicesSection = () => {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="text-xs lg:text-sm text-brand-grey tracking-[0.2em] font-medium">{String(i + 1).padStart(2, "0")}</span>
+                  <motion.span
+                    className="text-xs lg:text-sm text-brand-grey tracking-[0.2em] font-medium inline-block"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </motion.span>
                   <h3 className="mt-2 lg:mt-3 text-lg lg:text-2xl font-heading font-bold text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
                     {service.title}
                   </h3>

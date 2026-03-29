@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import aboutImage from "@/assets/about-image-new.png";
 import leafImg from "@/assets/leaf.png";
+import { useRef } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -24,8 +25,11 @@ const stats = [
 ];
 
 const AboutSection = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   return (
-    <section id="about" className="relative py-20 lg:py-36 bg-brand-white overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative py-20 lg:py-36 bg-brand-white overflow-hidden">
       {/* Background leaf */}
       <img
         src={leafImg}
@@ -44,11 +48,16 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <img
+            {/* Ken Burns slow zoom on the image */}
+            <motion.img
               src={aboutImage}
               alt="Verdant ESG team collaborating on sustainability strategy"
               loading="lazy"
               className="w-full object-cover h-[360px] md:h-[480px] lg:h-[620px]"
+              initial={{ scale: 1.08 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 8, ease: "easeOut" }}
             />
             {/* Multi-layer overlay for depth */}
             <div className="absolute inset-0 bg-gradient-to-r from-brand-green-dark/80 via-brand-green-dark/40 to-transparent" />
@@ -87,18 +96,30 @@ const AboutSection = () => {
                 className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8"
               >
                 <div className="grid grid-cols-3 gap-4 w-full md:w-auto md:flex md:items-end lg:gap-14">
-                  {stats.map((s) => (
+                  {stats.map((s, i) => (
                     <motion.div
                       key={s.label}
                       variants={fadeUp}
                       className="text-left"
                     >
-                      <div className="text-2xl md:text-3xl lg:text-5xl font-heading font-bold text-brand-white leading-none">
+                      <motion.div
+                        className="text-2xl md:text-3xl lg:text-5xl font-heading font-bold text-brand-white leading-none"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 + i * 0.12 }}
+                      >
                         {s.num}
-                      </div>
-                      <div className="text-[10px] md:text-xs lg:text-sm text-brand-white/60 mt-1 lg:mt-2 tracking-[0.12em] uppercase">
+                      </motion.div>
+                      <motion.div
+                        className="text-[10px] md:text-xs lg:text-sm text-brand-white/60 mt-1 lg:mt-2 tracking-[0.12em] uppercase"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.55 + i * 0.12 }}
+                      >
                         {s.label}
-                      </div>
+                      </motion.div>
                     </motion.div>
                   ))}
                 </div>
