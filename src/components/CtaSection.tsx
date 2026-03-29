@@ -41,7 +41,7 @@ const CtaSection = () => {
             {"Ready to build a sustainable future?".split(" ").map((word, i) => (
               <motion.span
                 key={i}
-                className="inline-block mr-[0.25em]"
+                className="inline-block mr-[0.3em]"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
