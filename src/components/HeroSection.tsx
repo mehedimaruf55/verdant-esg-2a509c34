@@ -13,7 +13,7 @@ const lineVariants = {
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85dvh] flex flex-col justify-between overflow-hidden bg-brand-green-dark">
+    <section className="relative min-h-[85dvh] flex flex-col justify-between overflow-hidden" style={{ background: "linear-gradient(135deg, #326234 0%, #3a7a3a 40%, #6ABA45 100%)" }}>
       {/* Leaf — large, beautifully visible, right-aligned */}
       <motion.img
         src={leafImg}
