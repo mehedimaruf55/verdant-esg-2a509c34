@@ -38,18 +38,7 @@ const CtaSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            {"Ready to build a sustainable future?".split(" ").map((word, i) => (
-              <motion.span
-                key={i}
-                className="inline-block mr-[0.3em] leading-[1.15]"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
-              >
-                {word}
-              </motion.span>
-            ))}
+            Ready to build a sustainable future?
           </motion.h2>
           <motion.p
             className="mt-4 lg:mt-6 text-sm lg:text-base text-brand-white/70 max-w-md leading-relaxed relative z-10"
