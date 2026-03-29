@@ -55,7 +55,7 @@ const HeroSection = () => {
               animate="visible"
             >
               <span className="inline-block w-10 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-brand-white/60">
+              <span className="text-sm font-semibold tracking-[0.25em] uppercase text-brand-white/60">
                 ESG Consultancy
               </span>
             </motion.div>
@@ -93,7 +93,7 @@ const HeroSection = () => {
             transition={{ duration: 0.9, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="glass-dark rounded-2xl p-7">
-              <p className="text-[15px] leading-[1.7] text-brand-white/80">
+              <p className="text-base leading-[1.7] text-brand-white/80">
                 We help organizations integrate ESG into their core strategy
                 with clarity and precision — turning compliance into competitive
                 advantage.
@@ -106,7 +106,7 @@ const HeroSection = () => {
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <span className="px-8 py-4 text-[13px] font-bold tracking-[0.05em] uppercase bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors duration-300">
+              <span className="px-8 py-4 text-sm font-bold tracking-[0.05em] uppercase bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors duration-300">
                 Find Out More
               </span>
               <span className="w-12 h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
@@ -125,7 +125,7 @@ const HeroSection = () => {
         transition={{ delay: 1.3, duration: 0.7 }}
       >
         <div className="pt-6 border-t border-brand-white/15 flex items-center justify-between">
-          <div className="flex items-center gap-3 text-[11px] tracking-[0.15em] uppercase text-brand-white/40">
+          <div className="flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-brand-white/40">
             <ChevronDown size={14} className="animate-gentle-bounce" />
             <span>Scroll to explore</span>
           </div>
@@ -133,7 +133,7 @@ const HeroSection = () => {
             {["Environmental", "Social", "Governance"].map((w, i) => (
               <motion.span
                 key={w}
-                className="text-[11px] tracking-[0.18em] uppercase text-brand-white/35 font-semibold"
+                className="text-sm tracking-[0.18em] uppercase text-brand-white/35 font-semibold"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 + i * 0.15 }}

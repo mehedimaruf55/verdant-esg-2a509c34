@@ -38,14 +38,14 @@ const WhyVerdantSection = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">Advantage</span>
+              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">Advantage</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-white">
               Why Verdant
             </h2>
           </motion.div>
           <motion.p
-            className="text-[15px] text-brand-white/70 leading-[1.75] max-w-lg"
+            className="text-base text-brand-white/70 leading-[1.75] max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -74,11 +74,11 @@ const WhyVerdantSection = () => {
                   <h3 className="text-xl lg:text-2xl font-heading font-bold text-brand-white mb-4 group-hover:text-brand-green-light transition-colors duration-300">
                     {point.title}
                   </h3>
-                  <p className="text-[14px] text-brand-white/60 leading-relaxed max-w-md">
+                  <p className="text-base text-brand-white/60 leading-relaxed max-w-md">
                     {point.description}
                   </p>
                 </div>
-                <span className="shrink-0 text-[11px] tracking-[0.2em] text-brand-white/30 mt-1 font-medium">
+                <span className="shrink-0 text-sm tracking-[0.2em] text-brand-white/30 mt-1 font-medium">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>

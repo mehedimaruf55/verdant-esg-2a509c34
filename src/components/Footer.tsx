@@ -14,12 +14,12 @@ const Footer = () => {
         >
           <div>
             <img src={logo} alt="Verdant ESG" className="h-8 brightness-0 invert" />
-            <p className="mt-4 text-[14px] text-brand-white/45 leading-relaxed max-w-xs">
+            <p className="mt-4 text-base text-brand-white/45 leading-relaxed max-w-xs">
               A sustainability consultancy grounded in reality — delivering measurable ESG impact.
             </p>
           </div>
           <div>
-            <h4 className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-white/30 mb-5">Navigation</h4>
+            <h4 className="text-sm font-bold tracking-[0.2em] uppercase text-brand-white/30 mb-5">Navigation</h4>
             <div className="flex flex-col gap-3">
               {[
                 { label: "About", href: "#about" },
@@ -32,7 +32,7 @@ const Footer = () => {
                 <motion.a
                   key={link.label}
                   href={link.href}
-                  className="text-[14px] text-brand-white/60 hover:text-brand-white transition-colors w-fit"
+                  className="text-base text-brand-white/60 hover:text-brand-white transition-colors w-fit"
                   whileHover={{ x: 4, transition: { duration: 0.2 } }}
                 >
                   {link.label}
@@ -41,17 +41,17 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h4 className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-white/30 mb-5">Contact</h4>
-            <a href="mailto:hello@verdantesg.com" className="text-[14px] text-brand-white/60 hover:text-brand-white transition-colors">
+            <h4 className="text-sm font-bold tracking-[0.2em] uppercase text-brand-white/30 mb-5">Contact</h4>
+            <a href="mailto:hello@verdantesg.com" className="text-base text-brand-white/60 hover:text-brand-white transition-colors">
               hello@verdantesg.com
             </a>
           </div>
         </motion.div>
         <div className="border-t border-brand-white/10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[12px] text-brand-white/30">© 2026 Verdant ESG. All rights reserved.</p>
+          <p className="text-sm text-brand-white/30">© 2026 Verdant ESG. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="text-[12px] text-brand-white/30 hover:text-brand-white/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-[12px] text-brand-white/30 hover:text-brand-white/60 transition-colors">Terms of Use</a>
+            <a href="#" className="text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Terms of Use</a>
           </div>
         </div>
       </div>

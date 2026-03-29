@@ -58,7 +58,7 @@ const AboutSection = () => {
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <div className="text-3xl lg:text-4xl font-heading font-bold text-brand-white">{s.num}</div>
-                  <div className="text-[11px] lg:text-xs text-brand-white/70 mt-1 tracking-[0.14em] uppercase">{s.label}</div>
+                  <div className="text-sm lg:text-xs text-brand-white/70 mt-1 tracking-[0.14em] uppercase">{s.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -76,7 +76,7 @@ const AboutSection = () => {
           <div>
             <motion.div variants={fadeUp} className="flex items-center gap-3 mb-6">
               <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">About Us</span>
+              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">About Us</span>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-green-dark">
               Delivering Holistic and Credible Sustainable Solutions
@@ -84,7 +84,7 @@ const AboutSection = () => {
           </div>
 
           <motion.div variants={fadeUp} className="flex flex-col justify-end">
-            <div className="space-y-5 text-[15px] leading-[1.85] text-brand-grey">
+            <div className="space-y-5 text-base leading-[1.85] text-brand-grey">
               <p>Verdant ESG is a professional sustainability consultancy dedicated to helping organizations navigate the complexities of Environmental, Social, and Governance standards.</p>
               <p>Our team works alongside leadership to embed sustainability into decision-making — turning ambition into action and compliance into competitive advantage.</p>
             </div>

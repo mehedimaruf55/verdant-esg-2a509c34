@@ -31,7 +31,7 @@ const CtaSection = () => {
             Ready to build a sustainable future?
           </motion.h2>
           <motion.p
-            className="mt-6 text-[15px] text-brand-white/70 max-w-md leading-relaxed relative z-10"
+            className="mt-6 text-base text-brand-white/70 max-w-md leading-relaxed relative z-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -48,7 +48,7 @@ const CtaSection = () => {
             transition={{ delay: 0.65, duration: 0.5 }}
             whileHover={{ x: 4, transition: { duration: 0.2 } }}
           >
-            <span className="px-7 py-4 text-[13px] font-bold tracking-wide bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors">
+            <span className="px-7 py-4 text-sm font-bold tracking-wide bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors">
               Contact Us
             </span>
             <span className="w-12 h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-all duration-300">
