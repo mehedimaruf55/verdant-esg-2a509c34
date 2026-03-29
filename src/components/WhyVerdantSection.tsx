@@ -20,7 +20,7 @@ const cardFade = {
 
 const WhyVerdantSection = () => {
   return (
-    <section id="why" className="relative py-28 lg:py-36 bg-brand-green-dark overflow-hidden">
+    <section id="why" className="relative py-28 lg:py-36 overflow-hidden" style={{ background: "linear-gradient(135deg, #326234 0%, #3a7a3a 40%, #6ABA45 100%)" }}>
       <img
         src={leafImg}
         alt=""
