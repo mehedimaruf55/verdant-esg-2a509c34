@@ -50,7 +50,7 @@ const InsightsSection = () => {
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-10">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <div>
             <motion.div
               className="flex items-center gap-3 mb-6"
@@ -66,7 +66,7 @@ const InsightsSection = () => {
             </motion.div>
 
             <motion.h2
-              className="text-[clamp(2rem,4vw,3.2rem)] font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-black"
+              className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -106,7 +106,7 @@ const InsightsSection = () => {
             <motion.a
               key={item.title}
               href="#"
-              className="group block rounded-2xl overflow-hidden bg-brand-grey-light hover:shadow-xl transition-shadow duration-500"
+              className="group block rounded-3xl overflow-hidden bg-brand-grey-light hover:shadow-xl transition-shadow duration-500"
               custom={i}
               variants={cardVariants}
               initial="hidden"
@@ -131,7 +131,7 @@ const InsightsSection = () => {
                 <span className="text-sm font-semibold tracking-[0.15em] uppercase text-brand-grey">
                   {item.date}
                 </span>
-                <h3 className="mt-3 text-[18px] font-heading font-bold leading-snug text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
+                <h3 className="mt-3 text-lg font-heading font-bold leading-snug text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-brand-grey line-clamp-3">
