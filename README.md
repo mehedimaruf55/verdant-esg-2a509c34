@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Verdant ESG
 
 TODO: Document your project here
