@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import leafImg from "@/assets/leaf.png";
-import clientLogo1 from "@/assets/client-logo-1.png";
-import clientLogo2 from "@/assets/client-logo-2.png";
-import clientLogo3 from "@/assets/client-logo-3.png";
-import clientLogo4 from "@/assets/client-logo-4.png";
+import logoLululemon from "@/assets/client-lululemon.png";
+import logoMclaren from "@/assets/client-mclaren.png";
+import logoOdgroup from "@/assets/client-odgroup.webp";
+import logoDebeers from "@/assets/client-debeers.png";
+import logoPrologis from "@/assets/client-prologis.svg";
+import logoAardman from "@/assets/client-aardman.webp";
+import logoDmg from "@/assets/client-dmg.svg";
+import logoVeolia from "@/assets/client-veolia.png";
 
-const logos = [clientLogo1, clientLogo2, clientLogo3, clientLogo4];
-
-const clients = [
-  "Accenture", "Deloitte", "McKinsey", "KPMG", "PwC", "EY",
-  "BCG", "Bain & Co", "Goldman Sachs", "BlackRock", "Unilever", "Nestlé",
+const logos = [
+  logoLululemon, logoMclaren, logoOdgroup, logoDebeers,
+  logoPrologis, logoAardman, logoDmg, logoVeolia,
 ];
 
 const ClientsSection = () => {
@@ -43,19 +45,17 @@ const ClientsSection = () => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
-            <div className="flex animate-scroll gap-5 items-center">
-              {[...clients, ...clients].map((name, i) => (
+            <div className="flex animate-scroll gap-8 items-center">
+              {[...logos, ...logos].map((logo, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 bg-brand-white rounded-2xl px-6 py-4 border border-border flex items-center justify-center hover:border-brand-green-dark/30 transition-colors duration-300"
+                  className="flex-shrink-0 bg-brand-white rounded-2xl px-8 py-5 border border-border flex items-center justify-center hover:border-brand-green-dark/30 transition-colors duration-300"
                 >
                   <img
-                    src={logos[i % logos.length]}
-                    alt={name}
+                    src={logo}
+                    alt="Client logo"
                     loading="lazy"
-                    width={512}
-                    height={512}
-                    className="w-14 h-14 object-contain"
+                    className="h-10 w-auto max-w-[140px] object-contain"
                   />
                 </div>
               ))}
