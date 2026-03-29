@@ -296,10 +296,10 @@ const Navbar = () => {
                     }`}
                   />
                 )}
-                {/* Hover underline */}
+                {/* Active dot indicator */}
                 <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-gradient-to-r from-brand-green-dark to-brand-green-light transition-all duration-300 ${
-                    activeDropdown === l.label ? "w-3/4" : "w-0 group-hover:w-1/2"
+                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-green-dark transition-all duration-300 ${
+                    activeDropdown === l.label ? "opacity-100 scale-100" : "opacity-0 scale-0 group-hover:opacity-60 group-hover:scale-100"
                   }`}
                 />
               </a>
