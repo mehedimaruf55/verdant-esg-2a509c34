@@ -35,7 +35,7 @@ const ServicesSection = () => {
           <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black max-w-2xl">
             Our Services
           </h2>
-          <p className="mt-4 text-[16px] text-brand-grey max-w-xl leading-relaxed">
+          <p className="mt-4 text-base text-brand-grey max-w-xl leading-relaxed">
             We deliver practical environmental sustainability solutions across a portfolio of work areas.
           </p>
         </motion.div>

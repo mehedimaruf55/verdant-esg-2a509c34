@@ -58,7 +58,7 @@ const AboutSection = () => {
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <div className="text-3xl lg:text-4xl font-heading font-bold text-brand-white">{s.num}</div>
-                  <div className="text-sm lg:text-xs text-brand-white/70 mt-1 tracking-[0.14em] uppercase">{s.label}</div>
+                  <div className="text-xs lg:text-sm text-brand-white/70 mt-1 tracking-[0.14em] uppercase">{s.label}</div>
                 </motion.div>
               ))}
             </div>
