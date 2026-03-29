@@ -86,7 +86,7 @@ const AboutSection = () => {
                 viewport={{ once: true, margin: "-40px" }}
                 className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8"
               >
-                <div className="flex items-end gap-6 lg:gap-14">
+                <div className="grid grid-cols-3 gap-4 w-full md:w-auto md:flex md:items-end lg:gap-14">
                   {stats.map((s) => (
                     <motion.div
                       key={s.label}
