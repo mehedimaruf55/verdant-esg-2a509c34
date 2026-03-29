@@ -40,33 +40,33 @@ const cardVariants = {
 
 const InsightsSection = () => {
   return (
-    <section className="relative py-28 lg:py-36 bg-brand-white overflow-hidden">
+    <section className="relative py-20 lg:py-36 bg-brand-white overflow-hidden">
       {/* Leaf watermark */}
       <img
         src={leafImg}
         alt=""
-        className="absolute -bottom-[10%] -right-[8%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.08] select-none pointer-events-none rotate-[30deg]"
+        className="absolute -bottom-[10%] -right-[8%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.08] select-none pointer-events-none rotate-[30deg] hidden sm:block"
       />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-6xl px-5 lg:px-10">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-14">
           <div>
             <motion.div
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-4 lg:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
+              <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
                 Insights
               </span>
             </motion.div>
 
             <motion.h2
-              className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black"
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -76,7 +76,7 @@ const InsightsSection = () => {
             </motion.h2>
 
             <motion.p
-              className="mt-4 max-w-xl text-base leading-relaxed text-brand-grey"
+              className="mt-3 lg:mt-4 max-w-xl text-sm lg:text-base leading-relaxed text-brand-grey"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -89,24 +89,24 @@ const InsightsSection = () => {
 
           <motion.a
             href="#insights"
-            className="group inline-flex items-center gap-2 text-sm font-bold tracking-[0.05em] uppercase text-brand-green-dark hover:text-brand-green-light transition-colors duration-300 shrink-0"
+            className="group inline-flex items-center gap-2 text-xs lg:text-sm font-bold tracking-[0.05em] uppercase text-brand-green-dark hover:text-brand-green-light transition-colors duration-300 shrink-0"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             View All Insights
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
           </motion.a>
         </div>
 
         {/* Cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
           {insights.map((item, i) => (
             <motion.a
               key={item.title}
               href="#"
-              className="group block rounded-3xl overflow-hidden bg-brand-grey-light hover:shadow-xl transition-shadow duration-500"
+              className="group block rounded-2xl lg:rounded-3xl overflow-hidden bg-brand-grey-light hover:shadow-xl transition-shadow duration-500"
               custom={i}
               variants={cardVariants}
               initial="hidden"
@@ -127,19 +127,19 @@ const InsightsSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6 lg:p-7">
-                <span className="text-sm font-semibold tracking-[0.15em] uppercase text-brand-grey">
+              <div className="p-5 lg:p-7">
+                <span className="text-xs lg:text-sm font-semibold tracking-[0.15em] uppercase text-brand-grey">
                   {item.date}
                 </span>
-                <h3 className="mt-3 text-lg font-heading font-bold leading-snug text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
+                <h3 className="mt-2 lg:mt-3 text-base lg:text-lg font-heading font-bold leading-snug text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-base leading-relaxed text-brand-grey line-clamp-3">
+                <p className="mt-2 lg:mt-3 text-sm lg:text-base leading-relaxed text-brand-grey line-clamp-3">
                   {item.excerpt}
                 </p>
-                <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-green-dark group-hover:text-brand-green-light transition-colors duration-300">
+                <div className="mt-4 lg:mt-5 inline-flex items-center gap-2 text-xs lg:text-sm font-bold text-brand-green-dark group-hover:text-brand-green-light transition-colors duration-300">
                   Read More
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
               </div>
             </motion.a>
