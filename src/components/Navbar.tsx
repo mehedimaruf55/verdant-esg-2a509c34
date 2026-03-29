@@ -282,7 +282,7 @@ const Navbar = () => {
                 className={`relative flex items-center gap-1 px-3.5 py-1.5 rounded-lg text-[13px] font-bold uppercase tracking-[0.12em] transition-all duration-200 group ${
                   activeDropdown === l.label
                     ? "text-brand-green-dark bg-brand-green-dark/[0.08]"
-                    : "text-brand-black/65 hover:text-brand-green-dark hover:bg-brand-green-dark/[0.05]"
+                    : "text-black hover:text-brand-green-dark hover:bg-brand-green-dark/[0.05]"
                 }`}
               >
                 {l.label}
