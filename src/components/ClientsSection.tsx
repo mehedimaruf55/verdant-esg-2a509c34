@@ -51,8 +51,8 @@ const ClientsSection = () => {
 
         {/* Marquee Row 1 — scrolls left */}
         <div className="relative mt-12">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
             <div className="flex animate-scroll gap-6 items-center">
@@ -77,8 +77,8 @@ const ClientsSection = () => {
 
         {/* Marquee Row 2 — scrolls right (reverse) */}
         <div className="relative mt-6">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
             <div className="flex animate-scroll-reverse gap-6 items-center">
