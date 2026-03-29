@@ -149,11 +149,12 @@ const MissionVisionSection = () => {
 
                 {/* Right: stats panel */}
                 <div
-                  className={`lg:col-span-2 p-10 lg:p-14 flex flex-col justify-center gap-8 ${
-                    active === 0
-                      ? "bg-brand-green-dark"
-                      : "bg-brand-green-light"
-                  }`}
+                  className="lg:col-span-2 p-10 lg:p-14 flex flex-col justify-center gap-8"
+                  style={{
+                    background: active === 0
+                      ? "linear-gradient(135deg, #326234 0%, #6ABA45 100%)"
+                      : "linear-gradient(135deg, #6ABA45 0%, #326234 100%)",
+                  }}
                 >
                   {card.stats.map((stat, si) => (
                     <motion.div
