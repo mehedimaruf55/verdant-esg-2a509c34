@@ -65,7 +65,7 @@ const AboutSection = () => {
                 className="max-w-xl"
               >
                 <motion.div variants={fadeUp} className="flex items-center gap-3 mb-4 lg:mb-6">
-                  <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
+                  <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
                   <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
                     About Us
                   </span>

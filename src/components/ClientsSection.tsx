@@ -35,11 +35,11 @@ const ClientsSection = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 justify-center mb-4 lg:mb-6">
-            <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
+            <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
             <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
               Trusted By
             </span>
-            <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
+            <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-right" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-black leading-[1.08] tracking-[-0.02em]">
             Our Clients
