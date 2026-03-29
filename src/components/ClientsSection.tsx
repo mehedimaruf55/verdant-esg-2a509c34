@@ -19,10 +19,14 @@ const logosRow2 = [
 const ClientsSection = () => {
   return (
     <section className="relative py-20 lg:py-36 overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(0 0% 96%) 0%, hsl(0 0% 100%) 100%)" }}>
-      <img
+      <motion.img
         src={leafImg}
         alt=""
         className="absolute -bottom-[5%] -left-[6%] w-[40vw] max-w-[500px] min-w-[260px] opacity-[0.06] select-none pointer-events-none rotate-[-15deg] hidden sm:block"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.06 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2 }}
       />
 
       <div className="max-w-6xl mx-auto px-5 lg:px-10 relative z-10">
@@ -42,15 +46,38 @@ const ClientsSection = () => {
             <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-right" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-black leading-[1.08] tracking-[-0.02em]">
-            Our Clients
+            {"Our Clients".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                className="inline-block mr-[0.3em]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </h2>
-          <p className="mt-3 lg:mt-4 text-sm lg:text-base text-brand-grey leading-relaxed max-w-md mx-auto">
+          <motion.p
+            className="mt-3 lg:mt-4 text-sm lg:text-base text-brand-grey leading-relaxed max-w-md mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+          >
             Partnering with world-class organizations to drive meaningful sustainability outcomes.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Marquee Row 1 — scrolls left */}
-        <div className="relative mt-8 lg:mt-12">
+        <motion.div
+          className="relative mt-8 lg:mt-12"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="absolute left-0 top-0 bottom-0 w-8 lg:w-10 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-8 lg:w-10 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
@@ -73,10 +100,16 @@ const ClientsSection = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Marquee Row 2 — scrolls right (reverse) */}
-        <div className="relative mt-4 lg:mt-6">
+        <motion.div
+          className="relative mt-4 lg:mt-6"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="absolute left-0 top-0 bottom-0 w-8 lg:w-10 bg-gradient-to-r from-brand-grey-light to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-8 lg:w-10 bg-gradient-to-l from-brand-grey-light to-transparent z-10 pointer-events-none" />
 
@@ -99,7 +132,7 @@ const ClientsSection = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

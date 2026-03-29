@@ -19,7 +19,17 @@ const CtaSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="absolute top-0 right-[20%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded-full bg-brand-green-light opacity-[0.06] blur-[100px] pointer-events-none" />
+          {/* Ambient glow orbs */}
+          <motion.div
+            className="absolute top-0 right-[20%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded-full bg-brand-green-light opacity-[0.06] blur-[100px] pointer-events-none"
+            animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.1, 0.06] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-[10%] left-[15%] w-[150px] h-[150px] lg:w-[250px] lg:h-[250px] rounded-full bg-brand-green-light opacity-[0.04] blur-[80px] pointer-events-none"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.04, 0.08, 0.04] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          />
 
           <motion.h2
             className="text-3xl md:text-4xl lg:text-[4rem] font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-white max-w-3xl relative z-10"
@@ -28,14 +38,25 @@ const CtaSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Ready to build a sustainable future?
+            {"Ready to build a sustainable future?".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                className="inline-block mr-[0.25em]"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </motion.h2>
           <motion.p
             className="mt-4 lg:mt-6 text-sm lg:text-base text-brand-white/70 max-w-md leading-relaxed relative z-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
           >
             Let's start a conversation about your ESG goals and how we can help you achieve them.
           </motion.p>
@@ -45,14 +66,15 @@ const CtaSection = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.65, duration: 0.5 }}
-            whileHover={{ x: 4, transition: { duration: 0.2 } }}
+            transition={{ delay: 0.75, duration: 0.5 }}
+            whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
           >
             <span className="px-6 py-3 lg:px-7 lg:py-4 text-xs lg:text-sm font-bold tracking-wide bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors">
               Contact Us
             </span>
             <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-all duration-300">
-              <ArrowRight size={15} className="text-brand-white" />
+              <ArrowRight size={15} className="text-brand-white group-hover:translate-x-0.5 transition-transform duration-300" />
             </span>
           </motion.a>
         </motion.div>
