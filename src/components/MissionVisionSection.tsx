@@ -57,7 +57,7 @@ const MissionVisionSection = () => {
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-            <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">
+            <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
               Purpose
             </span>
           </div>
@@ -125,7 +125,7 @@ const MissionVisionSection = () => {
                     transition={{ duration: 0.5, delay: 0.15 }}
                   />
 
-                  <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-brand-grey">
+                  <span className="text-sm font-semibold tracking-[0.2em] uppercase text-brand-grey">
                     {card.label}
                   </span>
 
@@ -133,7 +133,7 @@ const MissionVisionSection = () => {
                     {card.heading}
                   </h3>
 
-                  <p className="mt-6 text-[15px] text-brand-grey leading-relaxed max-w-lg">
+                  <p className="mt-6 text-base text-brand-grey leading-relaxed max-w-lg">
                     {card.body}
                   </p>
 
@@ -171,7 +171,7 @@ const MissionVisionSection = () => {
                       <div className="text-3xl lg:text-4xl font-heading font-bold tracking-tight">
                         {stat.value}
                       </div>
-                      <div className="mt-1 text-[13px] opacity-75 tracking-wide">
+                      <div className="mt-1 text-sm opacity-75 tracking-wide">
                         {stat.label}
                       </div>
                       {si < card.stats.length - 1 && (

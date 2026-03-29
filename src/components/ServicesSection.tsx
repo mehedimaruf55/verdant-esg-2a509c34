@@ -30,7 +30,7 @@ const ServicesSection = () => {
         >
           <div className="flex items-center gap-3 mb-6">
             <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-            <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">What We Do</span>
+            <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">What We Do</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black max-w-2xl">
             Our Services
@@ -56,11 +56,11 @@ const ServicesSection = () => {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="text-[11px] text-brand-grey tracking-[0.2em] font-medium">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-sm text-brand-grey tracking-[0.2em] font-medium">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-3 text-xl lg:text-2xl font-heading font-bold text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-[15px] text-brand-grey leading-relaxed">
+                  <p className="mt-4 text-base text-brand-grey leading-relaxed">
                     {service.description}
                   </p>
                 </div>

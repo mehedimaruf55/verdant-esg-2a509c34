@@ -60,7 +60,7 @@ const InsightsSection = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-brand-green-light">
+              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
                 Insights
               </span>
             </motion.div>
@@ -76,7 +76,7 @@ const InsightsSection = () => {
             </motion.h2>
 
             <motion.p
-              className="mt-4 max-w-xl text-[15px] leading-relaxed text-brand-grey"
+              className="mt-4 max-w-xl text-base leading-relaxed text-brand-grey"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -89,7 +89,7 @@ const InsightsSection = () => {
 
           <motion.a
             href="#insights"
-            className="group inline-flex items-center gap-2 text-[13px] font-bold tracking-[0.05em] uppercase text-brand-green-dark hover:text-brand-green-light transition-colors duration-300 shrink-0"
+            className="group inline-flex items-center gap-2 text-sm font-bold tracking-[0.05em] uppercase text-brand-green-dark hover:text-brand-green-light transition-colors duration-300 shrink-0"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -128,16 +128,16 @@ const InsightsSection = () => {
 
               {/* Content */}
               <div className="p-6 lg:p-7">
-                <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey">
+                <span className="text-sm font-semibold tracking-[0.15em] uppercase text-brand-grey">
                   {item.date}
                 </span>
                 <h3 className="mt-3 text-[18px] font-heading font-bold leading-snug text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-brand-grey line-clamp-3">
+                <p className="mt-3 text-base leading-relaxed text-brand-grey line-clamp-3">
                   {item.excerpt}
                 </p>
-                <div className="mt-5 inline-flex items-center gap-2 text-[13px] font-bold text-brand-green-dark group-hover:text-brand-green-light transition-colors duration-300">
+                <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-green-dark group-hover:text-brand-green-light transition-colors duration-300">
                   Read More
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
