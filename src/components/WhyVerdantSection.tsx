@@ -20,32 +20,32 @@ const cardFade = {
 
 const WhyVerdantSection = () => {
   return (
-    <section id="why" className="relative py-28 lg:py-36 overflow-hidden" style={{ background: "linear-gradient(135deg, #326234 0%, #3a7a3a 60%, #6ABA45 100%)" }}>
+    <section id="why" className="relative py-20 lg:py-36 overflow-hidden" style={{ background: "linear-gradient(135deg, #326234 0%, #3a7a3a 60%, #6ABA45 100%)" }}>
       <img
         src={leafImg}
         alt=""
-        className="absolute bottom-[5%] -left-[6%] w-[45vw] max-w-[600px] min-w-[300px] opacity-[0.15] select-none pointer-events-none rotate-[-20deg]"
+        className="absolute bottom-[5%] -left-[6%] w-[45vw] max-w-[600px] min-w-[200px] opacity-[0.15] select-none pointer-events-none rotate-[-20deg] hidden sm:block"
       />
-      <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
 
-      <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-14">
+      <div className="mx-auto max-w-6xl px-5 lg:px-10 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-10 lg:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4 lg:mb-6">
               <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">Advantage</span>
+              <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">Advantage</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-white">
               Why Verdant
             </h2>
           </motion.div>
           <motion.p
-            className="text-base text-brand-white/70 leading-[1.75] max-w-lg"
+            className="text-sm lg:text-base text-brand-white/70 leading-[1.75] max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -56,7 +56,7 @@ const WhyVerdantSection = () => {
         </div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-5"
+          className="grid md:grid-cols-2 gap-4 lg:gap-5"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -65,20 +65,20 @@ const WhyVerdantSection = () => {
           {points.map((point, i) => (
             <motion.div
               key={i}
-              className="group relative overflow-hidden glass-dark rounded-3xl p-10 lg:p-12 hover:bg-brand-white/10 transition-all duration-500 cursor-pointer"
+              className="group relative overflow-hidden glass-dark rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-12 hover:bg-brand-white/10 transition-all duration-500 cursor-pointer"
               variants={cardFade}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
             >
-              <div className="flex items-start justify-between gap-6">
+              <div className="flex items-start justify-between gap-4 lg:gap-6">
                 <div>
-                  <h3 className="text-xl lg:text-2xl font-heading font-bold text-brand-white mb-4 group-hover:text-brand-green-light transition-colors duration-300">
+                  <h3 className="text-lg lg:text-2xl font-heading font-bold text-brand-white mb-3 lg:mb-4 group-hover:text-brand-green-light transition-colors duration-300">
                     {point.title}
                   </h3>
-                  <p className="text-base text-brand-white/60 leading-relaxed max-w-md">
+                  <p className="text-sm lg:text-base text-brand-white/60 leading-relaxed max-w-md">
                     {point.description}
                   </p>
                 </div>
-                <span className="shrink-0 text-sm tracking-[0.2em] text-brand-white/30 mt-1 font-medium">
+                <span className="shrink-0 text-xs lg:text-sm tracking-[0.2em] text-brand-white/30 mt-1 font-medium">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>

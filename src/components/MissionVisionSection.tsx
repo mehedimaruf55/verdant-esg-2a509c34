@@ -39,15 +39,15 @@ const MissionVisionSection = () => {
   return (
     <section
       id="mission"
-      className="relative py-28 lg:py-36 bg-brand-grey-light overflow-hidden"
+      className="relative py-20 lg:py-36 bg-brand-grey-light overflow-hidden"
     >
       <img
         src={leafImg}
         alt=""
-        className="absolute -top-[5%] -right-[6%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.10] select-none pointer-events-none rotate-[25deg]"
+        className="absolute -top-[5%] -right-[6%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.10] select-none pointer-events-none rotate-[25deg] hidden sm:block"
       />
 
-      <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
+      <div className="mx-auto max-w-6xl px-5 lg:px-10 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,20 +55,20 @@ const MissionVisionSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4 lg:mb-6">
             <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light" />
-            <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
+            <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
               Purpose
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black">
             Mission & Vision
           </h2>
         </motion.div>
 
         {/* Toggle pills */}
         <motion.div
-          className="mt-10 flex gap-2"
+          className="mt-8 lg:mt-10 flex gap-2"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -81,13 +81,13 @@ const MissionVisionSection = () => {
               <button
                 key={c.id}
                 onClick={() => setActive(i)}
-                className={`group relative flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
+                className={`group relative flex items-center gap-2 px-4 py-2.5 lg:px-6 lg:py-3 rounded-full text-xs lg:text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-brand-green-dark text-primary-foreground shadow-lg"
                     : "bg-brand-white text-brand-grey border border-border hover:border-brand-green-dark/30 hover:text-brand-black"
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                 {c.label}
                 {isActive && (
                   <motion.div
@@ -102,7 +102,7 @@ const MissionVisionSection = () => {
         </motion.div>
 
         {/* Content card */}
-        <div className="mt-8">
+        <div className="mt-6 lg:mt-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={card.id}
@@ -110,14 +110,14 @@ const MissionVisionSection = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -15, scale: 0.98 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-brand-white rounded-3xl border border-border overflow-hidden shadow-sm"
+              className="bg-brand-white rounded-2xl lg:rounded-3xl border border-border overflow-hidden shadow-sm"
             >
               <div className="grid lg:grid-cols-5">
                 {/* Left: accent bar + main content */}
-                <div className="lg:col-span-3 p-10 lg:p-14 relative">
+                <div className="lg:col-span-3 p-6 md:p-8 lg:p-14 relative">
                   {/* Animated accent line */}
                   <motion.div
-                    className={`w-12 h-1 rounded-full mb-8 ${
+                    className={`w-10 lg:w-12 h-1 rounded-full mb-6 lg:mb-8 ${
                       active === 0 ? "bg-brand-green-dark" : "bg-brand-green-light"
                     }`}
                     initial={{ width: 0 }}
@@ -125,20 +125,20 @@ const MissionVisionSection = () => {
                     transition={{ duration: 0.5, delay: 0.15 }}
                   />
 
-                  <span className="text-sm font-semibold tracking-[0.2em] uppercase text-brand-grey">
+                  <span className="text-xs lg:text-sm font-semibold tracking-[0.2em] uppercase text-brand-grey">
                     {card.label}
                   </span>
 
-                  <h3 className="mt-4 text-2xl lg:text-[28px] font-heading font-bold text-brand-black leading-snug">
+                  <h3 className="mt-3 lg:mt-4 text-xl lg:text-[28px] font-heading font-bold text-brand-black leading-snug">
                     {card.heading}
                   </h3>
 
-                  <p className="mt-6 text-base text-brand-grey leading-relaxed max-w-lg">
+                  <p className="mt-4 lg:mt-6 text-sm lg:text-base text-brand-grey leading-relaxed max-w-lg">
                     {card.body}
                   </p>
 
                   <motion.div
-                    className="mt-8 flex items-center gap-2 text-brand-green-dark font-semibold text-sm cursor-pointer group"
+                    className="mt-6 lg:mt-8 flex items-center gap-2 text-brand-green-dark font-semibold text-sm cursor-pointer group"
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -149,7 +149,7 @@ const MissionVisionSection = () => {
 
                 {/* Right: stats panel */}
                 <div
-                  className="lg:col-span-2 p-10 lg:p-14 flex flex-col justify-center gap-8"
+                  className="lg:col-span-2 p-6 md:p-8 lg:p-14 flex flex-row lg:flex-col justify-between lg:justify-center gap-6 lg:gap-8"
                   style={{
                     background: active === 0
                       ? "linear-gradient(135deg, #326234 0%, #6ABA45 100%)"
@@ -168,14 +168,14 @@ const MissionVisionSection = () => {
                       }}
                       className="text-primary-foreground"
                     >
-                      <div className="text-3xl lg:text-4xl font-heading font-bold tracking-tight">
+                      <div className="text-2xl lg:text-4xl font-heading font-bold tracking-tight">
                         {stat.value}
                       </div>
-                      <div className="mt-1 text-sm opacity-75 tracking-wide">
+                      <div className="mt-1 text-xs lg:text-sm opacity-75 tracking-wide">
                         {stat.label}
                       </div>
                       {si < card.stats.length - 1 && (
-                        <div className="mt-6 h-px w-12 bg-primary-foreground/20" />
+                        <div className="mt-4 lg:mt-6 h-px w-10 lg:w-12 bg-primary-foreground/20 hidden lg:block" />
                       )}
                     </motion.div>
                   ))}
@@ -186,7 +186,7 @@ const MissionVisionSection = () => {
         </div>
 
         {/* Bottom indicators */}
-        <div className="mt-6 flex justify-center gap-2">
+        <div className="mt-5 lg:mt-6 flex justify-center gap-2">
           {cards.map((_, i) => (
             <button
               key={i}

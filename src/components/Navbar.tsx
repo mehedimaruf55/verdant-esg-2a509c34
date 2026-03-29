@@ -180,14 +180,14 @@ const MobileSubMenu = ({
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
       className="overflow-hidden"
     >
-      <div className={`${level === 0 ? "pl-4 ml-2 border-l-2 border-brand-green-light/20" : "pl-3 ml-1 border-l border-brand-green-light/10"}`}>
+      <div className={`${level === 0 ? "pl-3 ml-2 border-l-2 border-brand-green-light/20" : "pl-3 ml-1 border-l border-brand-green-light/10"}`}>
         {items.map((child) => (
           <div key={child.label}>
             <div className="flex items-center justify-between">
               <a
                 href={child.href}
                 onClick={() => !child.children && onClose()}
-                className={`flex-1 py-2.5 text-[15px] transition-colors ${
+                className={`flex-1 py-2 text-[13px] transition-colors ${
                   level === 0
                     ? "text-brand-black/75 hover:text-brand-green-dark font-medium"
                     : "text-brand-black/60 hover:text-brand-green-dark"
@@ -201,7 +201,7 @@ const MobileSubMenu = ({
                   className="p-1.5 text-brand-black/40 hover:text-brand-green-dark transition-colors"
                 >
                   <ChevronDown
-                    size={12}
+                    size={11}
                     className={`transition-transform duration-200 ${expanded === child.label ? "rotate-180" : ""}`}
                   />
                 </button>
@@ -243,20 +243,20 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 flex justify-center pointer-events-none">
+    <div className="fixed inset-x-0 top-0 z-50 flex justify-center pointer-events-none px-3 lg:px-0">
       <motion.nav
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
         className={`pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
           scrolled
-            ? "mt-2.5 w-full max-w-6xl rounded-xl bg-white/60 backdrop-blur-xl backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
-            : "mt-3 w-full max-w-6xl rounded-xl bg-white/40 backdrop-blur-lg backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
+            ? "mt-2 lg:mt-2.5 w-full max-w-6xl rounded-xl bg-white/60 backdrop-blur-xl backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
+            : "mt-2 lg:mt-3 w-full max-w-6xl rounded-xl bg-white/40 backdrop-blur-lg backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
         }`}
       >
       <div
         className={`mx-auto flex items-center justify-between transition-all duration-700 ${
-          scrolled ? "px-4 lg:px-5 h-12" : "px-5 lg:px-7 h-16"
+          scrolled ? "px-3 lg:px-5 h-11 lg:h-12" : "px-4 lg:px-7 h-12 lg:h-16"
         }`}
       >
         {/* Logo */}
@@ -264,7 +264,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Verdant ESG"
-            className={`transition-all duration-500 ${scrolled ? "h-7" : "h-9"}`}
+            className={`transition-all duration-500 ${scrolled ? "h-6 lg:h-7" : "h-7 lg:h-9"}`}
           />
         </a>
 
@@ -324,17 +324,17 @@ const Navbar = () => {
         {/* ── Mobile Toggle ── */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-brand-black/70 hover:text-brand-green-dark transition-colors"
+          className="lg:hidden p-1.5 text-brand-black/70 hover:text-brand-green-dark transition-colors"
           aria-label="Toggle menu"
         >
           <AnimatePresence mode="wait">
             {open ? (
               <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <X size={20} />
+                <X size={18} />
               </motion.span>
             ) : (
               <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <Menu size={20} />
+                <Menu size={18} />
               </motion.span>
             )}
           </AnimatePresence>
@@ -352,7 +352,7 @@ const Navbar = () => {
             className="lg:hidden overflow-hidden"
           >
             <div className="border-t border-brand-black/[0.06]" />
-            <div className="px-6 py-5 flex flex-col gap-0.5 max-h-[65vh] overflow-y-auto">
+            <div className="px-4 py-4 flex flex-col gap-0.5 max-h-[65vh] overflow-y-auto">
               {navLinks.map((l, i) => (
                 <div key={l.label}>
                   <div className="flex items-center justify-between">
@@ -362,7 +362,7 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.04, duration: 0.3 }}
-                      className="flex-1 py-3 text-sm font-bold uppercase tracking-[0.12em] text-brand-black/85 hover:text-brand-green-dark transition-colors"
+                      className="flex-1 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-brand-black/85 hover:text-brand-green-dark transition-colors"
                     >
                       {l.label}
                     </motion.a>
@@ -372,10 +372,10 @@ const Navbar = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: i * 0.04 + 0.1 }}
                         onClick={() => setMobileExpanded(mobileExpanded === l.label ? null : l.label)}
-                        className="p-2 text-brand-black/40 hover:text-brand-green-dark transition-colors rounded-lg hover:bg-brand-green-light/[0.06]"
+                        className="p-1.5 text-brand-black/40 hover:text-brand-green-dark transition-colors rounded-lg hover:bg-brand-green-light/[0.06]"
                       >
                         <ChevronDown
-                          size={14}
+                          size={12}
                           className={`transition-transform duration-250 ${mobileExpanded === l.label ? "rotate-180" : ""}`}
                         />
                       </motion.button>
@@ -394,7 +394,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="mt-4 text-center px-5 py-3.5 text-[13px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
+                className="mt-3 text-center px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
               >
                 Contact
               </motion.a>

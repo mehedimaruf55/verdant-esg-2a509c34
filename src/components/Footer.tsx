@@ -40,24 +40,24 @@ const Footer = () => {
 
   return (
     <footer className="bg-brand-green-dark">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+      <div className="mx-auto max-w-6xl px-5 lg:px-10">
         {/* Newsletter Banner */}
         <motion.div
-          className="py-14 border-b border-brand-white/10"
+          className="py-10 lg:py-14 border-b border-brand-white/10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8">
             <div>
-              <span className="text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
+              <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
                 Stay Updated
               </span>
-              <h3 className="mt-3 text-2xl md:text-3xl font-heading font-bold text-brand-white leading-tight">
+              <h3 className="mt-2 lg:mt-3 text-xl md:text-2xl lg:text-3xl font-heading font-bold text-brand-white leading-tight">
                 Subscribe to Our Newsletter
               </h3>
-              <p className="mt-2 text-base text-brand-white/50 max-w-md">
+              <p className="mt-2 text-sm lg:text-base text-brand-white/50 max-w-md">
                 Get the latest ESG insights, industry trends, and sustainability updates delivered to your inbox.
               </p>
             </div>
@@ -69,13 +69,13 @@ const Footer = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="w-full px-5 py-3.5 pr-14 rounded-full bg-brand-white/10 border border-brand-white/15 text-base text-brand-white placeholder:text-brand-white/35 focus:outline-none focus:border-brand-green-light/50 transition-colors"
+                  className="w-full px-4 lg:px-5 py-3 lg:py-3.5 pr-12 lg:pr-14 rounded-full bg-brand-white/10 border border-brand-white/15 text-sm lg:text-base text-brand-white placeholder:text-brand-white/35 focus:outline-none focus:border-brand-green-light/50 transition-colors"
                 />
                 <button
                   type="submit"
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-green-light flex items-center justify-center hover:bg-brand-white transition-colors duration-300 group"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-brand-green-light flex items-center justify-center hover:bg-brand-white transition-colors duration-300 group"
                 >
-                  <ArrowRight size={16} className="text-brand-white group-hover:text-brand-green-dark transition-colors" />
+                  <ArrowRight size={14} className="text-brand-white group-hover:text-brand-green-dark transition-colors" />
                 </button>
               </div>
             </form>
@@ -93,7 +93,7 @@ const Footer = () => {
 
         {/* Main Footer Grid */}
         <motion.div
-          className="py-14 grid grid-cols-2 md:grid-cols-4 gap-10"
+          className="py-10 lg:py-14 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -101,13 +101,13 @@ const Footer = () => {
         >
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
-            <img src={logo} alt="Verdant ESG" className="h-8 brightness-0 invert" />
-            <p className="mt-4 text-sm text-brand-white/45 leading-relaxed max-w-xs">
+            <img src={logo} alt="Verdant ESG" className="h-7 lg:h-8 brightness-0 invert" />
+            <p className="mt-3 lg:mt-4 text-xs lg:text-sm text-brand-white/45 leading-relaxed max-w-xs">
               A sustainability consultancy grounded in reality — delivering measurable ESG impact.
             </p>
             <a
               href="mailto:hello@verdantesg.com"
-              className="mt-5 inline-block text-sm text-brand-white/60 hover:text-brand-green-light transition-colors"
+              className="mt-4 lg:mt-5 inline-block text-xs lg:text-sm text-brand-white/60 hover:text-brand-green-light transition-colors"
             >
               hello@verdantesg.com
             </a>
@@ -116,15 +116,15 @@ const Footer = () => {
           {/* Nav Columns */}
           {Object.entries(footerNav).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-sm font-bold tracking-[0.2em] uppercase text-brand-white/30 mb-5">
+              <h4 className="text-xs lg:text-sm font-bold tracking-[0.2em] uppercase text-brand-white/30 mb-4 lg:mb-5">
                 {title}
               </h4>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5 lg:gap-3">
                 {links.map((link) => (
                   <motion.a
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-brand-white/60 hover:text-brand-white transition-colors w-fit"
+                    className="text-xs lg:text-sm text-brand-white/60 hover:text-brand-white transition-colors w-fit"
                     whileHover={{ x: 4, transition: { duration: 0.2 } }}
                   >
                     {link.label}
@@ -136,11 +136,11 @@ const Footer = () => {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-brand-white/10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-brand-white/30">© 2026 Verdant ESG. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Terms of Use</a>
+        <div className="border-t border-brand-white/10 py-5 lg:py-6 flex flex-col md:flex-row items-center justify-between gap-3 lg:gap-4">
+          <p className="text-xs lg:text-sm text-brand-white/30">© 2026 Verdant ESG. All rights reserved.</p>
+          <div className="flex gap-5 lg:gap-6">
+            <a href="#" className="text-xs lg:text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-xs lg:text-sm text-brand-white/30 hover:text-brand-white/60 transition-colors">Terms of Use</a>
           </div>
         </div>
       </div>
