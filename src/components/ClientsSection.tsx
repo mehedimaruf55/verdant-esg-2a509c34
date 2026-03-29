@@ -88,7 +88,7 @@ const ClientsSection = () => {
                   key={`r1-${i}`}
                   className="flex-shrink-0 group"
                 >
-                  <div className="bg-brand-white rounded-xl lg:rounded-2xl px-8 py-5 lg:px-12 lg:py-8 border border-border flex items-center justify-center transition-all duration-500 group-hover:border-brand-green-dark/40 group-hover:shadow-lg group-hover:shadow-brand-green-dark/5 group-hover:-translate-y-1">
+                  <div className="bg-brand-white rounded-xl lg:rounded-2xl px-8 py-5 lg:px-12 lg:py-8 border border-border flex items-center justify-center transition-all duration-500 group-hover:border-brand-green-dark/40 group-hover:shadow-lg group-hover:shadow-brand-green-dark/5">
                     <img
                       src={logo}
                       alt="Client logo"
@@ -120,7 +120,7 @@ const ClientsSection = () => {
                   key={`r2-${i}`}
                   className="flex-shrink-0 group"
                 >
-                  <div className="bg-brand-white rounded-xl lg:rounded-2xl px-8 py-5 lg:px-12 lg:py-8 border border-border flex items-center justify-center transition-all duration-500 group-hover:border-brand-green-dark/40 group-hover:shadow-lg group-hover:shadow-brand-green-dark/5 group-hover:-translate-y-1">
+                  <div className="bg-brand-white rounded-xl lg:rounded-2xl px-8 py-5 lg:px-12 lg:py-8 border border-border flex items-center justify-center transition-all duration-500 group-hover:border-brand-green-dark/40 group-hover:shadow-lg group-hover:shadow-brand-green-dark/5">
                     <img
                       src={logo}
                       alt="Client logo"
