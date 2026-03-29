@@ -32,7 +32,7 @@ const CtaSection = () => {
           />
 
           <motion.h2
-            className="text-3xl md:text-4xl lg:text-[4rem] font-heading font-bold leading-[1.05] tracking-[-0.02em] text-brand-white max-w-3xl relative z-10"
+            className="text-3xl md:text-4xl lg:text-[4rem] font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-white max-w-3xl relative z-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
