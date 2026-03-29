@@ -279,10 +279,10 @@ const Navbar = () => {
             >
               <a
                 href={l.href}
-                className={`relative flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-bold uppercase tracking-[0.12em] transition-all duration-300 group ${
+                className={`relative flex items-center gap-1 px-3.5 py-1.5 rounded-lg text-[13px] font-bold uppercase tracking-[0.12em] transition-all duration-200 group ${
                   activeDropdown === l.label
-                    ? "text-brand-green-dark"
-                    : "text-brand-black/65 hover:text-brand-green-dark"
+                    ? "text-brand-green-dark bg-brand-green-dark/[0.08]"
+                    : "text-brand-black/65 hover:text-brand-green-dark hover:bg-brand-green-dark/[0.05]"
                 }`}
               >
                 {l.label}
@@ -296,12 +296,6 @@ const Navbar = () => {
                     }`}
                   />
                 )}
-                {/* Active dot indicator */}
-                <span
-                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-green-dark transition-all duration-300 ${
-                    activeDropdown === l.label ? "opacity-100 scale-100" : "opacity-0 scale-0 group-hover:opacity-60 group-hover:scale-100"
-                  }`}
-                />
               </a>
               <AnimatePresence>
                 {l.children && activeDropdown === l.label && (
