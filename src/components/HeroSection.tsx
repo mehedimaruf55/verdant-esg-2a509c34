@@ -34,9 +34,9 @@ const HeroSection = () => {
         transition={{ duration: 2, delay: 0.8 }}
       />
 
-      {/* Ambient light orbs */}
-      <div className="absolute top-[10%] right-[15%] w-[400px] h-[400px] lg:w-[600px] lg:h-[600px] rounded-full bg-brand-green-light opacity-[0.08] blur-[200px] pointer-events-none" />
-      <div className="absolute bottom-[15%] left-[10%] w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] rounded-full bg-brand-green-light opacity-[0.04] blur-[180px] pointer-events-none" />
+      {/* Ambient light orbs — hidden on mobile for performance */}
+      <div className="hidden lg:block absolute top-[10%] right-[15%] w-[600px] h-[600px] rounded-full bg-brand-green-light opacity-[0.08] blur-[200px] pointer-events-none" />
+      <div className="hidden lg:block absolute bottom-[15%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-green-light opacity-[0.04] blur-[180px] pointer-events-none" />
 
       {/* Top spacer for navbar */}
       <div className="pt-24 lg:pt-40" />
