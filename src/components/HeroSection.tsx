@@ -18,9 +18,9 @@ const HeroSection = () => {
       <motion.img
         src={leafImg}
         alt=""
-        className="absolute top-[8%] -right-[5%] w-[55vw] max-w-[800px] min-w-[280px] select-none pointer-events-none opacity-[0.28] mix-blend-soft-light"
+        className="absolute top-[8%] -right-[5%] w-[55vw] max-w-[800px] min-w-[280px] select-none pointer-events-none opacity-[0.22]"
         initial={{ opacity: 0, scale: 1.08, rotate: -3 }}
-        animate={{ opacity: 0.28, scale: 1, rotate: 0 }}
+        animate={{ opacity: 0.22, scale: 1, rotate: 0 }}
         transition={{ duration: 2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       />
 
@@ -28,9 +28,9 @@ const HeroSection = () => {
       <motion.img
         src={leafImg}
         alt=""
-        className="absolute -bottom-[10%] -left-[12%] w-[35vw] max-w-[500px] select-none pointer-events-none rotate-[140deg] hidden sm:block opacity-[0.20] mix-blend-soft-light"
+        className="absolute -bottom-[10%] -left-[12%] w-[35vw] max-w-[500px] select-none pointer-events-none rotate-[140deg] hidden sm:block opacity-[0.18]"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.20 }}
+        animate={{ opacity: 0.18 }}
         transition={{ duration: 2, delay: 0.8 }}
       />
 
