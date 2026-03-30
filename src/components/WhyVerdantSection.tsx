@@ -30,7 +30,7 @@ const WhyVerdantSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       />
-      <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
+      <div className="hidden lg:block absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
 
       <div className="mx-auto max-w-6xl px-5 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-10 lg:mb-14">

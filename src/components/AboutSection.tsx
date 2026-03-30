@@ -127,7 +127,7 @@ const AboutSection = () => {
                 <motion.a
                   href="#contact"
                   variants={fadeUp}
-                  className="inline-flex items-center gap-2 self-start md:self-auto px-5 py-2.5 lg:px-7 lg:py-3.5 rounded-full bg-brand-white/10 backdrop-blur-md border border-brand-white/20 text-brand-white text-xs lg:text-sm font-semibold tracking-wide uppercase group hover:bg-brand-white/25 transition-all duration-300"
+                  className="inline-flex items-center gap-2 self-start md:self-auto px-5 py-2.5 lg:px-7 lg:py-3.5 rounded-full bg-brand-white/15 border border-brand-white/20 text-brand-white text-xs lg:text-sm font-semibold tracking-wide uppercase group hover:bg-brand-white/25 transition-all duration-300"
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                 >

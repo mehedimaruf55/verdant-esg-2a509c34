@@ -105,7 +105,7 @@ const DropdownPanel = ({
           : "top-[-8px] left-full ml-2"
       } min-w-[270px] z-50`}
     >
-      <div className="rounded-2xl bg-white/95 backdrop-blur-3xl backdrop-saturate-[1.8] border border-white/60 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.15),0_0_0_1px_rgba(255,255,255,0.7)_inset,0_1px_3px_rgba(0,0,0,0.06)] overflow-hidden">
+      <div className="rounded-2xl bg-white/98 lg:bg-white/95 lg:backdrop-blur-3xl lg:backdrop-saturate-[1.8] border border-white/60 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.15),0_0_0_1px_rgba(255,255,255,0.7)_inset,0_1px_3px_rgba(0,0,0,0.06)] overflow-hidden">
         <div className="py-2.5 px-1.5">
           {items.map((item, idx) => {
             const hasChildren = !!item.children;
@@ -250,8 +250,8 @@ const Navbar = () => {
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
         className={`pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
           scrolled
-            ? "mt-2 lg:mt-2.5 w-full max-w-6xl rounded-xl bg-white/60 backdrop-blur-xl backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
-            : "mt-2 lg:mt-3 w-full max-w-6xl rounded-xl bg-white/40 backdrop-blur-lg backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
+            ? "mt-2 lg:mt-2.5 w-full max-w-6xl rounded-xl bg-white/90 lg:bg-white/60 lg:backdrop-blur-xl lg:backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
+            : "mt-2 lg:mt-3 w-full max-w-6xl rounded-xl bg-white/80 lg:bg-white/40 lg:backdrop-blur-lg lg:backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
         }`}
       >
       <div

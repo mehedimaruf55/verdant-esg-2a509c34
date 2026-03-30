@@ -19,14 +19,14 @@ const CtaSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Ambient glow orbs */}
+          {/* Ambient glow orbs — desktop only for performance */}
           <motion.div
-            className="absolute top-0 right-[20%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded-full bg-brand-green-light opacity-[0.06] blur-[100px] pointer-events-none"
+            className="hidden lg:block absolute top-0 right-[20%] w-[300px] h-[300px] rounded-full bg-brand-green-light opacity-[0.06] blur-[100px] pointer-events-none"
             animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.1, 0.06] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute bottom-[10%] left-[15%] w-[150px] h-[150px] lg:w-[250px] lg:h-[250px] rounded-full bg-brand-green-light opacity-[0.04] blur-[80px] pointer-events-none"
+            className="hidden lg:block absolute bottom-[10%] left-[15%] w-[250px] h-[250px] rounded-full bg-brand-green-light opacity-[0.04] blur-[80px] pointer-events-none"
             animate={{ scale: [1, 1.2, 1], opacity: [0.04, 0.08, 0.04] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           />
