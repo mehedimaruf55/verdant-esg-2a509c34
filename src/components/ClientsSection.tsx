@@ -22,7 +22,7 @@ const ClientsSection = () => {
       <motion.img
         src={leafImg}
         alt=""
-        className="absolute -bottom-[5%] -left-[6%] w-[40vw] max-w-[500px] min-w-[260px] opacity-[0.06] select-none pointer-events-none rotate-[-15deg] hidden sm:block"
+        className="absolute -bottom-[5%] -left-[6%] w-[40vw] max-w-[500px] min-w-[260px] opacity-[0.18] select-none pointer-events-none rotate-[-15deg] hidden sm:block"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.06 }}
         viewport={{ once: true }}

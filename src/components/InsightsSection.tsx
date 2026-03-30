@@ -45,7 +45,7 @@ const InsightsSection = () => {
       <motion.img
         src={leafImg}
         alt=""
-        className="absolute -bottom-[10%] -right-[8%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.08] select-none pointer-events-none rotate-[30deg] hidden sm:block"
+        className="absolute -bottom-[10%] -right-[8%] w-[40vw] max-w-[550px] min-w-[280px] opacity-[0.18] select-none pointer-events-none rotate-[30deg] hidden sm:block"
         initial={{ opacity: 0, rotate: 25 }}
         whileInView={{ opacity: 0.08, rotate: 30 }}
         viewport={{ once: true }}
