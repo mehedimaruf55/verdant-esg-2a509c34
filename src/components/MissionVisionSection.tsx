@@ -152,8 +152,8 @@ const MissionVisionSection = () => {
                   className="lg:col-span-2 p-6 md:p-8 lg:p-14 flex flex-row lg:flex-col justify-between lg:justify-center gap-6 lg:gap-8"
                   style={{
                     background: active === 0
-                      ? "linear-gradient(135deg, #326234 0%, #6ABA45 100%)"
-                      : "linear-gradient(135deg, #6ABA45 0%, #326234 100%)",
+                      ? "linear-gradient(135deg, #3a7a5a 0%, #76f7bf 100%)"
+                      : "linear-gradient(135deg, #76f7bf 0%, #3a7a5a 100%)",
                   }}
                 >
                   {card.stats.map((stat, si) => (
