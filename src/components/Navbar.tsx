@@ -256,7 +256,7 @@ const Navbar = () => {
       >
       <div
         className={`mx-auto flex items-center justify-between transition-all duration-700 ${
-          scrolled ? "px-3 lg:px-5 h-11 lg:h-12" : "px-4 lg:px-7 h-12 lg:h-16"
+          scrolled ? "px-4 lg:px-6 h-12 lg:h-14" : "px-5 lg:px-8 h-14 lg:h-[72px]"
         }`}
       >
         {/* Logo */}
