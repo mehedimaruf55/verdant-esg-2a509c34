@@ -28,7 +28,7 @@ const HeroSection = () => {
       <motion.img
         src={leafImg}
         alt=""
-        className="absolute -bottom-[10%] -left-[12%] w-[35vw] max-w-[500px] opacity-[0.18] select-none pointer-events-none rotate-[140deg] hidden sm:block"
+        className="absolute -bottom-[10%] -left-[12%] w-[35vw] max-w-[500px] opacity-[0.35] select-none pointer-events-none rotate-[140deg] hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.07 }}
         transition={{ duration: 2, delay: 0.8 }}
