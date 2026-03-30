@@ -24,7 +24,7 @@ const WhyVerdantSection = () => {
       <motion.img
         src={leafImg}
         alt=""
-        className="absolute bottom-[5%] -left-[6%] w-[45vw] max-w-[600px] min-w-[200px] select-none pointer-events-none rotate-[-20deg] hidden sm:block opacity-[0.25] mix-blend-soft-light"
+        className="absolute bottom-[5%] -left-[6%] w-[45vw] max-w-[600px] min-w-[200px] select-none pointer-events-none rotate-[-20deg] hidden sm:block opacity-[0.20]"
         initial={{ opacity: 0, rotate: -25 }}
         whileInView={{ opacity: 0.25, rotate: -20 }}
         viewport={{ once: true }}
