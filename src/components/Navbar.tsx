@@ -250,8 +250,8 @@ const Navbar = () => {
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
         className={`pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
           scrolled
-            ? "mt-2 lg:mt-2.5 w-full max-w-6xl rounded-xl bg-white/90 lg:bg-white/60 lg:backdrop-blur-xl lg:backdrop-saturate-[1.8] border border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.5)_inset]"
-            : "mt-2 lg:mt-3 w-full max-w-6xl rounded-xl bg-white/80 lg:bg-white/40 lg:backdrop-blur-lg lg:backdrop-saturate-[1.5] border border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
+            ? "mt-2 lg:mt-2.5 w-full max-w-6xl rounded-xl bg-white/50 backdrop-blur-lg backdrop-saturate-150 lg:bg-white/60 lg:backdrop-blur-xl lg:backdrop-saturate-[1.8] border border-white/30 lg:border-white/40 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.1),0_0_0_1px_rgba(255,255,255,0.3)_inset]"
+            : "mt-2 lg:mt-3 w-full max-w-6xl rounded-xl bg-white/35 backdrop-blur-md backdrop-saturate-125 lg:bg-white/40 lg:backdrop-blur-lg lg:backdrop-saturate-[1.5] border border-white/25 lg:border-white/30 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]"
         }`}
       >
       <div
