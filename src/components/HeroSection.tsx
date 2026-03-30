@@ -20,7 +20,7 @@ const HeroSection = () => {
         alt=""
         className="absolute top-[8%] -right-[5%] w-[55vw] max-w-[800px] min-w-[280px] select-none pointer-events-none opacity-[0.22]"
         initial={{ opacity: 0, scale: 1.08, rotate: -3 }}
-        animate={{ opacity: 0.28, scale: 1, rotate: 0 }}
+        animate={{ opacity: 0.22, scale: 1, rotate: 0 }}
         transition={{ duration: 2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       />
 
