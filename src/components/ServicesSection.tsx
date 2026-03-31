@@ -30,7 +30,7 @@ const ServicesSection = () => {
         >
           <div className="flex items-center gap-3 mb-4 lg:mb-6">
             <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
-            <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">What We Do</span>
+            <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-dark">What We Do</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black max-w-2xl">
             {"Our Services".split(" ").map((word, i) => (
