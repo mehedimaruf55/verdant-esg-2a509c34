@@ -40,7 +40,7 @@ const ClientsSection = () => {
         >
           <div className="flex items-center gap-3 justify-center mb-4 lg:mb-6">
             <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
-            <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
+            <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-dark">
               Trusted By
             </span>
             <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-right" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
