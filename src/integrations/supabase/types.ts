@@ -68,6 +68,57 @@ export type Database = {
         }
         Relationships: []
       }
+      projects: {
+        Row: {
+          category: string
+          client: string | null
+          cover_image_url: string | null
+          created_at: string
+          description: string
+          featured: boolean
+          id: string
+          location: string | null
+          published: boolean
+          published_date: string
+          slug: string
+          title: string
+          updated_at: string
+          year: string | null
+        }
+        Insert: {
+          category: string
+          client?: string | null
+          cover_image_url?: string | null
+          created_at?: string
+          description?: string
+          featured?: boolean
+          id?: string
+          location?: string | null
+          published?: boolean
+          published_date?: string
+          slug: string
+          title: string
+          updated_at?: string
+          year?: string | null
+        }
+        Update: {
+          category?: string
+          client?: string | null
+          cover_image_url?: string | null
+          created_at?: string
+          description?: string
+          featured?: boolean
+          id?: string
+          location?: string | null
+          published?: boolean
+          published_date?: string
+          slug?: string
+          title?: string
+          updated_at?: string
+          year?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
