@@ -295,8 +295,8 @@ const AdminInsights = () => {
                     <Textarea value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} placeholder="Short summary…" rows={2} />
                   </div>
                   <div>
-                    <Label>Body (Markdown supported)</Label>
-                    <Textarea value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} placeholder="Full article content…" rows={10} className="font-mono text-sm" />
+                    <Label>Body</Label>
+                    <RichTextEditor content={form.body} onChange={(html) => setForm({ ...form, body: html })} bucket="insight-covers" placeholder="Write your article content…" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
