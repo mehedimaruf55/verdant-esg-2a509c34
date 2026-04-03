@@ -38,6 +38,7 @@ import Team from "./pages/Team.tsx";
 import Insights from "./pages/Insights.tsx";
 import InsightDetail from "./pages/InsightDetail.tsx";
 import Projects from "./pages/Projects.tsx";
+import ProjectDetail from "./pages/ProjectDetail.tsx";
 import Contact from "./pages/Contact.tsx";
 import Careers from "./pages/Careers.tsx";
 import Resources from "./pages/Resources.tsx";
