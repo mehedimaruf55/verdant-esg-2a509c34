@@ -67,31 +67,7 @@ const InsightDetail = () => {
     day: "numeric",
   });
 
-  // Simple markdown-like rendering (paragraphs, headings, bold, lists)
-  const renderBody = (text: string) => {
-    return text.split("\n\n").map((block, i) => {
-      if (block.startsWith("### ")) {
-        return <h3 key={i} className="text-lg font-heading font-bold text-brand-black mt-8 mb-3">{block.slice(4)}</h3>;
-      }
-      if (block.startsWith("## ")) {
-        return <h2 key={i} className="text-xl font-heading font-bold text-brand-black mt-10 mb-4">{block.slice(3)}</h2>;
-      }
-      if (block.startsWith("# ")) {
-        return <h1 key={i} className="text-2xl font-heading font-bold text-brand-black mt-10 mb-4">{block.slice(2)}</h1>;
-      }
-      if (block.startsWith("- ") || block.startsWith("* ")) {
-        const items = block.split("\n").filter(Boolean);
-        return (
-          <ul key={i} className="list-disc pl-6 space-y-1 mb-4">
-            {items.map((item, j) => (
-              <li key={j} className="text-brand-grey leading-relaxed">{item.replace(/^[-*]\s/, "")}</li>
-            ))}
-          </ul>
-        );
-      }
-      return <p key={i} className="text-brand-grey leading-relaxed mb-4">{block}</p>;
-    });
-  };
+  // Content is now HTML from TipTap editor
 
   return (
     <PageLayout>
