@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageSplit from "@/components/ServicePageSplit";
 
 const RealEstateESG = () => (
-  <ServicePageTemplate
+  <ServicePageSplit
     subtitle="Corporate Sustainability"
     title="Real Estate ESG"
     description="Integrate ESG strategies into your real estate portfolio to enhance asset value and reduce risk."

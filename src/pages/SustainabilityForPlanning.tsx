@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageMagazine from "@/components/ServicePageMagazine";
 
 const SustainabilityForPlanning = () => (
-  <ServicePageTemplate
+  <ServicePageMagazine
     subtitle="Built Environment"
     title="Sustainability for Planning"
     description="Expert sustainability guidance to navigate the planning process with confidence."

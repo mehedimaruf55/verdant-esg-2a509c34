@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageTimeline from "@/components/ServicePageTimeline";
 
 const ESGConsulting = () => (
-  <ServicePageTemplate
+  <ServicePageTimeline
     subtitle="Corporate Sustainability"
     title="ESG Consulting"
     description="Build a credible ESG framework that drives real business value and meaningful impact."

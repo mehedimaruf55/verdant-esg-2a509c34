@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageSplit from "@/components/ServicePageSplit";
 
 const BusinessCarbonFootprint = () => (
-  <ServicePageTemplate
+  <ServicePageSplit
     subtitle="Net Zero Carbon"
     title="Carbon Footprint your Business"
     description="Measure, understand, and reduce your organisation's carbon footprint with expert guidance."

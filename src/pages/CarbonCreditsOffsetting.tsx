@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageMagazine from "@/components/ServicePageMagazine";
 
 const CarbonCreditsOffsetting = () => (
-  <ServicePageTemplate
+  <ServicePageMagazine
     subtitle="Services"
     title="Carbon Credits & Offsetting"
     description="Access high-quality carbon credits and offsetting solutions to mitigate your residual emissions."

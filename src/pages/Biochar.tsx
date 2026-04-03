@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageMagazine from "@/components/ServicePageMagazine";
 
 const Biochar = () => (
-  <ServicePageTemplate
+  <ServicePageMagazine
     subtitle="Carbon Credits & Offsetting"
     title="Biochar Certification and Excellence"
     description="High-quality biochar carbon removal credits for lasting, verifiable carbon sequestration."

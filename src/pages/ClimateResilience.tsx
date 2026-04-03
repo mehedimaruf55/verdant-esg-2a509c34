@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageTimeline from "@/components/ServicePageTimeline";
 
 const ClimateResilience = () => (
-  <ServicePageTemplate
+  <ServicePageTimeline
     subtitle="Corporate Sustainability"
     title="Climate Resilience"
     description="Prepare your organisation for the physical and transition risks of climate change."

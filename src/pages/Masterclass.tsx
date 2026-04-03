@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageSplit from "@/components/ServicePageSplit";
 
 const Masterclass = () => (
-  <ServicePageTemplate
+  <ServicePageSplit
     subtitle="Resources"
     title="Sustainability for Business Masterclass Sessions"
     description="In-depth masterclass sessions on advanced sustainability topics for professionals."
@@ -18,8 +18,6 @@ const Masterclass = () => (
       { title: "ESG Strategy Masterclass", desc: "Building and implementing a credible ESG framework for your organisation." },
       { title: "Climate Risk Masterclass", desc: "Understanding and managing physical and transition climate risks." },
     ]}
-    ctaTitle="Enquire About a Masterclass"
-    ctaDesc="Get in touch to discuss a tailored masterclass for your team or organisation."
   />
 );
 
