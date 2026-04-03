@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Leaf, Plus, Pencil, Trash2, LogOut, Eye, ArrowLeft } from "lucide-react";
 import RichTextEditor from "@/components/RichTextEditor";
 import AdminProjects from "./AdminProjects";
+import AdminSubmissions from "./AdminSubmissions";
 
 type Insight = {
   id: string;
@@ -56,7 +57,7 @@ const AdminInsights = () => {
   const [form, setForm] = useState(emptyForm);
   const [coverFile, setCoverFile] = useState<File | null>(null);
   const [saving, setSaving] = useState(false);
-  const [activeTab, setActiveTab] = useState<"insights" | "projects">("insights");
+  const [activeTab, setActiveTab] = useState<"insights" | "projects" | "submissions">("insights");
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
@@ -208,12 +209,20 @@ const AdminInsights = () => {
           >
             Projects
           </button>
+          <button
+            onClick={() => setActiveTab("submissions")}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === "submissions" ? "bg-brand-green-dark text-white" : "text-brand-grey hover:text-brand-black"}`}
+          >
+            Submissions
+          </button>
         </div>
       </div>
 
       <main className="max-w-6xl mx-auto px-5 py-8">
         {activeTab === "projects" ? (
           <AdminProjects />
+        ) : activeTab === "submissions" ? (
+          <AdminSubmissions />
         ) : (
           <>
             <div className="flex items-center justify-between mb-6">

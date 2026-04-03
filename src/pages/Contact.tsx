@@ -1,17 +1,41 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    company: "",
+    email: "",
+    interest: "",
+    message: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    setSubmitting(true);
+    const { error } = await supabase.from("form_submissions").insert({
+      name: `${form.firstName.trim()} ${form.lastName.trim()}`.trim(),
+      email: form.email.trim(),
+      company: form.company.trim() || null,
+      message: `${form.interest ? `[${form.interest}] ` : ""}${form.message.trim()}`,
+      source: "contact",
+    });
+    setSubmitting(false);
+    if (!error) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      setForm({ firstName: "", lastName: "", company: "", email: "", interest: "", message: "" });
+    }
   };
+
+  const inputClass = "w-full rounded-xl border border-border px-4 py-3 text-sm bg-white focus:border-brand-green-dark focus:ring-1 focus:ring-brand-green-dark/20 outline-none transition-all";
 
   return (
     <PageLayout>
@@ -61,27 +85,27 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="text-xs font-bold text-brand-black uppercase tracking-wider mb-1.5 block">First Name</label>
-                    <input required className="w-full rounded-xl border border-border px-4 py-3 text-sm bg-white focus:border-brand-green-dark focus:ring-1 focus:ring-brand-green-dark/20 outline-none transition-all" />
+                    <input required value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} className={inputClass} />
                   </div>
                   <div>
                     <label className="text-xs font-bold text-brand-black uppercase tracking-wider mb-1.5 block">Last Name</label>
-                    <input required className="w-full rounded-xl border border-border px-4 py-3 text-sm bg-white focus:border-brand-green-dark focus:ring-1 focus:ring-brand-green-dark/20 outline-none transition-all" />
+                    <input required value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} className={inputClass} />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="text-xs font-bold text-brand-black uppercase tracking-wider mb-1.5 block">Company</label>
-                    <input className="w-full rounded-xl border border-border px-4 py-3 text-sm bg-white focus:border-brand-green-dark focus:ring-1 focus:ring-brand-green-dark/20 outline-none transition-all" />
+                    <input value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className={inputClass} />
                   </div>
                   <div>
                     <label className="text-xs font-bold text-brand-black uppercase tracking-wider mb-1.5 block">Email</label>
-                    <input required type="email" className="w-full rounded-xl border border-border px-4 py-3 text-sm bg-white focus:border-brand-green-dark focus:ring-1 focus:ring-brand-green-dark/20 outline-none transition-all" />
+                    <input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} />
                   </div>
                 </div>
                 <div>
                   <label className="text-xs font-bold text-brand-black uppercase tracking-wider mb-1.5 block">Area of Interest</label>
-                  <select className="w-full rounded-xl border border-border px-4 py-3 text-sm bg-white focus:border-brand-green-dark focus:ring-1 focus:ring-brand-green-dark/20 outline-none transition-all">
-                    <option>Select...</option>
+                  <select value={form.interest} onChange={(e) => setForm({ ...form, interest: e.target.value })} className={inputClass}>
+                    <option value="">Select...</option>
                     <option>Corporate Sustainability</option>
                     <option>Built Environment</option>
                     <option>Net Zero Carbon</option>
@@ -91,10 +115,10 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="text-xs font-bold text-brand-black uppercase tracking-wider mb-1.5 block">Message</label>
-                  <textarea required rows={5} className="w-full rounded-xl border border-border px-4 py-3 text-sm bg-white focus:border-brand-green-dark focus:ring-1 focus:ring-brand-green-dark/20 outline-none transition-all resize-none" />
+                  <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${inputClass} resize-none`} />
                 </div>
-                <button type="submit" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:shadow-lg transition-all">
-                  Submit <Send size={14} />
+                <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:shadow-lg transition-all disabled:opacity-50">
+                  {submitting ? "Submitting…" : "Submit"} <Send size={14} />
                 </button>
               </form>
             )}
