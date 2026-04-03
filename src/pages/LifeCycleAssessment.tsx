@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageMagazine from "@/components/ServicePageMagazine";
 
 const LifeCycleAssessment = () => (
-  <ServicePageTemplate
+  <ServicePageMagazine
     subtitle="Built Environment"
     title="Life Cycle Assessment"
     description="Understand the full environmental impact of your buildings and products across their entire lifecycle."

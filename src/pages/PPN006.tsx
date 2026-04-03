@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageSplit from "@/components/ServicePageSplit";
 
 const PPN006 = () => (
-  <ServicePageTemplate
+  <ServicePageSplit
     subtitle="PPN Compliance Services"
     title="PPN 006 Carbon Reduction Plan"
     description="Comply with Carbon Reduction Plan requirements for government contracts."

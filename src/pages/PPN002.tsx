@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageTimeline from "@/components/ServicePageTimeline";
 
 const PPN002 = () => (
-  <ServicePageTemplate
+  <ServicePageTimeline
     subtitle="PPN Compliance Services"
     title="PPN 002 Social Value Compliance"
     description="ESG Strategy for Government Procurement — demonstrate your commitment to social value through compliant procurement submissions."

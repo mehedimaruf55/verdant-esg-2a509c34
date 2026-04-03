@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageSplit from "@/components/ServicePageSplit";
 
 const PPN016 = () => (
-  <ServicePageTemplate
+  <ServicePageSplit
     subtitle="PPN Compliance Services"
     title="PPN 016 Carbon Reduction Contract Management"
     description="Environmental Performance Excellence — manage carbon reduction commitments throughout the contract lifecycle."

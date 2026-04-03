@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageTimeline from "@/components/ServicePageTimeline";
 
 const TCFDTNFDAdvisory = () => (
-  <ServicePageTemplate
+  <ServicePageTimeline
     subtitle="Corporate Sustainability"
     title="TCFD & TNFD Advisory"
     description="Navigate climate and nature-related financial disclosures with expert advisory support."
