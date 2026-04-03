@@ -103,30 +103,6 @@ const About = () => (
       </div>
     </section>
 
-    {/* Partners */}
-    <section className="py-20 lg:py-28 px-5 lg:px-10 bg-brand-grey-light">
-      <div className="max-w-6xl mx-auto text-center">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7 }} className="text-2xl lg:text-4xl font-bold text-brand-black mb-4">
-          Our Partners
-        </motion.h2>
-        <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="text-brand-grey mb-8 max-w-2xl mx-auto">
-          We partner with businesses that recognise their responsibility in making a positive impact on the environment, and we help them accomplish it.
-        </motion.p>
-      </div>
-    </section>
-
-    {/* Press & Media */}
-    <section className="py-20 lg:py-28 px-5 lg:px-10">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7 }} className="text-2xl lg:text-4xl font-bold text-brand-black mb-4">
-          Press & Media
-        </motion.h2>
-        <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="text-brand-grey max-w-2xl">
-          A collection of the most recent news, press mentions, comments and media assets where we look to provide the market with thought-leading insights and research.
-        </motion.p>
-      </div>
-    </section>
-
     {/* CTA */}
     <section className="py-20 lg:py-28 px-5 lg:px-10 bg-brand-green-dark">
       <div className="max-w-4xl mx-auto text-center">
