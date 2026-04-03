@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageSplit from "@/components/ServicePageSplit";
 
 const EventCarbonFootprint = () => (
-  <ServicePageTemplate
+  <ServicePageSplit
     subtitle="Net Zero Carbon"
     title="Carbon Footprint your Events"
     description="Measure and offset the carbon impact of your events for truly sustainable gatherings."
