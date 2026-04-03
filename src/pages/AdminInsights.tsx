@@ -10,6 +10,7 @@ import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { Leaf, Plus, Pencil, Trash2, LogOut, Eye, ArrowLeft } from "lucide-react";
+import RichTextEditor from "@/components/RichTextEditor";
 import AdminProjects from "./AdminProjects";
 
 type Insight = {
