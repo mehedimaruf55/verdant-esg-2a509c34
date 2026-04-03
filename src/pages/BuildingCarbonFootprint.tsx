@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const BuildingCarbonFootprint = () => (
   <ServicePageTemplate
     subtitle="Net Zero Carbon"
-    title="Building Carbon Footprint"
+    title="Carbon Footprint your Buildings"
     description="Assess and reduce the carbon footprint of your buildings across their entire lifecycle."
     intro="Buildings account for a significant proportion of global carbon emissions. Our building carbon footprint service measures both operational and embodied carbon, providing a complete picture of your building's environmental impact. We help you identify reduction opportunities and develop strategies to achieve net zero carbon buildings."
     processSteps={[

@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const PlanningTool = () => (
   <ServicePageTemplate
     subtitle="Resources"
-    title="Planning Permission Tool"
+    title="London Planning Permission Tool"
     description="Navigate planning sustainability requirements with our interactive guidance tool."
     intro="Our planning permission tool helps developers, architects, and planning consultants quickly understand the sustainability requirements for their projects. By entering key project details, you can identify which assessments, reports, and certifications may be required by your local planning authority — saving time and ensuring nothing is missed."
     processSteps={[

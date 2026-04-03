@@ -2,9 +2,9 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 const PPN002 = () => (
   <ServicePageTemplate
-    subtitle="PPN Compliance"
-    title="PPN 06/20 (PPN 002)"
-    description="Demonstrate your commitment to achieving Net Zero through government procurement compliance."
+    subtitle="PPN Compliance Services"
+    title="PPN 002 Social Value Compliance"
+    description="ESG Strategy for Government Procurement — demonstrate your commitment to social value through compliant procurement submissions."
     intro="Procurement Policy Note 06/20 (commonly known as PPN 002) requires suppliers bidding for major government contracts to provide a Carbon Reduction Plan. Our team helps you develop a compliant Carbon Reduction Plan that meets Cabinet Office requirements, demonstrating your organisation's commitment to achieving Net Zero by 2050."
     processSteps={[
       { title: "Baseline Assessment", desc: "Measuring your current carbon footprint across Scope 1, 2, and relevant Scope 3 emissions." },

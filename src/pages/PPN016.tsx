@@ -2,9 +2,9 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 const PPN016 = () => (
   <ServicePageTemplate
-    subtitle="PPN Compliance"
-    title="PPN 01/23 (PPN 016)"
-    description="Comply with the latest procurement policy requirements for transparency and accountability."
+    subtitle="PPN Compliance Services"
+    title="PPN 016 Carbon Reduction Contract Management"
+    description="Environmental Performance Excellence — manage carbon reduction commitments throughout the contract lifecycle."
     intro="Procurement Policy Note 01/23 introduces enhanced transparency and accountability requirements for government suppliers. Our team ensures your organisation meets these obligations, from data reporting to governance structures, helping you maintain compliance and competitiveness in public sector procurement."
     processSteps={[
       { title: "Compliance Review", desc: "Assessing your current practices against PPN 01/23 requirements." },

@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const EventCarbonFootprint = () => (
   <ServicePageTemplate
     subtitle="Net Zero Carbon"
-    title="Event Carbon Footprint"
+    title="Carbon Footprint your Events"
     description="Measure and offset the carbon impact of your events for truly sustainable gatherings."
     intro="Events generate significant carbon emissions from travel, energy, catering, accommodation, and materials. Our event carbon footprint service provides accurate measurement, practical reduction advice, and credible offsetting solutions — helping you deliver events that align with your sustainability commitments and meet growing attendee expectations."
     processSteps={[
