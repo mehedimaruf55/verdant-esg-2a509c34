@@ -3,6 +3,9 @@ import { ArrowRight, Users, Award, Building2, Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
+import CtaSection from "@/components/CtaSection";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
 
 const stats = [
   { num: "17+", label: "Years Experience" },
