@@ -340,7 +340,7 @@ const Navbar = () => {
           <div className="ml-3 h-5 w-px bg-gradient-to-b from-transparent via-brand-black/10 to-transparent" />
           <a
             href="/contact"
-            className="ml-3 px-5 py-2 text-[12px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
+            className="ml-3 px-5 py-2 text-[12px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:text-brand-black hover:shadow-[0_4px_20px_-4px_rgba(106,186,69,0.4)] transition-all duration-300 active:scale-[0.97]"
           >
             Contact
           </a>
