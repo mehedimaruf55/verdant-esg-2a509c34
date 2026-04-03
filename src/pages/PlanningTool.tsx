@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageMagazine from "@/components/ServicePageMagazine";
 
 const PlanningTool = () => (
-  <ServicePageTemplate
+  <ServicePageMagazine
     subtitle="Resources"
     title="London Planning Permission Tool"
     description="Navigate planning sustainability requirements with our interactive guidance tool."
@@ -18,8 +18,6 @@ const PlanningTool = () => (
       { title: "Biodiversity Net Gain", desc: "Understand BNG requirements and metric calculation needs for your project." },
       { title: "Overheating Assessment", desc: "Determine whether a CIBSE TM59/TM52 overheating assessment is required." },
     ]}
-    ctaTitle="Need Help with Planning?"
-    ctaDesc="Contact our team for expert guidance on sustainability requirements for your planning application."
   />
 );
 

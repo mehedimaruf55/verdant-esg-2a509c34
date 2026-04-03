@@ -1,7 +1,7 @@
-import ServicePageTemplate from "@/components/ServicePageTemplate";
+import ServicePageTimeline from "@/components/ServicePageTimeline";
 
 const CPDSessions = () => (
-  <ServicePageTemplate
+  <ServicePageTimeline
     subtitle="Resources"
     title="Sustainable Buildings Knowledge Sharing & CPD Sessions"
     description="Continuing Professional Development sessions on sustainability topics for your team."
@@ -18,8 +18,6 @@ const CPDSessions = () => (
       { title: "ESG for Business", desc: "Introduction to ESG frameworks, reporting, and strategy development." },
       { title: "Biodiversity Net Gain", desc: "Understanding BNG requirements and delivering ecological enhancements." },
     ]}
-    ctaTitle="Book a CPD Session"
-    ctaDesc="Contact us to schedule a CPD session for your team — available in-person or virtually."
   />
 );
 
