@@ -127,7 +127,7 @@ const InsightDetail = () => {
         transition={{ duration: 0.6 }}
       >
         <p className="text-lg lg:text-xl text-brand-black font-medium leading-relaxed mb-8">{insight.excerpt}</p>
-        <div className="prose-verdant">{renderBody(insight.body)}</div>
+        <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-brand-black prose-p:text-brand-grey prose-a:text-brand-green-dark prose-img:rounded-xl" dangerouslySetInnerHTML={{ __html: insight.body }} />
       </motion.article>
 
       {/* Back */}
