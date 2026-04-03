@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import aboutImage from "@/assets/about-image-new.png";
 import leafImg from "@/assets/leaf.png";
 import { useRef } from "react";
