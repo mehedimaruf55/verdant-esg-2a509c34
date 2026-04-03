@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import leafImg from "@/assets/leaf-watermark.png";
+import leafImg from "@/assets/leaf.png";
 
 interface PageHeroProps {
   title: string;
