@@ -50,8 +50,8 @@ const CtaSection = () => {
           >
             Let's start a conversation about your ESG goals and how we can help you achieve them.
           </motion.p>
-          <motion.a
-            href="mailto:hello@verdantesg.com"
+          <Link to="/contact">
+          <motion.span
             className="mt-8 lg:mt-10 group inline-flex items-center gap-3 relative z-10"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
