@@ -102,20 +102,7 @@ const PressMedia = () => (
       </div>
     </section>
 
-    {/* Media Enquiries CTA */}
-    <section className="py-20 lg:py-28 px-5 lg:px-10 bg-brand-grey-light">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7 }} className="text-2xl lg:text-4xl font-bold text-brand-black mb-4">
-          Media Enquiries
-        </motion.h2>
-        <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="text-brand-grey mb-8 max-w-2xl mx-auto">
-          For press enquiries, interview requests, or media assets, please get in touch with our communications team.
-        </motion.p>
-        <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:shadow-lg transition-all">
-          Get in Touch <ArrowRight size={16} />
-        </Link>
-      </div>
-    </section>
+    <CtaSection />
   </PageLayout>
 );
 
