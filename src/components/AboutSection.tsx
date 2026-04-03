@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import aboutImage from "@/assets/about-image-new.png";
 import leafImg from "@/assets/leaf.png";
 import { useRef } from "react";
@@ -124,8 +125,8 @@ const AboutSection = () => {
                   ))}
                 </div>
 
-                <motion.a
-                  href="#contact"
+                <Link to="/contact">
+                <motion.span
                   variants={fadeUp}
                   className="inline-flex items-center gap-2 self-start md:self-auto px-5 py-2.5 lg:px-7 lg:py-3.5 rounded-full bg-brand-white/15 border border-brand-white/20 text-brand-white text-xs lg:text-sm font-semibold tracking-wide uppercase group hover:bg-brand-white/25 transition-all duration-300"
                   whileHover={{ scale: 1.04 }}
@@ -133,7 +134,8 @@ const AboutSection = () => {
                 >
                   Work with us
                   <ArrowRight className="w-3.5 h-3.5 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </motion.a>
+                </motion.span>
+                </Link>
               </motion.div>
             </div>
           </motion.div>

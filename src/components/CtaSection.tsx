@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import leafImg from "@/assets/leaf.png";
 
 const CtaSection = () => {
@@ -49,8 +50,8 @@ const CtaSection = () => {
           >
             Let's start a conversation about your ESG goals and how we can help you achieve them.
           </motion.p>
-          <motion.a
-            href="mailto:hello@verdantesg.com"
+          <Link to="/contact">
+          <motion.span
             className="mt-8 lg:mt-10 group inline-flex items-center gap-3 relative z-10"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +66,8 @@ const CtaSection = () => {
             <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-all duration-300">
               <ArrowRight size={15} className="text-brand-white group-hover:translate-x-0.5 transition-transform duration-300" />
             </span>
-          </motion.a>
+          </motion.span>
+          </Link>
         </motion.div>
       </div>
     </section>

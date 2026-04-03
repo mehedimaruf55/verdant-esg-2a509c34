@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import leafImg from "@/assets/leaf.png";
 
 const lineVariants = {
@@ -99,8 +100,8 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <motion.a
-              href="#contact"
+            <Link to="/contact">
+            <motion.span
               className="group inline-flex items-center gap-3 self-start"
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -111,7 +112,8 @@ const HeroSection = () => {
               <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
                 <ArrowDownRight size={16} className="text-brand-white" />
               </span>
-            </motion.a>
+            </motion.span>
+            </Link>
           </motion.div>
         </div>
       </div>
