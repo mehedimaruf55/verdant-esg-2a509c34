@@ -57,7 +57,7 @@ const AdminInsights = () => {
   const [form, setForm] = useState(emptyForm);
   const [coverFile, setCoverFile] = useState<File | null>(null);
   const [saving, setSaving] = useState(false);
-  const [activeTab, setActiveTab] = useState<"insights" | "projects">("insights");
+  const [activeTab, setActiveTab] = useState<"insights" | "projects" | "submissions">("insights");
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
