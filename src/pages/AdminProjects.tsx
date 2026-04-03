@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import RichTextEditor from "@/components/RichTextEditor";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -241,7 +241,7 @@ const AdminProjects = () => {
             </div>
             <div>
               <Label>Description *</Label>
-              <Textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Project description…" rows={6} />
+              <RichTextEditor content={form.description} onChange={(html) => setForm({ ...form, description: html })} bucket="project-covers" placeholder="Write project description…" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>

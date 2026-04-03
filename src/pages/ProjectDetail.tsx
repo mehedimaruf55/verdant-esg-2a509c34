@@ -101,14 +101,13 @@ const ProjectDetail = () => {
             )}
           </div>
 
-          <motion.article
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="prose prose-lg max-w-none text-brand-grey leading-relaxed whitespace-pre-line"
-          >
-            {project.description}
-          </motion.article>
+            className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-brand-black prose-p:text-brand-grey prose-a:text-brand-green-dark prose-img:rounded-xl"
+            dangerouslySetInnerHTML={{ __html: project.description }}
+          />
         </div>
       </section>
     </PageLayout>
