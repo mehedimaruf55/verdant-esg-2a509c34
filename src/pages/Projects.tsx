@@ -1,78 +1,108 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin, Calendar } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
 
-const caseStudies = [
-  {
-    title: "Carbon Mosaic for São Tomé and Príncipe",
-    desc: "Integrating biochar, regenerative agriculture, and blue-carbon restoration to boost coastal resilience and create a sustainable, low-carbon future.",
-    category: "Carbon Credits",
-  },
-  {
-    title: "Biochar Project, Kenya",
-    desc: "Transforming crop waste into biochar, removing carbon, enriching soils, and creating green jobs — a scalable model for regenerative farming.",
-    category: "Net Zero Carbon",
-  },
-  {
-    title: "Brent Cross Town Regeneration Programme",
-    desc: "Delivering ecology appraisals, biodiversity net gain assessments and BREEAM excellence for a greener, more resilient urban development in London.",
-    category: "Built Environment",
-  },
-  {
-    title: "Corporate ESG Strategy — Global REIT",
-    desc: "Developing a comprehensive ESG framework for a global real estate investment trust covering 200+ assets across 12 countries.",
-    category: "Corporate Sustainability",
-  },
-  {
-    title: "Net Zero Roadmap — Financial Services",
-    desc: "Creating a science-based decarbonisation pathway for a major UK financial services firm, covering Scope 1, 2 and 3 emissions.",
-    category: "Net Zero Carbon",
-  },
-  {
-    title: "BREEAM Outstanding — Mixed-Use Development",
-    desc: "Achieving BREEAM Outstanding certification for a landmark mixed-use scheme in central London through integrated sustainable design.",
-    category: "Built Environment",
-  },
-];
+type Project = {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  category: string;
+  cover_image_url: string | null;
+  client: string | null;
+  location: string | null;
+  year: string | null;
+};
 
-const Projects = () => (
-  <PageLayout>
-    <PageHero
-      title="Our Projects"
-      subtitle="Case Studies"
-      description="Explore a selection of our recent sustainability projects across the built and corporate environment."
-    />
+const Projects = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
-    <section className="py-20 lg:py-32 px-5 lg:px-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-6">
-          {caseStudies.map((cs, i) => (
-            <motion.div
-              key={cs.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="group rounded-3xl border border-border overflow-hidden hover:border-brand-green-dark/20 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="h-48 bg-gradient-to-br from-brand-green-dark/10 via-brand-green-light/10 to-brand-green-dark/5 flex items-center justify-center">
-                <span className="text-6xl font-bold text-brand-green-dark/10">{String(i + 1).padStart(2, "0")}</span>
-              </div>
-              <div className="p-6 lg:p-8">
-                <span className="text-[11px] font-bold text-brand-green-dark uppercase tracking-wider bg-brand-green-dark/10 px-2.5 py-1 rounded-full">{cs.category}</span>
-                <h3 className="text-lg font-bold text-brand-black mt-3 mb-2 group-hover:text-brand-green-dark transition-colors">{cs.title}</h3>
-                <p className="text-brand-grey text-sm leading-relaxed mb-4">{cs.desc}</p>
-                <span className="inline-flex items-center gap-1.5 text-brand-green-dark font-bold text-xs uppercase tracking-wider group-hover:gap-2.5 transition-all">
-                  Read More <ArrowRight size={13} />
-                </span>
-              </div>
-            </motion.div>
-          ))}
+  useEffect(() => {
+    const fetch = async () => {
+      const { data } = await supabase
+        .from("projects")
+        .select("id, title, slug, description, category, cover_image_url, client, location, year")
+        .eq("published", true)
+        .order("published_date", { ascending: false });
+      if (data) setProjects(data as Project[]);
+      setLoading(false);
+    };
+    fetch();
+  }, []);
+
+  return (
+    <PageLayout>
+      <PageHero
+        title="Our Projects"
+        subtitle="Case Studies"
+        description="Explore a selection of our recent sustainability projects across the built and corporate environment."
+      />
+
+      <section className="py-20 lg:py-32 px-5 lg:px-10">
+        <div className="max-w-6xl mx-auto">
+          {loading ? (
+            <div className="flex justify-center py-20">
+              <div className="w-8 h-8 border-2 border-brand-green-dark border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : projects.length === 0 ? (
+            <p className="text-center text-brand-grey py-20">No projects published yet.</p>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-6">
+              {projects.map((project, i) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    className="group block rounded-3xl border border-border overflow-hidden hover:border-brand-green-dark/20 hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="h-48 bg-gradient-to-br from-brand-green-dark/10 via-brand-green-light/10 to-brand-green-dark/5 flex items-center justify-center overflow-hidden">
+                      {project.cover_image_url ? (
+                        <img src={project.cover_image_url} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      ) : (
+                        <span className="text-6xl font-bold text-brand-green-dark/10">{String(i + 1).padStart(2, "0")}</span>
+                      )}
+                    </div>
+                    <div className="p-6 lg:p-8">
+                      <span className="text-[11px] font-bold text-brand-green-dark uppercase tracking-wider bg-brand-green-dark/10 px-2.5 py-1 rounded-full">
+                        {project.category}
+                      </span>
+                      <h3 className="text-lg font-bold text-brand-black mt-3 mb-2 group-hover:text-brand-green-dark transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-brand-grey text-sm leading-relaxed mb-4 line-clamp-2">{project.description}</p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4 text-xs text-brand-grey">
+                          {project.location && (
+                            <span className="flex items-center gap-1"><MapPin size={12} /> {project.location}</span>
+                          )}
+                          {project.year && (
+                            <span className="flex items-center gap-1"><Calendar size={12} /> {project.year}</span>
+                          )}
+                        </div>
+                        <span className="inline-flex items-center gap-1.5 text-brand-green-dark font-bold text-xs uppercase tracking-wider group-hover:gap-2.5 transition-all">
+                          Read More <ArrowRight size={13} />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
-      </div>
-    </section>
-  </PageLayout>
-);
+      </section>
+    </PageLayout>
+  );
+};
 
 export default Projects;

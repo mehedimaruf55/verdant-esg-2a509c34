@@ -10,6 +10,7 @@ import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { Leaf, Plus, Pencil, Trash2, LogOut, Eye, ArrowLeft } from "lucide-react";
+import AdminProjects from "./AdminProjects";
 
 type Insight = {
   id: string;
@@ -54,6 +55,7 @@ const AdminInsights = () => {
   const [form, setForm] = useState(emptyForm);
   const [coverFile, setCoverFile] = useState<File | null>(null);
   const [saving, setSaving] = useState(false);
+  const [activeTab, setActiveTab] = useState<"insights" | "projects">("insights");
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
@@ -190,150 +192,173 @@ const AdminInsights = () => {
         </div>
       </header>
 
+      {/* Tabs */}
+      <div className="max-w-6xl mx-auto px-5 pt-6">
+        <div className="flex gap-1 bg-white rounded-lg border border-border p-1 w-fit">
+          <button
+            onClick={() => setActiveTab("insights")}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === "insights" ? "bg-brand-green-dark text-white" : "text-brand-grey hover:text-brand-black"}`}
+          >
+            Insights
+          </button>
+          <button
+            onClick={() => setActiveTab("projects")}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === "projects" ? "bg-brand-green-dark text-white" : "text-brand-grey hover:text-brand-black"}`}
+          >
+            Projects
+          </button>
+        </div>
+      </div>
+
       <main className="max-w-6xl mx-auto px-5 py-8">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-heading font-bold text-brand-black">Insights</h1>
-          <Button onClick={openCreate} className="bg-brand-green-dark hover:bg-brand-green-dark/90 text-white gap-1.5">
-            <Plus size={16} /> New Insight
-          </Button>
-        </div>
-
-        {/* Table */}
-        <div className="bg-white rounded-xl border border-border overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border bg-brand-grey-light/50">
-                  <th className="text-left px-4 py-3 font-semibold text-brand-grey">Title</th>
-                  <th className="text-left px-4 py-3 font-semibold text-brand-grey">Category</th>
-                  <th className="text-left px-4 py-3 font-semibold text-brand-grey">Date</th>
-                  <th className="text-center px-4 py-3 font-semibold text-brand-grey">Published</th>
-                  <th className="text-center px-4 py-3 font-semibold text-brand-grey">Featured</th>
-                  <th className="text-right px-4 py-3 font-semibold text-brand-grey">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {insights.map((insight) => (
-                  <tr key={insight.id} className="border-b border-border last:border-0 hover:bg-brand-grey-light/30 transition-colors">
-                    <td className="px-4 py-3 font-medium text-brand-black max-w-[250px] truncate">{insight.title}</td>
-                    <td className="px-4 py-3 text-brand-grey">{insight.category}</td>
-                    <td className="px-4 py-3 text-brand-grey">{insight.published_date}</td>
-                    <td className="px-4 py-3 text-center">
-                      <span className={`inline-block w-2 h-2 rounded-full ${insight.published ? "bg-green-500" : "bg-gray-300"}`} />
-                    </td>
-                    <td className="px-4 py-3 text-center">
-                      <span className={`inline-block w-2 h-2 rounded-full ${insight.featured ? "bg-amber-500" : "bg-gray-300"}`} />
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      <div className="flex items-center justify-end gap-1">
-                        <Button variant="ghost" size="sm" onClick={() => navigate(`/insights/${insight.slug}`)} className="h-8 w-8 p-0">
-                          <Eye size={14} />
-                        </Button>
-                        <Button variant="ghost" size="sm" onClick={() => openEdit(insight)} className="h-8 w-8 p-0">
-                          <Pencil size={14} />
-                        </Button>
-                        <Button variant="ghost" size="sm" onClick={() => handleDelete(insight.id)} className="h-8 w-8 p-0 text-red-500 hover:text-red-700">
-                          <Trash2 size={14} />
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-                {insights.length === 0 && (
-                  <tr>
-                    <td colSpan={6} className="px-4 py-12 text-center text-brand-grey">
-                      No insights yet. Click "New Insight" to create one.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </main>
-
-      {/* Edit/Create Dialog */}
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="font-heading">{editing ? "Edit Insight" : "New Insight"}</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 pt-2">
-            <div>
-              <Label>Title *</Label>
-              <Input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value, slug: form.slug || slugify(e.target.value) })} placeholder="Insight title" />
-            </div>
-            <div>
-              <Label>Slug</Label>
-              <Input value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })} placeholder="auto-generated-from-title" />
-            </div>
-            <div>
-              <Label>Excerpt *</Label>
-              <Textarea value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} placeholder="Short summary…" rows={2} />
-            </div>
-            <div>
-              <Label>Body (Markdown supported)</Label>
-              <Textarea value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} placeholder="Full article content…" rows={10} className="font-mono text-sm" />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label>Category *</Label>
-                <select
-                  value={form.category}
-                  onChange={(e) => setForm({ ...form, category: e.target.value })}
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                >
-                  <option value="">Select category</option>
-                  {categories.map((c) => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <Label>Author</Label>
-                <Input value={form.author} onChange={(e) => setForm({ ...form, author: e.target.value })} placeholder="Verdant ESG" />
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label>Published Date</Label>
-                <Input type="date" value={form.published_date} onChange={(e) => setForm({ ...form, published_date: e.target.value })} />
-              </div>
-              <div>
-                <Label>Reading Time (mins)</Label>
-                <Input type="number" min={1} value={form.reading_time_minutes} onChange={(e) => setForm({ ...form, reading_time_minutes: parseInt(e.target.value) || 5 })} />
-              </div>
-            </div>
-            <div>
-              <Label>Tags (comma-separated)</Label>
-              <Input value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} placeholder="sustainability, ESG, net-zero" />
-            </div>
-            <div>
-              <Label>Cover Image</Label>
-              {form.cover_image_url && (
-                <img src={form.cover_image_url} alt="" className="w-full h-32 object-cover rounded-lg mb-2" />
-              )}
-              <Input type="file" accept="image/*" onChange={(e) => setCoverFile(e.target.files?.[0] || null)} />
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <Switch checked={form.published} onCheckedChange={(v) => setForm({ ...form, published: v })} />
-                <Label>Published</Label>
-              </div>
-              <div className="flex items-center gap-2">
-                <Switch checked={form.featured} onCheckedChange={(v) => setForm({ ...form, featured: v })} />
-                <Label>Featured</Label>
-              </div>
-            </div>
-            <div className="flex justify-end gap-2 pt-2">
-              <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
-              <Button onClick={handleSave} disabled={saving} className="bg-brand-green-dark hover:bg-brand-green-dark/90 text-white">
-                {saving ? "Saving…" : editing ? "Update" : "Create"}
+        {activeTab === "projects" ? (
+          <AdminProjects />
+        ) : (
+          <>
+            <div className="flex items-center justify-between mb-6">
+              <h1 className="text-2xl font-heading font-bold text-brand-black">Insights</h1>
+              <Button onClick={openCreate} className="bg-brand-green-dark hover:bg-brand-green-dark/90 text-white gap-1.5">
+                <Plus size={16} /> New Insight
               </Button>
             </div>
-          </div>
-        </DialogContent>
-      </Dialog>
+
+            <div className="bg-white rounded-xl border border-border overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border bg-brand-grey-light/50">
+                      <th className="text-left px-4 py-3 font-semibold text-brand-grey">Title</th>
+                      <th className="text-left px-4 py-3 font-semibold text-brand-grey">Category</th>
+                      <th className="text-left px-4 py-3 font-semibold text-brand-grey">Date</th>
+                      <th className="text-center px-4 py-3 font-semibold text-brand-grey">Published</th>
+                      <th className="text-center px-4 py-3 font-semibold text-brand-grey">Featured</th>
+                      <th className="text-right px-4 py-3 font-semibold text-brand-grey">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {insights.map((insight) => (
+                      <tr key={insight.id} className="border-b border-border last:border-0 hover:bg-brand-grey-light/30 transition-colors">
+                        <td className="px-4 py-3 font-medium text-brand-black max-w-[250px] truncate">{insight.title}</td>
+                        <td className="px-4 py-3 text-brand-grey">{insight.category}</td>
+                        <td className="px-4 py-3 text-brand-grey">{insight.published_date}</td>
+                        <td className="px-4 py-3 text-center">
+                          <span className={`inline-block w-2 h-2 rounded-full ${insight.published ? "bg-green-500" : "bg-gray-300"}`} />
+                        </td>
+                        <td className="px-4 py-3 text-center">
+                          <span className={`inline-block w-2 h-2 rounded-full ${insight.featured ? "bg-amber-500" : "bg-gray-300"}`} />
+                        </td>
+                        <td className="px-4 py-3 text-right">
+                          <div className="flex items-center justify-end gap-1">
+                            <Button variant="ghost" size="sm" onClick={() => navigate(`/insights/${insight.slug}`)} className="h-8 w-8 p-0">
+                              <Eye size={14} />
+                            </Button>
+                            <Button variant="ghost" size="sm" onClick={() => openEdit(insight)} className="h-8 w-8 p-0">
+                              <Pencil size={14} />
+                            </Button>
+                            <Button variant="ghost" size="sm" onClick={() => handleDelete(insight.id)} className="h-8 w-8 p-0 text-red-500 hover:text-red-700">
+                              <Trash2 size={14} />
+                            </Button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                    {insights.length === 0 && (
+                      <tr>
+                        <td colSpan={6} className="px-4 py-12 text-center text-brand-grey">
+                          No insights yet. Click "New Insight" to create one.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Edit/Create Dialog */}
+            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle className="font-heading">{editing ? "Edit Insight" : "New Insight"}</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4 pt-2">
+                  <div>
+                    <Label>Title *</Label>
+                    <Input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value, slug: form.slug || slugify(e.target.value) })} placeholder="Insight title" />
+                  </div>
+                  <div>
+                    <Label>Slug</Label>
+                    <Input value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })} placeholder="auto-generated-from-title" />
+                  </div>
+                  <div>
+                    <Label>Excerpt *</Label>
+                    <Textarea value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} placeholder="Short summary…" rows={2} />
+                  </div>
+                  <div>
+                    <Label>Body (Markdown supported)</Label>
+                    <Textarea value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} placeholder="Full article content…" rows={10} className="font-mono text-sm" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label>Category *</Label>
+                      <select
+                        value={form.category}
+                        onChange={(e) => setForm({ ...form, category: e.target.value })}
+                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                      >
+                        <option value="">Select category</option>
+                        {categories.map((c) => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <Label>Author</Label>
+                      <Input value={form.author} onChange={(e) => setForm({ ...form, author: e.target.value })} placeholder="Verdant ESG" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label>Published Date</Label>
+                      <Input type="date" value={form.published_date} onChange={(e) => setForm({ ...form, published_date: e.target.value })} />
+                    </div>
+                    <div>
+                      <Label>Reading Time (mins)</Label>
+                      <Input type="number" min={1} value={form.reading_time_minutes} onChange={(e) => setForm({ ...form, reading_time_minutes: parseInt(e.target.value) || 5 })} />
+                    </div>
+                  </div>
+                  <div>
+                    <Label>Tags (comma-separated)</Label>
+                    <Input value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} placeholder="sustainability, ESG, net-zero" />
+                  </div>
+                  <div>
+                    <Label>Cover Image</Label>
+                    {form.cover_image_url && (
+                      <img src={form.cover_image_url} alt="" className="w-full h-32 object-cover rounded-lg mb-2" />
+                    )}
+                    <Input type="file" accept="image/*" onChange={(e) => setCoverFile(e.target.files?.[0] || null)} />
+                  </div>
+                  <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <Switch checked={form.published} onCheckedChange={(v) => setForm({ ...form, published: v })} />
+                      <Label>Published</Label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Switch checked={form.featured} onCheckedChange={(v) => setForm({ ...form, featured: v })} />
+                      <Label>Featured</Label>
+                    </div>
+                  </div>
+                  <div className="flex justify-end gap-2 pt-2">
+                    <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
+                    <Button onClick={handleSave} disabled={saving} className="bg-brand-green-dark hover:bg-brand-green-dark/90 text-white">
+                      {saving ? "Saving…" : editing ? "Update" : "Create"}
+                    </Button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </>
+        )}
+      </main>
     </div>
   );
 };
