@@ -1,33 +1,18 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import leafImg from "@/assets/leaf.png";
-import insight1 from "@/assets/insight-1.jpg";
-import insight2 from "@/assets/insight-2.jpg";
-import insight3 from "@/assets/insight-3.jpg";
 
-const insights = [
-  {
-    image: insight1,
-    title: "Sustainability for Business – The Outlook for 2026",
-    excerpt:
-      "Tighter greenwashing rules, rising Scope 3 supply chain pressure and carbon intensity metrics. What businesses must do to stay compliant.",
-    date: "March 2026",
-  },
-  {
-    image: insight2,
-    title: "The Built Environment Outlook for 2026",
-    excerpt:
-      "BREEAM V7 transition, the Warm Homes Plan, and the Future Homes Standard. What these changes mean for delivery, cost and risk.",
-    date: "February 2026",
-  },
-  {
-    image: insight3,
-    title: "Net Zero Targets: From Ambition to Action",
-    excerpt:
-      "How leading organisations are translating net-zero pledges into measurable, science-based strategies across their operations.",
-    date: "January 2026",
-  },
-];
+type Insight = {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  cover_image_url: string | null;
+  published_date: string;
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -39,6 +24,23 @@ const cardVariants = {
 };
 
 const InsightsSection = () => {
+  const [insights, setInsights] = useState<Insight[]>([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const { data } = await supabase
+        .from("insights")
+        .select("id, title, slug, excerpt, cover_image_url, published_date")
+        .eq("published", true)
+        .order("published_date", { ascending: false })
+        .limit(3);
+      if (data) setInsights(data);
+    };
+    fetch();
+  }, []);
+
+  if (insights.length === 0) return null;
+
   return (
     <section className="relative py-20 lg:py-36 bg-brand-white overflow-hidden">
       {/* Leaf watermark */}
@@ -102,64 +104,70 @@ const InsightsSection = () => {
             </motion.p>
           </div>
 
-          <motion.a
-            href="#insights"
-            className="group inline-flex items-center gap-2 text-xs lg:text-sm font-bold tracking-[0.05em] uppercase text-brand-green-dark hover:text-brand-green-light transition-colors duration-300 shrink-0"
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            whileHover={{ x: 4, transition: { duration: 0.2 } }}
           >
-            View All Insights
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
-          </motion.a>
+            <Link
+              to="/insights"
+              className="group inline-flex items-center gap-2 text-xs lg:text-sm font-bold tracking-[0.05em] uppercase text-brand-green-dark hover:text-brand-green-light transition-colors duration-300 shrink-0"
+            >
+              View All Insights
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </motion.div>
         </div>
 
         {/* Cards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
           {insights.map((item, i) => (
-            <motion.a
-              key={item.title}
-              href="#"
-              className="group block rounded-2xl lg:rounded-3xl overflow-hidden bg-brand-grey-light border border-transparent hover:border-border hover:shadow-xl transition-all duration-500"
-              custom={i}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden aspect-[3/2]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                  width={800}
-                  height={544}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+            <Link key={item.id} to={`/insights/${item.slug}`}>
+              <motion.div
+                className="group block rounded-2xl lg:rounded-3xl overflow-hidden bg-brand-grey-light border border-transparent hover:border-border hover:shadow-xl transition-all duration-500 h-full"
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              >
+                {/* Image */}
+                {item.cover_image_url ? (
+                  <div className="relative overflow-hidden aspect-[3/2]">
+                    <img
+                      src={item.cover_image_url}
+                      alt={item.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                ) : (
+                  <div className="aspect-[3/2] bg-brand-green-dark/10 flex items-center justify-center">
+                    <span className="text-brand-green-dark/30 text-5xl font-heading font-bold">V</span>
+                  </div>
+                )}
 
-              {/* Content */}
-              <div className="p-5 lg:p-7">
-                <span className="text-xs lg:text-sm font-semibold tracking-[0.15em] uppercase text-brand-grey">
-                  {item.date}
-                </span>
-                <h3 className="mt-2 lg:mt-3 text-base lg:text-lg font-heading font-bold leading-snug text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="mt-2 lg:mt-3 text-sm lg:text-base leading-relaxed text-brand-grey line-clamp-3">
-                  {item.excerpt}
-                </p>
-                <div className="mt-4 lg:mt-5 inline-flex items-center gap-2 text-xs lg:text-sm font-bold text-brand-green-dark group-hover:text-brand-green-light transition-colors duration-300">
-                  Read More
-                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+                {/* Content */}
+                <div className="p-5 lg:p-7">
+                  <span className="text-xs lg:text-sm font-semibold tracking-[0.15em] uppercase text-brand-grey">
+                    {new Date(item.published_date).toLocaleDateString("en-GB", { month: "long", year: "numeric" })}
+                  </span>
+                  <h3 className="mt-2 lg:mt-3 text-base lg:text-lg font-heading font-bold leading-snug text-brand-black group-hover:text-brand-green-dark transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 lg:mt-3 text-sm lg:text-base leading-relaxed text-brand-grey line-clamp-3">
+                    {item.excerpt}
+                  </p>
+                  <div className="mt-4 lg:mt-5 inline-flex items-center gap-2 text-xs lg:text-sm font-bold text-brand-green-dark group-hover:text-brand-green-light transition-colors duration-300">
+                    Read More
+                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
                 </div>
-              </div>
-            </motion.a>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
