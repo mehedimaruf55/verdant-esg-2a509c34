@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import leafImg from "@/assets/leaf.png";
 
 const CtaSection = () => {
