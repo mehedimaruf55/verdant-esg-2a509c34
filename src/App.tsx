@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import About from "./pages/About.tsx";
+import PressMedia from "./pages/PressMedia.tsx";
+import Partners from "./pages/Partners.tsx";
 import Services from "./pages/Services.tsx";
 import CorporateSustainability from "./pages/CorporateSustainability.tsx";
 import BuiltEnvironment from "./pages/BuiltEnvironment.tsx";
@@ -29,6 +31,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about/press-and-media" element={<PressMedia />} />
+          <Route path="/about/our-partners" element={<Partners />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/corporate-sustainability" element={<CorporateSustainability />} />
           <Route path="/services/built-environment" element={<BuiltEnvironment />} />
