@@ -91,7 +91,7 @@ const Team = () => (
         <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-brand-grey leading-relaxed mb-8">
           We're a highly collaborative team of intelligent, dynamic and enthusiastic professionals. We welcome like-minded people who are passionate about sustainability and the environment.
         </motion.p>
-        <Link to="/careers" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:shadow-lg transition-all">
+        <Link to="/careers" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:text-brand-black hover:shadow-lg transition-all">
           View Careers <ArrowRight size={16} />
         </Link>
       </div>

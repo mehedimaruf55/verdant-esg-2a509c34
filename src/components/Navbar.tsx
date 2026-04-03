@@ -419,7 +419,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="mt-3 text-center px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light transition-all duration-300"
+                className="mt-3 text-center px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] bg-brand-green-dark text-brand-white rounded-full hover:bg-brand-green-light hover:text-brand-black transition-all duration-300"
               >
                 Contact
               </motion.a>
