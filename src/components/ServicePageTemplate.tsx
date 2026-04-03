@@ -3,6 +3,9 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
+import CtaSection from "@/components/CtaSection";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
 
 const fadeUp = { hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0 } };
 
