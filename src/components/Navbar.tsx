@@ -136,7 +136,7 @@ const DropdownPanel = ({
           : "top-[-8px] left-full ml-2"
       } min-w-[270px] z-50`}
     >
-      <div className="rounded-2xl bg-white/98 lg:bg-white/95 lg:backdrop-blur-3xl lg:backdrop-saturate-[1.8] border border-white/60 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.15),0_0_0_1px_rgba(255,255,255,0.7)_inset,0_1px_3px_rgba(0,0,0,0.06)] overflow-hidden">
+      <div className="rounded-2xl bg-white/98 lg:bg-white/95 lg:backdrop-blur-3xl lg:backdrop-saturate-[1.8] border border-white/60 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.15),0_0_0_1px_rgba(255,255,255,0.7)_inset,0_1px_3px_rgba(0,0,0,0.06)]">
         <div className="py-2.5 px-1.5">
           {items.map((item, idx) => {
             const hasChildren = !!item.children;
