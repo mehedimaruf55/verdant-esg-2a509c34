@@ -3,6 +3,7 @@ import { ArrowRight, Shield, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
+import CtaSection from "@/components/CtaSection";
 
 const certifications = [
   { title: "BREEAM", desc: "The world's leading sustainability assessment method for buildings, communities and infrastructure projects." },

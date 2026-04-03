@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
+import CtaSection from "@/components/CtaSection";
 
 const steps = [
   { num: "01", title: "Measure", desc: "Your first step is to measure your carbon footprint and understand your starting point." },
