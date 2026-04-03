@@ -92,7 +92,7 @@ const Careers = () => (
         <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-brand-grey mb-8">
           Send us your CV and we'll keep you in mind for future opportunities.
         </motion.p>
-        <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:shadow-lg transition-all">
+        <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:text-brand-black hover:shadow-lg transition-all">
           Get in Touch <ArrowRight size={16} />
         </Link>
       </div>

@@ -117,7 +117,7 @@ const Contact = () => {
                   <label className="text-xs font-bold text-brand-black uppercase tracking-wider mb-1.5 block">Message</label>
                   <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${inputClass} resize-none`} />
                 </div>
-                <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:shadow-lg transition-all disabled:opacity-50">
+                <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-8 py-3 bg-brand-green-dark text-brand-white font-bold text-sm uppercase tracking-wider rounded-full hover:bg-brand-green-light hover:text-brand-black hover:shadow-lg transition-all disabled:opacity-50">
                   {submitting ? "Submitting…" : "Submit"} <Send size={14} />
                 </button>
               </form>
