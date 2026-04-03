@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
+import CtaSection from "@/components/CtaSection";
 
 const fadeUp = { hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0 } };
 
@@ -78,20 +79,7 @@ const Partners = () => (
       </div>
     </section>
 
-    {/* Become a Partner CTA */}
-    <section className="py-20 lg:py-28 px-5 lg:px-10 bg-brand-green-dark">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7 }} className="text-2xl lg:text-4xl font-bold text-brand-white mb-4">
-          Interested in Partnering With Us?
-        </motion.h2>
-        <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="text-brand-white/70 mb-8 max-w-2xl mx-auto">
-          We partner with businesses that recognise their responsibility in making a positive impact on the environment, and we help them accomplish it.
-        </motion.p>
-        <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-white text-brand-green-dark font-bold text-sm uppercase tracking-wider rounded-full hover:shadow-lg transition-all">
-          Get in Touch <ArrowRight size={16} />
-        </Link>
-      </div>
-    </section>
+    <CtaSection />
   </PageLayout>
 );
 
