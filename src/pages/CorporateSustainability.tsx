@@ -79,14 +79,7 @@ const CorporateSustainability = () => (
       </div>
     </section>
 
-    <section className="py-16 lg:py-24 px-5 lg:px-10 bg-brand-green-dark">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold text-brand-white mb-6">Start Your Corporate Sustainability Journey</h2>
-        <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-white text-brand-green-dark font-bold text-sm uppercase tracking-wider rounded-full hover:shadow-lg transition-all">
-          Get in Touch <ArrowRight size={16} />
-        </Link>
-      </div>
-    </section>
+    <CtaSection />
   </PageLayout>
 );
 
