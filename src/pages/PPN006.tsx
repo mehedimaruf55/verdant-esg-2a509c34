@@ -2,9 +2,9 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 const PPN006 = () => (
   <ServicePageTemplate
-    subtitle="PPN Compliance"
-    title="PPN 06/21 (PPN 006)"
-    description="Meet social value requirements in government procurement with expert support."
+    subtitle="PPN Compliance Services"
+    title="PPN 006 Carbon Reduction Plan"
+    description="Comply with Carbon Reduction Plan requirements for government contracts."
     intro="Procurement Policy Note 06/21 requires government contracts to evaluate social value as part of the procurement process, with a minimum 10% weighting. Our team helps you develop compelling social value proposals that demonstrate genuine community, environmental, and economic benefits — increasing your chances of winning public sector contracts."
     processSteps={[
       { title: "Requirements Analysis", desc: "Understanding the specific social value requirements for your target contracts." },

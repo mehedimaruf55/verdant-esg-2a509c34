@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const Biochar = () => (
   <ServicePageTemplate
     subtitle="Carbon Credits & Offsetting"
-    title="Biochar"
+    title="Biochar Certification and Excellence"
     description="High-quality biochar carbon removal credits for lasting, verifiable carbon sequestration."
     intro="Biochar is a stable form of carbon produced from organic waste through pyrolysis. When applied to soil, it can sequester carbon for hundreds to thousands of years while improving soil health and agricultural productivity. Our biochar carbon credit solutions connect your organisation with verified, high-quality biochar projects that deliver genuine, measurable carbon removal."
     processSteps={[

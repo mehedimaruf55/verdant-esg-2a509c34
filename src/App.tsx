@@ -59,30 +59,31 @@ const App = () => (
           <Route path="/about/our-partners" element={<Partners />} />
           {/* Services */}
           <Route path="/services" element={<Services />} />
-          <Route path="/services/corporate-sustainability" element={<CorporateSustainability />} />
           <Route path="/services/built-environment" element={<BuiltEnvironment />} />
+          <Route path="/services/built-environment/sustainability-planning" element={<SustainabilityForPlanning />} />
+          <Route path="/services/built-environment/environmental-assessment-certification" element={<EnvironmentalAssessment />} />
+          <Route path="/services/built-environment/breeam-certification" element={<BREEAMCertification />} />
+          <Route path="/services/built-environment/well-certification" element={<WELLCertification />} />
+          <Route path="/services/built-environment/building-performance" element={<BuildingPerformance />} />
+          <Route path="/services/built-environment/biodiversity-consultancy" element={<Biodiversity />} />
+          <Route path="/services/built-environment/life-cycle-assessment" element={<LifeCycleAssessment />} />
+          <Route path="/services/corporate-sustainability" element={<CorporateSustainability />} />
+          <Route path="/services/corporate-sustainability/esg-consulting" element={<ESGConsulting />} />
+          <Route path="/services/corporate-sustainability/real-estate-esg" element={<RealEstateESG />} />
+          <Route path="/services/corporate-sustainability/climate-resilience" element={<ClimateResilience />} />
+          <Route path="/services/corporate-sustainability/tcfd-tnfd-advisory" element={<TCFDTNFDAdvisory />} />
           <Route path="/services/net-zero-carbon" element={<NetZeroCarbon />} />
-          <Route path="/services/assurance-certification" element={<AssuranceCertification />} />
-          <Route path="/services/sustainability-for-planning" element={<SustainabilityForPlanning />} />
-          <Route path="/services/environmental-assessment" element={<EnvironmentalAssessment />} />
-          <Route path="/services/breeam-certification" element={<BREEAMCertification />} />
-          <Route path="/services/well-certification" element={<WELLCertification />} />
-          <Route path="/services/building-performance" element={<BuildingPerformance />} />
-          <Route path="/services/biodiversity" element={<Biodiversity />} />
-          <Route path="/services/life-cycle-assessment" element={<LifeCycleAssessment />} />
-          <Route path="/services/esg-consulting" element={<ESGConsulting />} />
-          <Route path="/services/real-estate-esg" element={<RealEstateESG />} />
-          <Route path="/services/climate-resilience" element={<ClimateResilience />} />
-          <Route path="/services/tcfd-tnfd-advisory" element={<TCFDTNFDAdvisory />} />
+          <Route path="/services/net-zero-carbon/carbon-footprint-for-business" element={<BusinessCarbonFootprint />} />
+          <Route path="/services/net-zero-carbon/footprinting-buildings" element={<BuildingCarbonFootprint />} />
+          <Route path="/services/net-zero-carbon/footprinting-products" element={<ProductCarbonFootprint />} />
+          <Route path="/services/net-zero-carbon/event-carbon-footprint" element={<EventCarbonFootprint />} />
+          <Route path="/services/ppn-compliance" element={<PPN002 />} />
           <Route path="/services/ppn-002" element={<PPN002 />} />
           <Route path="/services/ppn-006" element={<PPN006 />} />
           <Route path="/services/ppn-016" element={<PPN016 />} />
-          <Route path="/services/business-carbon-footprint" element={<BusinessCarbonFootprint />} />
-          <Route path="/services/building-carbon-footprint" element={<BuildingCarbonFootprint />} />
-          <Route path="/services/product-carbon-footprint" element={<ProductCarbonFootprint />} />
-          <Route path="/services/event-carbon-footprint" element={<EventCarbonFootprint />} />
-          <Route path="/services/carbon-credits-offsetting" element={<CarbonCreditsOffsetting />} />
-          <Route path="/services/biochar" element={<Biochar />} />
+          <Route path="/services/carbon-credits-and-offsetting" element={<CarbonCreditsOffsetting />} />
+          <Route path="/services/carbon-credits-and-offsetting/biochar" element={<Biochar />} />
+          <Route path="/services/assurance-certification" element={<AssuranceCertification />} />
           {/* Team */}
           <Route path="/team" element={<Team />} />
           <Route path="/careers" element={<Careers />} />

@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const Biodiversity = () => (
   <ServicePageTemplate
     subtitle="Built Environment"
-    title="Biodiversity"
+    title="Biodiversity Consultancy"
     description="Protect and enhance biodiversity through expert ecological assessment and net gain strategies."
     intro="With Biodiversity Net Gain (BNG) now a mandatory requirement for most developments in England, understanding and managing ecological impacts is essential. Our ecology and biodiversity team provides comprehensive services from initial habitat surveys through to BNG metric calculations and long-term management plans, ensuring your developments deliver genuine ecological benefits."
     processSteps={[

@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const BusinessCarbonFootprint = () => (
   <ServicePageTemplate
     subtitle="Net Zero Carbon"
-    title="Business Carbon Footprint"
+    title="Carbon Footprint your Business"
     description="Measure, understand, and reduce your organisation's carbon footprint with expert guidance."
     intro="Understanding your business carbon footprint is the essential first step on the journey to Net Zero. Our team measures your emissions across Scope 1, 2, and 3, providing a clear picture of where your carbon hotspots lie. We then develop a tailored reduction roadmap with science-based targets, practical decarbonisation strategies, and credible offsetting solutions."
     processTitle="Our Carbon Footprint Process"

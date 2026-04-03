@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const CPDSessions = () => (
   <ServicePageTemplate
     subtitle="Resources"
-    title="CPD Sessions"
+    title="Sustainable Buildings Knowledge Sharing & CPD Sessions"
     description="Continuing Professional Development sessions on sustainability topics for your team."
     intro="Our RIBA and CIBSE-approved CPD sessions deliver practical, up-to-date knowledge on key sustainability topics. Whether for architects, engineers, developers, or corporate teams, our expert-led presentations cover everything from BREEAM and energy performance to ESG frameworks and carbon management — helping your team stay ahead of evolving regulations and best practice."
     processSteps={[

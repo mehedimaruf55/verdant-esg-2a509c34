@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const ProductCarbonFootprint = () => (
   <ServicePageTemplate
     subtitle="Net Zero Carbon"
-    title="Product Carbon Footprint"
+    title="Carbon Footprint your Products"
     description="Understand and communicate the carbon impact of your products across their full lifecycle."
     intro="Consumers, retailers, and regulators increasingly demand transparency about the carbon impact of products. Our product carbon footprint service measures greenhouse gas emissions from raw material extraction through manufacturing, distribution, use, and disposal — enabling you to identify hotspots, reduce impacts, and communicate your environmental credentials with confidence."
     processSteps={[

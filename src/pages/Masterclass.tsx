@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 const Masterclass = () => (
   <ServicePageTemplate
     subtitle="Resources"
-    title="Masterclass"
+    title="Sustainability for Business Masterclass Sessions"
     description="In-depth masterclass sessions on advanced sustainability topics for professionals."
     intro="Our sustainability masterclasses go beyond introductory CPD to provide deep, expert-level knowledge on critical topics. Designed for professionals who need a thorough understanding of complex sustainability challenges, these sessions combine technical expertise with practical case studies and hands-on workshops."
     processSteps={[
