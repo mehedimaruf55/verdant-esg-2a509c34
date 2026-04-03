@@ -100,8 +100,8 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <motion.a
-              href="#contact"
+            <Link to="/contact">
+            <motion.span
               className="group inline-flex items-center gap-3 self-start"
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
