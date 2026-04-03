@@ -134,7 +134,8 @@ const AboutSection = () => {
                 >
                   Work with us
                   <ArrowRight className="w-3.5 h-3.5 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </motion.a>
+                </motion.span>
+                </Link>
               </motion.div>
             </div>
           </motion.div>
