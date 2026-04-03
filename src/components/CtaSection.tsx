@@ -66,7 +66,8 @@ const CtaSection = () => {
             <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-all duration-300">
               <ArrowRight size={15} className="text-brand-white group-hover:translate-x-0.5 transition-transform duration-300" />
             </span>
-          </motion.a>
+          </motion.span>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -112,7 +112,8 @@ const HeroSection = () => {
               <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
                 <ArrowDownRight size={16} className="text-brand-white" />
               </span>
-            </motion.a>
+            </motion.span>
+            </Link>
           </motion.div>
         </div>
       </div>
