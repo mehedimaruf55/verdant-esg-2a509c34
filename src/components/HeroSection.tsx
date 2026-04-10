@@ -96,7 +96,7 @@ const HeroSection = () => {
               <p className="text-sm lg:text-base leading-[1.7] text-brand-white/80">
                 We help organizations integrate ESG into their core strategy
                 with clarity and precision — turning compliance into competitive
-                advantage.
+                advantage
               </p>
             </div>
 
