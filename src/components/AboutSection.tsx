@@ -1,9 +1,8 @@
-import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import aboutImage from "@/assets/about-image-new.png";
+import { motion } from "framer-motion";
+import { AlertTriangle, FileWarning, Clock } from "lucide-react";
 import leafImg from "@/assets/leaf.png";
 import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -19,10 +18,22 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const stats = [
-  { num: "50+", label: "Clients Served" },
-  { num: "12", label: "Industries" },
-  { num: "98%", label: "Retention Rate" },
+const exposureRisks = [
+  {
+    icon: AlertTriangle,
+    title: "The Substantiation Trap",
+    desc: "Making broad claims such as \"Net Zero\" or \"Sustainable\" without an internal evidence repository that survives an audit.",
+  },
+  {
+    icon: FileWarning,
+    title: "Misleading by Omission",
+    desc: "Highlighting a single 'green' feature while ignoring significant environmental impacts elsewhere in the supply chain.",
+  },
+  {
+    icon: Clock,
+    title: "The Compliance Lag",
+    desc: "Marketing cycles move quicker than legal and ESG teams can verify data, leading to unqualified claims that can attract ASA/CAP sanctions.",
+  },
 ];
 
 const AboutSection = () => {
@@ -39,128 +50,133 @@ const AboutSection = () => {
       />
 
       <div className="mx-auto max-w-6xl px-5 lg:px-10 relative z-10">
-        {/* Full-width hero image with glass overlay card */}
-        <div className="relative mb-0">
-          {/* Image */}
-          <motion.div
-            className="relative rounded-2xl lg:rounded-3xl overflow-hidden"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Ken Burns slow zoom on the image */}
-            <motion.img
-              src={aboutImage}
-              alt="Verdant ESG team collaborating on sustainability strategy"
-              loading="lazy"
-              className="w-full object-cover h-[360px] md:h-[480px] lg:h-[620px]"
-              initial={{ scale: 1.08 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 8, ease: "easeOut" }}
-            />
-            {/* Multi-layer overlay for depth */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-green-dark/80 via-brand-green-dark/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark/70 via-transparent to-transparent" />
-
-            {/* Content overlay — positioned inside the image */}
-            <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-8 lg:p-14">
-              {/* Top: Subtitle + Heading */}
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                className="max-w-xl"
-              >
-                <motion.div variants={fadeUp} className="flex items-center gap-3 mb-4 lg:mb-6">
-                  <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
-                  <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
-                    About Us
-                  </span>
-                </motion.div>
-                <motion.h2
-                  variants={fadeUp}
-                  className="text-2xl md:text-3xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-white"
-                >
-                  Delivering Holistic and Credible Sustainable Solutions
-                </motion.h2>
-              </motion.div>
-
-              {/* Bottom: Stats row + CTA */}
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8"
-              >
-                <div className="grid grid-cols-3 gap-4 w-full md:w-auto md:flex md:items-end lg:gap-14">
-                  {stats.map((s, i) => (
-                    <motion.div
-                      key={s.label}
-                      variants={fadeUp}
-                      className="text-left"
-                    >
-                      <motion.div
-                        className="text-2xl md:text-3xl lg:text-5xl font-heading font-bold text-brand-white leading-none"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.4 + i * 0.12 }}
-                      >
-                        {s.num}
-                      </motion.div>
-                      <motion.div
-                        className="text-[10px] md:text-xs lg:text-sm text-brand-white/60 mt-1 lg:mt-2 tracking-[0.12em] uppercase"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.55 + i * 0.12 }}
-                      >
-                        {s.label}
-                      </motion.div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <Link to="/contact">
-                <motion.span
-                  variants={fadeUp}
-                  className="inline-flex items-center gap-2 self-start md:self-auto px-5 py-2.5 lg:px-7 lg:py-3.5 rounded-full bg-brand-white/15 border border-brand-white/20 text-brand-white text-xs lg:text-sm font-semibold tracking-wide uppercase group hover:bg-brand-white/25 transition-all duration-300"
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  Work with us
-                  <ArrowRight className="w-3.5 h-3.5 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </motion.span>
-                </Link>
-              </motion.div>
-            </div>
+        {/* Header */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-3xl mb-10 lg:mb-16"
+        >
+          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-4 lg:mb-6">
+            <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
+            <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-dark">
+              The Problem
+            </span>
           </motion.div>
-        </div>
+          <motion.h2
+            variants={fadeUp}
+            className="text-2xl md:text-3xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black"
+          >
+            A Gap in Scrutiny
+          </motion.h2>
+          <motion.h3
+            variants={fadeUp}
+            className="mt-3 lg:mt-4 text-lg lg:text-2xl font-heading font-bold text-brand-green-dark"
+          >
+            Why Greenwashing is Now a Boardroom Risk.
+          </motion.h3>
+        </motion.div>
 
-        {/* Text content below image — two columns */}
+        {/* Two-column explanation */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid md:grid-cols-2 gap-6 lg:gap-16 mt-10 lg:mt-14"
+          className="grid md:grid-cols-2 gap-6 lg:gap-16 mb-12 lg:mb-20"
         >
-          <motion.p variants={fadeUp} className="text-sm lg:text-lg leading-[1.85] text-brand-grey">
-            Verdant ESG is a professional sustainability consultancy dedicated
-            to helping organizations navigate the complexities of
-            Environmental, Social, and Governance standards. We bridge the gap
-            between regulatory demands and business opportunity.
-          </motion.p>
-          <motion.p variants={fadeUp} className="text-sm lg:text-lg leading-[1.85] text-brand-grey">
-            Our team works alongside leadership to embed sustainability into
-            decision-making — turning ambition into action and compliance into
-            competitive advantage. Every engagement is built on data, integrity,
-            and measurable outcomes.
-          </motion.p>
+          <motion.div variants={fadeUp} className="text-sm lg:text-base leading-[1.85] text-brand-grey">
+            <p>
+              Environmental claims were, for years, seen through the lens of reputation and brand sentiment. This has now shifted to a framework where regulators categorise <span className="font-semibold text-brand-black">vague</span>, <span className="font-semibold text-brand-black">exaggerated</span>, or <span className="font-semibold text-brand-black">unsubstantiated claims</span> as <span className="font-semibold text-brand-black">misleading acts and omissions</span> under consumer protection law.
+            </p>
+            <p className="mt-4">
+              Regulators such as the CMA (Competition and Markets Authority) and the ASA (Advertising Standards Authority), applying the CAP Code, now scrutinise:
+            </p>
+            <ul className="mt-3 space-y-2">
+              {["The clarity of claims", "The context in which they are presented", "How they are understood by consumers", "The evidence supporting them"].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-green-dark shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="text-sm lg:text-base leading-[1.85] text-brand-grey">
+            <p>
+              It is no longer enough for a claim to be technically true in a narrow sense; it must also:
+            </p>
+            <ul className="mt-3 space-y-2">
+              {[
+                "Be clear and unambiguous",
+                "Avoid misleading by omission",
+                "Reflect the appropriate scope of the product or service",
+                "Be based on verifiable, contemporaneous evidence",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-green-dark shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </motion.div>
+
+        {/* Exposure risks */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 lg:mb-8"
+        >
+          <h3 className="text-lg lg:text-xl font-heading font-bold text-brand-black">
+            So, what's your exposure in this?
+          </h3>
+        </motion.div>
+
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid md:grid-cols-3 gap-4 lg:gap-5"
+        >
+          {exposureRisks.map((risk, i) => {
+            const Icon = risk.icon;
+            return (
+              <motion.div
+                key={risk.title}
+                variants={fadeUp}
+                className="group bg-brand-grey-light rounded-2xl lg:rounded-3xl p-6 lg:p-8 border border-transparent hover:border-border hover:shadow-lg transition-all duration-500"
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+              >
+                <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-brand-green-dark/10 flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-brand-green-dark" />
+                </div>
+                <h4 className="text-base lg:text-lg font-heading font-bold text-brand-black mb-2 group-hover:text-brand-green-dark transition-colors">
+                  {risk.title}
+                </h4>
+                <p className="text-sm text-brand-grey leading-relaxed">
+                  {risk.desc}
+                </p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Bottom callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-10 lg:mt-14 text-center"
+        >
+          <p className="text-lg lg:text-2xl font-heading font-bold italic text-brand-green-dark">
+            Greenwashing is a Governance Failure, Not a Marketing Choice.
+          </p>
         </motion.div>
       </div>
     </section>

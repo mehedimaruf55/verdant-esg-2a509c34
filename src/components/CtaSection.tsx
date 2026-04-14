@@ -39,7 +39,7 @@ const CtaSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Ready to build a sustainable future?
+            Move from Vulnerability to Verified Compliance
           </motion.h2>
           <motion.p
             className="mt-4 lg:mt-6 text-sm lg:text-base text-brand-white/70 max-w-md leading-relaxed relative z-10"
@@ -48,7 +48,7 @@ const CtaSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            Let's start a conversation about your ESG goals and how we can help you achieve them.
+            Do not let your environmental claims become regulatory liabilities.
           </motion.p>
           <Link to="/contact">
           <motion.span
@@ -61,7 +61,7 @@ const CtaSection = () => {
             whileTap={{ scale: 0.97 }}
           >
             <span className="px-6 py-3 lg:px-7 lg:py-4 text-xs lg:text-sm font-bold tracking-wide bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors">
-              Contact Us
+              Book a Technical Consultation
             </span>
             <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-all duration-300">
               <ArrowRight size={15} className="text-brand-white group-hover:translate-x-0.5 transition-transform duration-300" />
