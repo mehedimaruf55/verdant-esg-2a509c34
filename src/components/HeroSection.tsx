@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDownRight, ChevronDown } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import leafImg from "@/assets/leaf.png";
 
