@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield } from "lucide-react";
+
 import leafImg from "@/assets/leaf.png";
 
 const principles = [
@@ -122,10 +122,9 @@ const MissionVisionSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-10 lg:mt-14 glass rounded-2xl p-6 lg:p-8 flex items-start gap-4 border border-brand-green-dark/10"
+          className="mt-10 lg:mt-14 border-l-4 border-brand-green-dark pl-6 lg:pl-10 py-2"
         >
-          <Shield className="w-6 h-6 text-brand-green-dark shrink-0 mt-0.5" />
-          <p className="text-sm lg:text-base text-brand-grey leading-relaxed italic">
+          <p className="text-base lg:text-lg text-brand-grey leading-relaxed italic">
             Evidence must exist at the point a claim is made and not be developed retroactively.
           </p>
         </motion.div>

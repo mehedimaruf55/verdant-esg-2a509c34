@@ -5,7 +5,7 @@ import leafImg from "@/assets/leaf.png";
 
 const CtaSection = () => {
   return (
-    <section id="contact" className="relative py-20 lg:py-36 bg-brand-white overflow-hidden">
+    <section id="contact" className="relative py-16 lg:py-28 bg-brand-white overflow-hidden">
       <img
         src={leafImg}
         alt=""
