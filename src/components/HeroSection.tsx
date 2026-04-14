@@ -98,31 +98,20 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start gap-3">
-              <Link to="/contact">
-                <motion.span
-                  className="group inline-flex items-center gap-3 self-start"
-                  whileHover={{ x: 4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <span className="px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm font-bold tracking-[0.05em] uppercase bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors duration-300">
-                    Assess Your Exposure
-                  </span>
-                  <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
-                    <ArrowDownRight size={16} className="text-brand-white" />
-                  </span>
-                </motion.span>
-              </Link>
-              <a href="#framework">
-                <motion.span
-                  className="group inline-flex items-center gap-2 self-start px-5 py-3 lg:px-6 lg:py-3.5 text-xs lg:text-sm font-semibold tracking-[0.03em] text-brand-white border border-brand-white/30 rounded-full hover:border-brand-white/60 hover:bg-brand-white/10 transition-all duration-300"
-                  whileHover={{ x: 4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  View Our Governance Framework
-                </motion.span>
-              </a>
-            </div>
+            <Link to="/contact">
+              <motion.span
+                className="group inline-flex items-center gap-3 self-start"
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <span className="px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm font-bold tracking-[0.05em] uppercase bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors duration-300">
+                  Assess Your Exposure
+                </span>
+                <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
+                  <ArrowDownRight size={16} className="text-brand-white" />
+                </span>
+              </motion.span>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -139,19 +128,18 @@ const HeroSection = () => {
             <ChevronDown size={14} className="animate-gentle-bounce" />
             <span>Scroll to explore</span>
           </div>
-          <div className="hidden sm:flex gap-6 lg:gap-10">
-            {["Environmental", "Social", "Governance"].map((w, i) => (
-              <motion.span
-                key={w}
-                className="text-xs lg:text-sm tracking-[0.18em] uppercase text-brand-white/35 font-semibold"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 + i * 0.15 }}
-              >
-                {w}
-              </motion.span>
-            ))}
-          </div>
+          <a href="#framework">
+            <motion.span
+              className="hidden sm:inline-flex items-center gap-3 text-xs lg:text-sm tracking-[0.12em] uppercase text-brand-white/50 font-semibold hover:text-brand-white/90 transition-colors duration-300 cursor-pointer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5 }}
+              whileHover={{ x: 3 }}
+            >
+              View Our Governance Framework
+              <ArrowDownRight size={14} />
+            </motion.span>
+          </a>
         </div>
       </motion.div>
     </section>
