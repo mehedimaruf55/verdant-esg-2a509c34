@@ -11,6 +11,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <div style={{background:'red',padding:'40px',color:'white',fontSize:'24px'}}>TEST SECTION</div>
       <AboutSection />
       <MissionVisionSection />
       <ServicesSection />
