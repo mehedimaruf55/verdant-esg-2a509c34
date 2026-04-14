@@ -240,18 +240,35 @@ const AboutSection = () => {
           })}
         </motion.div>
 
-        {/* Bottom governance callout — full-width editorial */}
+        {/* Bottom governance callout — premium editorial card */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="border-t border-border pt-8 lg:pt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+          className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-brand-grey-light via-brand-white to-brand-grey-light p-8 lg:p-12"
         >
-          <p className="text-xl lg:text-2xl font-heading font-bold italic text-brand-green-dark max-w-lg">
-            "Greenwashing is a Governance Failure, Not a Marketing Choice."
-          </p>
-          <div className="w-16 h-[2px] rounded-full bg-gradient-to-r from-brand-green-dark to-brand-green-light hidden md:block" />
+          {/* Decorative corner accent */}
+          <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-brand-green-dark/10 to-transparent rounded-br-full" />
+          <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-brand-green-light/10 to-transparent rounded-tl-full" />
+          
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+            {/* Quote mark decoration */}
+            <div className="shrink-0">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-gradient-to-br from-brand-green-dark to-brand-green-light flex items-center justify-center">
+                <span className="text-3xl lg:text-4xl font-heading font-bold text-brand-white leading-none">"</span>
+              </div>
+            </div>
+            
+            {/* Quote content */}
+            <div className="flex-1">
+              <p className="text-2xl lg:text-3xl xl:text-4xl font-heading font-bold leading-[1.2] tracking-[-0.01em] text-brand-black mb-3">
+                Greenwashing is a Governance Failure,{" "}
+                <span className="text-brand-green-dark">Not a Marketing Choice.</span>
+              </p>
+              <div className="h-1 w-24 rounded-full bg-gradient-to-r from-brand-green-dark to-brand-green-light" />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
