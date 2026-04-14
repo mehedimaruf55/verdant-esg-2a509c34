@@ -123,7 +123,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.3, duration: 0.7 }}
       >
-        <div className="pt-5 lg:pt-6 border-t border-brand-white/15 flex items-center justify-end">
+        <div className="pt-5 lg:pt-6 border-t border-brand-white/15 flex items-center justify-start">
           <a href="#framework">
             <motion.span
               className="inline-flex items-center gap-3 text-xs lg:text-sm tracking-[0.12em] uppercase text-brand-white/50 font-semibold hover:text-brand-white/90 transition-colors duration-300 cursor-pointer"
