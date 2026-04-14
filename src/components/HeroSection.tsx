@@ -98,7 +98,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-3">
               <Link to="/contact">
                 <motion.span
                   className="group inline-flex items-center gap-3 self-start"
@@ -113,6 +113,15 @@ const HeroSection = () => {
                   </span>
                 </motion.span>
               </Link>
+              <a href="#framework">
+                <motion.span
+                  className="group inline-flex items-center gap-2 self-start px-5 py-3 lg:px-6 lg:py-3.5 text-xs lg:text-sm font-semibold tracking-[0.03em] text-brand-white border border-brand-white/30 rounded-full hover:border-brand-white/60 hover:bg-brand-white/10 transition-all duration-300"
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  View Our Governance Framework
+                </motion.span>
+              </a>
             </div>
           </motion.div>
         </div>
