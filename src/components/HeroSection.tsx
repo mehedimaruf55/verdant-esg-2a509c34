@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDownRight, ChevronDown } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import leafImg from "@/assets/leaf.png";
 
@@ -123,14 +123,10 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.3, duration: 0.7 }}
       >
-        <div className="pt-5 lg:pt-6 border-t border-brand-white/15 flex items-center justify-between">
-          <div className="flex items-center gap-2 lg:gap-3 text-xs lg:text-sm tracking-[0.15em] uppercase text-brand-white/40">
-            <ChevronDown size={14} className="animate-gentle-bounce" />
-            <span>Scroll to explore</span>
-          </div>
+        <div className="pt-5 lg:pt-6 border-t border-brand-white/15 flex items-center justify-end">
           <a href="#framework">
             <motion.span
-              className="hidden sm:inline-flex items-center gap-3 text-xs lg:text-sm tracking-[0.12em] uppercase text-brand-white/50 font-semibold hover:text-brand-white/90 transition-colors duration-300 cursor-pointer"
+              className="inline-flex items-center gap-3 text-xs lg:text-sm tracking-[0.12em] uppercase text-brand-white/50 font-semibold hover:text-brand-white/90 transition-colors duration-300 cursor-pointer"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5 }}
