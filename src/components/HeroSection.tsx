@@ -60,8 +60,8 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            <h1 className="text-[clamp(2.5rem,8vw,7.5rem)] font-heading font-bold leading-[0.88] tracking-[-0.04em] text-brand-white">
-              {["A New", "Direction.", "Balanced", "Future."].map((line, i) => (
+            <h1 className="text-[clamp(2.2rem,6.5vw,5.5rem)] font-heading font-bold leading-[0.95] tracking-[-0.03em] text-brand-white">
+              {["Environmental", "Claims are now", "Enforcement", "Realities."].map((line, i) => (
                 <motion.span
                   key={line}
                   className="block"
@@ -70,13 +70,13 @@ const HeroSection = () => {
                   initial="hidden"
                   animate="visible"
                 >
-                  {line === "Direction." ? (
+                  {line === "Realities." ? (
                     <>
-                      Direction
+                      Realities
                       <span className="text-brand-green-light">.</span>
                     </>
-                  ) : line === "Balanced" ? (
-                    <span className="text-brand-green-light">Balanced</span>
+                  ) : line === "Enforcement" ? (
+                    <span className="text-brand-green-light">Enforcement</span>
                   ) : (
                     line
                   )}
@@ -94,26 +94,26 @@ const HeroSection = () => {
           >
             <div className="glass-dark rounded-2xl p-5 lg:p-7">
               <p className="text-sm lg:text-base leading-[1.7] text-brand-white/80">
-                We help organizations integrate ESG into their core strategy
-                with clarity and precision — turning compliance into competitive
-                advantage
+                The era of aspirational green marketing is over. Today, environmental statements can prompt legal scrutiny. We provide the technical rigour and evidence-led consultancy required to assess green claims and protect your commercial reputation
               </p>
             </div>
 
-            <Link to="/contact">
-            <motion.span
-              className="group inline-flex items-center gap-3 self-start"
-              whileHover={{ x: 4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              <span className="px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm font-bold tracking-[0.05em] uppercase bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors duration-300">
-                Find Out More
-              </span>
-              <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
-                <ArrowDownRight size={16} className="text-brand-white" />
-              </span>
-            </motion.span>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/contact">
+                <motion.span
+                  className="group inline-flex items-center gap-3 self-start"
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <span className="px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm font-bold tracking-[0.05em] uppercase bg-brand-white text-brand-green-dark rounded-full group-hover:bg-brand-grey-light transition-colors duration-300">
+                    Assess Your Exposure
+                  </span>
+                  <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full glass-dark flex items-center justify-center group-hover:bg-brand-white/20 transition-colors duration-300">
+                    <ArrowDownRight size={16} className="text-brand-white" />
+                  </span>
+                </motion.span>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>
