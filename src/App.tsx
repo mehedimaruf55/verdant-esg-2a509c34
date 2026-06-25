@@ -47,6 +47,12 @@ import Masterclass from "./pages/Masterclass.tsx";
 import PlanningTool from "./pages/PlanningTool.tsx";
 import AdminLogin from "./pages/AdminLogin.tsx";
 import AdminInsights from "./pages/AdminInsights.tsx";
+import GreenClaimsRiskAudit from "./pages/services/GreenClaimsRiskAudit.tsx";
+import OngoingComplianceSupport from "./pages/services/OngoingComplianceSupport.tsx";
+import SupplyChainTransparencyReview from "./pages/services/SupplyChainTransparencyReview.tsx";
+import RegulatoryResponseReadiness from "./pages/services/RegulatoryResponseReadiness.tsx";
+import AIScreeningTool from "./pages/AIScreeningTool.tsx";
+import EightGreenwashingRisks from "./pages/resources/EightGreenwashingRisks.tsx";
 
 const queryClient = new QueryClient();
 
