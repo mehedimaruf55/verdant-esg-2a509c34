@@ -10,99 +10,21 @@ type NavItem = {
 };
 
 const navLinks: NavItem[] = [
-  {
-    label: "About",
-    href: "/about",
-    children: [
-      { label: "Company", href: "/about" },
-      { label: "Press and Media", href: "/about/press-and-media" },
-      { label: "Our Partners", href: "/about/our-partners" },
-    ],
-  },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   {
     label: "Services",
     href: "/services",
     children: [
       { label: "Overview", href: "/services" },
-      {
-        label: "Built Environment",
-        href: "/services/built-environment",
-        children: [
-          { label: "Sustainability for Planning", href: "/services/built-environment/sustainability-planning" },
-          { label: "Environmental Assessment", href: "/services/built-environment/environmental-assessment-certification" },
-          { label: "BREEAM Certification", href: "/services/built-environment/breeam-certification" },
-          { label: "WELL Certification", href: "/services/built-environment/well-certification" },
-          { label: "Building Performance", href: "/services/built-environment/building-performance" },
-          { label: "Biodiversity", href: "/services/built-environment/biodiversity-consultancy" },
-          { label: "Life Cycle Assessment", href: "/services/built-environment/life-cycle-assessment" },
-        ],
-      },
-      {
-        label: "Corporate Sustainability",
-        href: "/services/corporate-sustainability",
-        children: [
-          { label: "ESG Consulting", href: "/services/corporate-sustainability/esg-consulting" },
-          { label: "Real Estate ESG", href: "/services/corporate-sustainability/real-estate-esg" },
-          { label: "Net Zero Carbon", href: "/services/net-zero-carbon" },
-          { label: "Climate Resilience", href: "/services/corporate-sustainability/climate-resilience" },
-          { label: "TCFD & TNFD Advisory", href: "/services/corporate-sustainability/tcfd-tnfd-advisory" },
-        ],
-      },
-      {
-        label: "PPN Compliance Services",
-        href: "/services/ppn-compliance",
-        children: [
-          { label: "PPN 002 Social Value Compliance", href: "/services/ppn-002" },
-          { label: "PPN 006 Carbon Reduction Plan", href: "/services/ppn-006" },
-          { label: "PPN 016 Carbon Reduction Contract Mgmt", href: "/services/ppn-016" },
-        ],
-      },
-      {
-        label: "Net Zero Carbon Consultants",
-        href: "/services/net-zero-carbon",
-        children: [
-          { label: "Carbon Footprint your Business", href: "/services/net-zero-carbon/carbon-footprint-for-business" },
-          { label: "Carbon Footprint your Buildings", href: "/services/net-zero-carbon/footprinting-buildings" },
-          { label: "Carbon Footprint your Products", href: "/services/net-zero-carbon/footprinting-products" },
-          { label: "Carbon Footprint your Events", href: "/services/net-zero-carbon/event-carbon-footprint" },
-        ],
-      },
-      {
-        label: "Carbon Credits and Offsetting",
-        href: "/services/carbon-credits-and-offsetting",
-        children: [
-          { label: "Biochar Certification and Excellence", href: "/services/carbon-credits-and-offsetting/biochar" },
-        ],
-      },
-      {
-        label: "Certification",
-        href: "/services/assurance-certification",
-        children: [
-          { label: "BREEAM Certification", href: "/services/built-environment/breeam-certification" },
-          { label: "WELL Certification", href: "/services/built-environment/well-certification" },
-        ],
-      },
+      { label: "Green Claims Risk Audit", href: "/services/green-claims-risk-audit" },
+      { label: "Ongoing Compliance Support", href: "/services/ongoing-compliance-support" },
+      { label: "Supply Chain Transparency Review", href: "/services/supply-chain-transparency-review" },
+      { label: "Regulatory Response Readiness", href: "/services/regulatory-response-readiness" },
+      { label: "AI-Assisted Green Claims Screening", href: "/ai-screening-tool" },
     ],
   },
-  { label: "Projects", href: "/projects" },
-  { label: "Insights", href: "/insights" },
-  {
-    label: "Team",
-    href: "/team",
-    children: [
-      { label: "Meet the Team", href: "/team" },
-      { label: "Careers", href: "/careers" },
-    ],
-  },
-  {
-    label: "Resources",
-    href: "/resources",
-    children: [
-      { label: "Sustainable Buildings Knowledge Sharing & CPD Sessions", href: "/resources/cpd-sessions" },
-      { label: "Sustainability for Business Masterclass Sessions", href: "/resources/masterclass" },
-      { label: "London Planning Permission Tool", href: "/resources/planning-tool" },
-    ],
-  },
+  { label: "Resources", href: "/resources" },
 ];
 
 /* ─── Dropdown (recursive, supports fly-out submenus) ─── */
