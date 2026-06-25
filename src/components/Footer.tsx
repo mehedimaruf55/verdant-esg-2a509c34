@@ -4,24 +4,21 @@ import { ArrowRight } from "lucide-react";
 import logo from "@/assets/verdant-esg-logo.png";
 
 const footerNav = {
-  About: [
-    { label: "Company", href: "#" },
-    { label: "Press & Media", href: "#" },
-    { label: "Our Partners", href: "#" },
+  Company: [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ],
   Services: [
-    { label: "Built Environment", href: "#" },
-    { label: "Corporate Sustainability", href: "#" },
-    { label: "Net Zero Carbon", href: "#" },
-    { label: "Carbon Credits", href: "#" },
-    { label: "Certification", href: "#" },
+    { label: "Green Claims Risk Audit", href: "/services/green-claims-risk-audit" },
+    { label: "Ongoing Compliance Support", href: "/services/ongoing-compliance-support" },
+    { label: "Supply Chain Transparency Review", href: "/services/supply-chain-transparency-review" },
+    { label: "Regulatory Response Readiness", href: "/services/regulatory-response-readiness" },
+    { label: "AI-Assisted Green Claims Screening", href: "/ai-screening-tool" },
   ],
-  Company: [
-    { label: "Projects", href: "#" },
-    { label: "Insights", href: "#" },
-    { label: "Resources", href: "#" },
-    { label: "Meet the Team", href: "#" },
-    { label: "Careers", href: "#" },
+  Resources: [
+    { label: "Insights & Guides", href: "/resources" },
+    { label: "8 Greenwashing Risks", href: "/resources/8-greenwashing-risks" },
   ],
 };
 

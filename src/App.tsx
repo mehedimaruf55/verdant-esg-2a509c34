@@ -47,6 +47,12 @@ import Masterclass from "./pages/Masterclass.tsx";
 import PlanningTool from "./pages/PlanningTool.tsx";
 import AdminLogin from "./pages/AdminLogin.tsx";
 import AdminInsights from "./pages/AdminInsights.tsx";
+import GreenClaimsRiskAudit from "./pages/services/GreenClaimsRiskAudit.tsx";
+import OngoingComplianceSupport from "./pages/services/OngoingComplianceSupport.tsx";
+import SupplyChainTransparencyReview from "./pages/services/SupplyChainTransparencyReview.tsx";
+import RegulatoryResponseReadiness from "./pages/services/RegulatoryResponseReadiness.tsx";
+import AIScreeningTool from "./pages/AIScreeningTool.tsx";
+import EightGreenwashingRisks from "./pages/resources/EightGreenwashingRisks.tsx";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +71,12 @@ const App = () => (
             <Route path="/about/our-partners" element={<Partners />} />
             {/* Services */}
             <Route path="/services" element={<Services />} />
+            <Route path="/services/green-claims-risk-audit" element={<GreenClaimsRiskAudit />} />
+            <Route path="/services/ongoing-compliance-support" element={<OngoingComplianceSupport />} />
+            <Route path="/services/supply-chain-transparency-review" element={<SupplyChainTransparencyReview />} />
+            <Route path="/services/regulatory-response-readiness" element={<RegulatoryResponseReadiness />} />
+            <Route path="/ai-screening-tool" element={<AIScreeningTool />} />
+            <Route path="/resources/8-greenwashing-risks" element={<EightGreenwashingRisks />} />
             <Route path="/services/built-environment" element={<BuiltEnvironment />} />
             <Route path="/services/built-environment/sustainability-planning" element={<SustainabilityForPlanning />} />
             <Route path="/services/built-environment/environmental-assessment-certification" element={<EnvironmentalAssessment />} />
