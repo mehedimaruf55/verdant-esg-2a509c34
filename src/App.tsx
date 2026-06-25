@@ -71,6 +71,12 @@ const App = () => (
             <Route path="/about/our-partners" element={<Partners />} />
             {/* Services */}
             <Route path="/services" element={<Services />} />
+            <Route path="/services/green-claims-risk-audit" element={<GreenClaimsRiskAudit />} />
+            <Route path="/services/ongoing-compliance-support" element={<OngoingComplianceSupport />} />
+            <Route path="/services/supply-chain-transparency-review" element={<SupplyChainTransparencyReview />} />
+            <Route path="/services/regulatory-response-readiness" element={<RegulatoryResponseReadiness />} />
+            <Route path="/ai-screening-tool" element={<AIScreeningTool />} />
+            <Route path="/resources/8-greenwashing-risks" element={<EightGreenwashingRisks />} />
             <Route path="/services/built-environment" element={<BuiltEnvironment />} />
             <Route path="/services/built-environment/sustainability-planning" element={<SustainabilityForPlanning />} />
             <Route path="/services/built-environment/environmental-assessment-certification" element={<EnvironmentalAssessment />} />
