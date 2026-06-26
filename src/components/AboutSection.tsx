@@ -119,41 +119,28 @@ const AboutSection = () => {
 
         {/* Ledger */}
         <div className="border-t border-border">
-          {ledger.map((item, i) => {
+          {ledger.map((item) => {
             const open = openId === item.id;
             return (
-              <div key={item.id} className="border-b border-border">
-                <button
-                  type="button"
-                  onClick={() => setOpenId(open ? null : item.id)}
-                  aria-expanded={open}
-                  className={`group w-full text-left py-7 lg:py-8 flex items-start gap-6 lg:gap-12 transition-colors duration-300 ${
+              <div
+                key={item.id}
+                className="border-b border-border"
+                onMouseEnter={() => setOpenId(item.id)}
+                onFocus={() => setOpenId(item.id)}
+              >
+                <div
+                  className={`w-full text-left py-6 lg:py-7 px-2 lg:px-4 transition-colors duration-300 cursor-default ${
                     open ? "bg-brand-grey-light/40" : "hover:bg-brand-grey-light/30"
                   }`}
                 >
-                  <span
-                    className={`text-3xl lg:text-4xl font-light font-heading tabular-nums transition-all duration-300 ${
-                      open
-                        ? "text-brand-green-dark opacity-100"
-                        : "text-brand-green-dark opacity-30 group-hover:opacity-100"
+                  <h4
+                    className={`text-lg lg:text-xl font-heading font-bold transition-colors duration-300 ${
+                      open ? "text-brand-green-dark" : "text-brand-black"
                     }`}
                   >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex-1 flex items-center justify-between gap-4 pt-1">
-                    <h4 className="text-lg lg:text-xl font-heading font-bold text-brand-black">
-                      {item.title}
-                    </h4>
-                    <span
-                      className={`text-2xl lg:text-3xl font-light text-brand-green-dark transition-transform duration-300 ${
-                        open ? "rotate-45" : ""
-                      }`}
-                      aria-hidden
-                    >
-                      +
-                    </span>
-                  </div>
-                </button>
+                    {item.title}
+                  </h4>
+                </div>
 
                 <AnimatePresence initial={false}>
                   {open && (
@@ -162,12 +149,12 @@ const AboutSection = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-0 lg:pl-[5.5rem] pb-8 pr-6 lg:pr-12">
+                      <div className="px-2 lg:px-4 pb-8 pr-6 lg:pr-12">
                         {item.intro && (
-                          <p className="text-xs lg:text-sm text-brand-grey leading-[1.7] mb-5 max-w-2xl">
+                          <p className="text-sm lg:text-base text-brand-grey leading-[1.7] mb-5 max-w-2xl">
                             {item.intro}
                           </p>
                         )}
@@ -177,7 +164,7 @@ const AboutSection = () => {
                             {item.body.items.map((it) => (
                               <div key={it} className="flex items-center gap-3">
                                 <span className="w-1.5 h-1.5 rounded-full bg-brand-green-dark shrink-0" />
-                                <p className="text-xs lg:text-sm text-brand-black/80 font-medium">{it}</p>
+                                <p className="text-sm lg:text-base text-brand-black/80 font-medium">{it}</p>
                               </div>
                             ))}
                           </div>
@@ -188,7 +175,7 @@ const AboutSection = () => {
                             {item.body.items.map((it) => (
                               <p
                                 key={it}
-                                className="text-xs lg:text-sm text-brand-black/80 font-medium border-l-2 border-brand-green-light pl-3 py-0.5"
+                                className="text-sm lg:text-base text-brand-black/80 font-medium border-l-2 border-brand-green-light pl-3 py-0.5"
                               >
                                 {it}
                               </p>
@@ -197,7 +184,7 @@ const AboutSection = () => {
                         )}
 
                         {item.body.kind === "prose" && (
-                          <p className="text-xs lg:text-sm text-brand-grey leading-[1.8] max-w-2xl">
+                          <p className="text-sm lg:text-base text-brand-grey leading-[1.8] max-w-2xl">
                             {item.body.text}
                           </p>
                         )}
@@ -209,6 +196,7 @@ const AboutSection = () => {
             );
           })}
         </div>
+
 
         {/* Pull quote */}
         <motion.div
