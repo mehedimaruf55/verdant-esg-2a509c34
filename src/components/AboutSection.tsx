@@ -1,257 +1,233 @@
-import { motion } from "framer-motion";
-import { AlertTriangle, FileWarning, Clock } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import leafImg from "@/assets/leaf.png";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  },
+type LedgerItem = {
+  id: string;
+  title: string;
+  intro: string;
+  body:
+    | { kind: "grid"; items: string[] }
+    | { kind: "bordered"; items: string[] }
+    | { kind: "prose"; text: string };
 };
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const exposureRisks = [
+const ledger: LedgerItem[] = [
   {
-    icon: AlertTriangle,
+    id: "regulatory-focus",
+    title: "Regulatory Focus",
+    intro:
+      "Regulators such as the CMA and ASA, applying the CAP Code, are shifting from voluntary guidance to strictly enforced disclosure. They now scrutinise:",
+    body: {
+      kind: "grid",
+      items: [
+        "The clarity of claims",
+        "The context in which they are presented",
+        "How they are understood by consumers",
+        "The evidence supporting them",
+      ],
+    },
+  },
+  {
+    id: "compliance-standard",
+    title: "The Compliance Standard",
+    intro:
+      "It is no longer enough for a claim to be technically true in a narrow sense. Environmental communication must also be:",
+    body: {
+      kind: "bordered",
+      items: [
+        "Clear and unambiguous",
+        "Avoid misleading by omission",
+        "Reflect the appropriate scope of the product or service",
+        "Based on verifiable, contemporaneous evidence",
+      ],
+    },
+  },
+  {
+    id: "substantiation-trap",
     title: "The Substantiation Trap",
-    desc: "Making broad claims such as \"Net Zero\" or \"Sustainable\" without an internal evidence repository that survives an audit.",
+    intro: "",
+    body: {
+      kind: "prose",
+      text: "Broad, aspirational statements such as \u201CNet Zero\u201D or \u201CSustainable\u201D made without an internal evidence repository that survives an audit are being flagged by regulators as inherently deceptive. Every claim must be supported by data accessible at the point of sale.",
+    },
   },
   {
-    icon: FileWarning,
+    id: "misleading-omission",
     title: "Misleading by Omission",
-    desc: "Highlighting a single 'green' feature while ignoring significant environmental impacts elsewhere in the supply chain.",
+    intro: "",
+    body: {
+      kind: "prose",
+      text: "Highlighting a single 'green' feature while ignoring significant environmental impacts elsewhere in the supply chain is no longer viable. Total lifecycle transparency is becoming the new legal baseline.",
+    },
   },
   {
-    icon: Clock,
-    title: "The Compliance Lag",
-    desc: "Marketing cycles move quicker than legal and ESG teams can verify data, leading to unqualified claims that can attract ASA/CAP sanctions.",
+    id: "compliance-lag",
+    title: "Compliance Lag",
+    intro: "",
+    body: {
+      kind: "prose",
+      text: "Marketing cycles move quicker than legal and ESG teams can verify data, leading to unqualified claims that can attract ASA/CAP sanctions. Alignment between creative and compliance teams is now a strategic necessity.",
+    },
   },
-];
-
-const scrutinyPoints = [
-  "The clarity of claims",
-  "The context in which they are presented",
-  "How they are understood by consumers",
-  "The evidence supporting them",
-];
-
-const mustAlsoPoints = [
-  "Be clear and unambiguous",
-  "Avoid misleading by omission",
-  "Reflect the appropriate scope of the product or service",
-  "Be based on verifiable, contemporaneous evidence",
 ];
 
 const AboutSection = () => {
+  const [openId, setOpenId] = useState<string | null>("regulatory-focus");
+
   return (
     <section id="about" className="relative py-20 lg:py-36 bg-brand-white overflow-hidden">
-      {/* Subtle leaf watermark */}
       <img
         src={leafImg}
         alt=""
-        className="absolute top-[10%] -right-[5%] w-[35vw] max-w-[450px] min-w-[200px] opacity-[0.06] select-none pointer-events-none rotate-[15deg] hidden sm:block"
+        className="absolute top-[10%] -right-[5%] w-[35vw] max-w-[450px] min-w-[200px] opacity-[0.05] select-none pointer-events-none rotate-[15deg] hidden sm:block"
       />
 
-      <div className="mx-auto max-w-6xl px-5 lg:px-10 relative z-10">
-        {/* Header — asymmetric editorial layout */}
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-14 lg:mb-20">
-          {/* Left: Title block with vertical accent */}
-          <motion.div
-            className="lg:col-span-5"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
+      <div className="mx-auto max-w-4xl px-5 lg:px-10 relative z-10">
+        {/* Header */}
+        <header className="mb-12 lg:mb-16">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-dark" />
+            <span className="text-xs lg:text-sm font-semibold tracking-[0.2em] uppercase text-brand-green-dark">
+              The Problem
+            </span>
+          </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-[-0.02em] leading-[1.05] text-brand-green-dark"
           >
-            <motion.div variants={fadeUp} className="flex items-center gap-3 mb-4 lg:mb-6">
-              <motion.span
-                className="inline-block w-8 h-[2px] rounded-full bg-brand-green-dark origin-left"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              />
-              <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-dark">
-                The Problem
-              </span>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-black"
-            >
-              A Gap in Scrutiny
-            </motion.h2>
-            <motion.div
-              variants={fadeUp}
-              className="mt-4 lg:mt-6 h-1 w-16 rounded-full"
-              style={{ background: "linear-gradient(90deg, hsl(var(--brand-green-dark)), hsl(var(--brand-green-light)))" }}
-            />
-          </motion.div>
+            A Gap in Scrutiny
+          </motion.h2>
+          <h3 className="text-xl lg:text-2xl font-heading font-bold mt-6 text-brand-black">
+            Why Greenwashing is Now a Boardroom Risk.
+          </h3>
+          <div className="space-y-3 mt-6 max-w-2xl">
+            <p className="text-base lg:text-lg leading-[1.75] text-brand-grey">
+              Regulators are increasingly categorising environmental claims as greenwashing where they are{" "}
+              <span className="font-semibold text-brand-black">vague</span>,{" "}
+              <span className="font-semibold text-brand-black">exaggerated</span>, or{" "}
+              <span className="font-semibold text-brand-black">unsubstantiated</span>.
+            </p>
+            <p className="text-base lg:text-lg leading-[1.75] text-brand-grey/90">
+              As enforcement tightens, the gap between corporate ambition and verifiable action is closing rapidly — leaving unprepared boards exposed to significant litigation and reputational damage.
+            </p>
+          </div>
+        </header>
 
-          {/* Right: Subheading + intro text */}
-          <motion.div
-            className="lg:col-span-7 flex flex-col justify-end"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            <motion.h3
-              variants={fadeUp}
-              className="text-lg lg:text-2xl font-heading font-bold text-brand-green-dark mb-4"
-            >
-              Why Greenwashing is Now a Boardroom Risk.
-            </motion.h3>
-            <motion.p variants={fadeUp} className="text-sm lg:text-base leading-[1.85] text-brand-grey max-w-xl">
-              Environmental claims were, for years, seen through the lens of reputation and brand sentiment. This has now shifted to a framework where regulators categorise <span className="font-semibold text-brand-black">vague</span>, <span className="font-semibold text-brand-black">exaggerated</span>, or <span className="font-semibold text-brand-black">unsubstantiated claims</span> as <span className="font-semibold text-brand-black">misleading acts and omissions</span> under consumer protection law.
-            </motion.p>
-          </motion.div>
+        {/* Ledger */}
+        <div className="border-t border-border">
+          {ledger.map((item, i) => {
+            const open = openId === item.id;
+            return (
+              <div key={item.id} className="border-b border-border">
+                <button
+                  type="button"
+                  onClick={() => setOpenId(open ? null : item.id)}
+                  aria-expanded={open}
+                  className={`group w-full text-left py-7 lg:py-8 flex items-start gap-6 lg:gap-12 transition-colors duration-300 ${
+                    open ? "bg-brand-grey-light/40" : "hover:bg-brand-grey-light/30"
+                  }`}
+                >
+                  <span
+                    className={`text-3xl lg:text-4xl font-light font-heading tabular-nums transition-all duration-300 ${
+                      open
+                        ? "text-brand-green-dark opacity-100"
+                        : "text-brand-green-dark opacity-30 group-hover:opacity-100"
+                    }`}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 flex items-center justify-between gap-4 pt-1">
+                    <h4 className="text-lg lg:text-xl font-heading font-bold text-brand-black">
+                      {item.title}
+                    </h4>
+                    <span
+                      className={`text-2xl lg:text-3xl font-light text-brand-green-dark transition-transform duration-300 ${
+                        open ? "rotate-45" : ""
+                      }`}
+                      aria-hidden
+                    >
+                      +
+                    </span>
+                  </div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {open && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pl-0 lg:pl-[5.5rem] pb-8 pr-6 lg:pr-12">
+                        {item.intro && (
+                          <p className="text-xs lg:text-sm text-brand-grey leading-[1.7] mb-5 max-w-2xl">
+                            {item.intro}
+                          </p>
+                        )}
+
+                        {item.body.kind === "grid" && (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
+                            {item.body.items.map((it) => (
+                              <div key={it} className="flex items-center gap-3">
+                                <span className="w-1.5 h-1.5 rounded-full bg-brand-green-dark shrink-0" />
+                                <p className="text-xs lg:text-sm text-brand-black/80 font-medium">{it}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {item.body.kind === "bordered" && (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 max-w-2xl">
+                            {item.body.items.map((it) => (
+                              <p
+                                key={it}
+                                className="text-xs lg:text-sm text-brand-black/80 font-medium border-l-2 border-brand-green-light pl-3 py-0.5"
+                              >
+                                {it}
+                              </p>
+                            ))}
+                          </div>
+                        )}
+
+                        {item.body.kind === "prose" && (
+                          <p className="text-xs lg:text-sm text-brand-grey leading-[1.8] max-w-2xl">
+                            {item.body.text}
+                          </p>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Two-column detail — editorial split */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-14 lg:mb-20"
-        >
-          {/* Left: What regulators scrutinise */}
-          <motion.div
-            variants={fadeUp}
-            className="rounded-2xl lg:rounded-3xl border border-border p-6 lg:p-10 bg-brand-grey-light"
-          >
-            <p className="text-xs font-semibold tracking-[0.18em] uppercase text-brand-green-dark mb-4">
-              Regulatory Focus
-            </p>
-            <p className="text-sm lg:text-base leading-[1.75] text-brand-grey mb-5">
-              Regulators such as the CMA and ASA, applying the CAP Code, now scrutinise:
-            </p>
-            <ul className="space-y-3">
-              {scrutinyPoints.map((item, i) => (
-                <motion.li
-                  key={item}
-                  className="flex items-start gap-3 text-sm lg:text-base text-brand-black leading-relaxed"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
-                >
-                  <span className="mt-1.5 w-2 h-2 rounded-full bg-brand-green-dark shrink-0" />
-                  <span>{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Right: What claims must be */}
-          <motion.div
-            variants={fadeUp}
-            className="rounded-2xl lg:rounded-3xl p-6 lg:p-10 text-brand-white relative overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #3a7a5a 0%, #499167 100%)" }}
-          >
-            {/* Subtle leaf inside card */}
-            <img
-              src={leafImg}
-              alt=""
-              className="absolute -bottom-[15%] -right-[10%] w-[200px] opacity-[0.12] select-none pointer-events-none rotate-[30deg]"
-            />
-            <p className="text-xs font-semibold tracking-[0.18em] uppercase text-brand-green-light mb-4 relative z-10">
-              The New Standard
-            </p>
-            <p className="text-sm lg:text-base leading-[1.75] text-brand-white/80 mb-5 relative z-10">
-              It is no longer enough for a claim to be technically true in a narrow sense; it must also:
-            </p>
-            <ul className="space-y-3 relative z-10">
-              {mustAlsoPoints.map((item, i) => (
-                <motion.li
-                  key={item}
-                  className="flex items-start gap-3"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
-                >
-                  <span className="mt-0.5 w-6 h-6 rounded-lg bg-brand-white/15 flex items-center justify-center shrink-0 text-xs font-bold text-brand-white">
-                    {i + 1}
-                  </span>
-                  <span className="text-sm lg:text-base text-brand-white/90 leading-relaxed font-medium">
-                    {item}
-                  </span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
-
-        {/* Exposure question + risk cards */}
+        {/* Pull quote */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 lg:mb-10"
+          transition={{ duration: 0.7 }}
+          className="mt-16 lg:mt-20 relative overflow-hidden rounded-2xl lg:rounded-3xl p-10 lg:p-14"
+          style={{ background: "linear-gradient(135deg, #3a7a5a 0%, #499167 100%)" }}
         >
-          <h3 className="text-xl lg:text-3xl font-heading font-bold text-brand-black">
-            So, what's your exposure in this?
-          </h3>
-        </motion.div>
-
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid md:grid-cols-3 gap-4 lg:gap-5 mb-12 lg:mb-16"
-        >
-          {exposureRisks.map((risk) => {
-            const Icon = risk.icon;
-            return (
-              <motion.div
-                key={risk.title}
-                variants={fadeUp}
-                className="group relative overflow-hidden rounded-2xl lg:rounded-3xl border border-border bg-brand-white hover:shadow-xl transition-all duration-500"
-                whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              >
-                <div className="h-1 w-full bg-gradient-to-r from-brand-green-dark to-brand-green-light" />
-                <div className="p-6 lg:p-8">
-                  <div
-                    className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl flex items-center justify-center mb-5"
-                    style={{ background: "linear-gradient(135deg, rgba(73,145,103,0.1), rgba(118,247,191,0.1))" }}
-                  >
-                    <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-brand-green-dark" />
-                  </div>
-                  <h4 className="text-base lg:text-lg font-heading font-bold text-brand-black mb-3 group-hover:text-brand-green-dark transition-colors duration-300">
-                    {risk.title}
-                  </h4>
-                  <p className="text-sm text-brand-grey leading-[1.75]">
-                    {risk.desc}
-                  </p>
-                </div>
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-green-light group-hover:w-full transition-all duration-500 rounded-full" />
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Bottom governance callout — minimal editorial quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="border-l-4 border-brand-green-dark pl-6 lg:pl-10 py-2"
-        >
-          <p className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-[1.15] tracking-[-0.02em] text-brand-black">
+          <img
+            src={leafImg}
+            alt=""
+            className="absolute -bottom-[20%] -right-[8%] w-[260px] opacity-[0.12] select-none pointer-events-none rotate-[25deg]"
+          />
+          <p className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-[1.15] tracking-[-0.01em] text-brand-white">
             Greenwashing is a Governance Failure,
             <br />
-            <span className="text-brand-green-dark">Not a Marketing Choice.</span>
+            <span className="text-brand-green-light">Not a Marketing Choice.</span>
           </p>
         </motion.div>
       </div>
