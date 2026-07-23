@@ -1,0 +1,3 @@
+UPDATE insights SET cover_image_url='/__l5e/assets-v1/01c4d5b3-45ab-4220-8d58-0312814a4253/esg-reporting.jpg' WHERE slug='future-of-esg-reporting-2026';
+UPDATE insights SET cover_image_url='/__l5e/assets-v1/e66eba36-dc28-4784-b791-f683b5acc040/net-zero-buildings.jpg' WHERE slug='net-zero-buildings-practical-guide';
+UPDATE insights SET cover_image_url='/__l5e/assets-v1/72edefa7-9aa8-41f2-8f6f-69e2525f495a/carbon-credits.jpg' WHERE slug='understanding-carbon-credits-offsetting';
