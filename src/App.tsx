@@ -6,53 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import About from "./pages/About.tsx";
-import PressMedia from "./pages/PressMedia.tsx";
-import Partners from "./pages/Partners.tsx";
-import Services from "./pages/Services.tsx";
-import CorporateSustainability from "./pages/CorporateSustainability.tsx";
-import BuiltEnvironment from "./pages/BuiltEnvironment.tsx";
-import NetZeroCarbon from "./pages/NetZeroCarbon.tsx";
-import AssuranceCertification from "./pages/AssuranceCertification.tsx";
-import SustainabilityForPlanning from "./pages/SustainabilityForPlanning.tsx";
-import EnvironmentalAssessment from "./pages/EnvironmentalAssessment.tsx";
-import BREEAMCertification from "./pages/BREEAMCertification.tsx";
-import WELLCertification from "./pages/WELLCertification.tsx";
-import BuildingPerformance from "./pages/BuildingPerformance.tsx";
-import Biodiversity from "./pages/Biodiversity.tsx";
-import LifeCycleAssessment from "./pages/LifeCycleAssessment.tsx";
-import ESGConsulting from "./pages/ESGConsulting.tsx";
-import RealEstateESG from "./pages/RealEstateESG.tsx";
-import ClimateResilience from "./pages/ClimateResilience.tsx";
-import TCFDTNFDAdvisory from "./pages/TCFDTNFDAdvisory.tsx";
-import PPN002 from "./pages/PPN002.tsx";
-import PPN006 from "./pages/PPN006.tsx";
-import PPN016 from "./pages/PPN016.tsx";
-import BusinessCarbonFootprint from "./pages/BusinessCarbonFootprint.tsx";
-import BuildingCarbonFootprint from "./pages/BuildingCarbonFootprint.tsx";
-import ProductCarbonFootprint from "./pages/ProductCarbonFootprint.tsx";
-import EventCarbonFootprint from "./pages/EventCarbonFootprint.tsx";
-import CarbonCreditsOffsetting from "./pages/CarbonCreditsOffsetting.tsx";
-import Biochar from "./pages/Biochar.tsx";
-import Team from "./pages/Team.tsx";
-import Insights from "./pages/Insights.tsx";
-import InsightDetail from "./pages/InsightDetail.tsx";
-import Projects from "./pages/Projects.tsx";
-import ProjectDetail from "./pages/ProjectDetail.tsx";
-import Contact from "./pages/Contact.tsx";
-import Careers from "./pages/Careers.tsx";
-import Resources from "./pages/Resources.tsx";
-import CPDSessions from "./pages/CPDSessions.tsx";
-import Masterclass from "./pages/Masterclass.tsx";
-import PlanningTool from "./pages/PlanningTool.tsx";
-import AdminLogin from "./pages/AdminLogin.tsx";
-import AdminInsights from "./pages/AdminInsights.tsx";
-import GreenClaimsRiskAudit from "./pages/services/GreenClaimsRiskAudit.tsx";
-import OngoingComplianceSupport from "./pages/services/OngoingComplianceSupport.tsx";
-import SupplyChainTransparencyReview from "./pages/services/SupplyChainTransparencyReview.tsx";
-import RegulatoryResponseReadiness from "./pages/services/RegulatoryResponseReadiness.tsx";
-import AIScreeningTool from "./pages/AIScreeningTool.tsx";
-import EightGreenwashingRisks from "./pages/resources/EightGreenwashingRisks.tsx";
 
 const queryClient = new QueryClient();
 
@@ -65,61 +18,6 @@ const App = () => (
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
-            {/* About */}
-            <Route path="/about" element={<About />} />
-            <Route path="/about/press-and-media" element={<PressMedia />} />
-            <Route path="/about/our-partners" element={<Partners />} />
-            {/* Services */}
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/green-claims-risk-audit" element={<GreenClaimsRiskAudit />} />
-            <Route path="/services/ongoing-compliance-support" element={<OngoingComplianceSupport />} />
-            <Route path="/services/supply-chain-transparency-review" element={<SupplyChainTransparencyReview />} />
-            <Route path="/services/regulatory-response-readiness" element={<RegulatoryResponseReadiness />} />
-            <Route path="/ai-screening-tool" element={<AIScreeningTool />} />
-            <Route path="/resources/8-greenwashing-risks" element={<EightGreenwashingRisks />} />
-            <Route path="/services/built-environment" element={<BuiltEnvironment />} />
-            <Route path="/services/built-environment/sustainability-planning" element={<SustainabilityForPlanning />} />
-            <Route path="/services/built-environment/environmental-assessment-certification" element={<EnvironmentalAssessment />} />
-            <Route path="/services/built-environment/breeam-certification" element={<BREEAMCertification />} />
-            <Route path="/services/built-environment/well-certification" element={<WELLCertification />} />
-            <Route path="/services/built-environment/building-performance" element={<BuildingPerformance />} />
-            <Route path="/services/built-environment/biodiversity-consultancy" element={<Biodiversity />} />
-            <Route path="/services/built-environment/life-cycle-assessment" element={<LifeCycleAssessment />} />
-            <Route path="/services/corporate-sustainability" element={<CorporateSustainability />} />
-            <Route path="/services/corporate-sustainability/esg-consulting" element={<ESGConsulting />} />
-            <Route path="/services/corporate-sustainability/real-estate-esg" element={<RealEstateESG />} />
-            <Route path="/services/corporate-sustainability/climate-resilience" element={<ClimateResilience />} />
-            <Route path="/services/corporate-sustainability/tcfd-tnfd-advisory" element={<TCFDTNFDAdvisory />} />
-            <Route path="/services/net-zero-carbon" element={<NetZeroCarbon />} />
-            <Route path="/services/net-zero-carbon/carbon-footprint-for-business" element={<BusinessCarbonFootprint />} />
-            <Route path="/services/net-zero-carbon/footprinting-buildings" element={<BuildingCarbonFootprint />} />
-            <Route path="/services/net-zero-carbon/footprinting-products" element={<ProductCarbonFootprint />} />
-            <Route path="/services/net-zero-carbon/event-carbon-footprint" element={<EventCarbonFootprint />} />
-            <Route path="/services/ppn-compliance" element={<PPN002 />} />
-            <Route path="/services/ppn-002" element={<PPN002 />} />
-            <Route path="/services/ppn-006" element={<PPN006 />} />
-            <Route path="/services/ppn-016" element={<PPN016 />} />
-            <Route path="/services/carbon-credits-and-offsetting" element={<CarbonCreditsOffsetting />} />
-            <Route path="/services/carbon-credits-and-offsetting/biochar" element={<Biochar />} />
-            <Route path="/services/assurance-certification" element={<AssuranceCertification />} />
-            {/* Team */}
-            <Route path="/team" element={<Team />} />
-            <Route path="/careers" element={<Careers />} />
-            {/* Content */}
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/insights/:slug" element={<InsightDetail />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:slug" element={<ProjectDetail />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* Resources */}
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/resources/cpd-sessions" element={<CPDSessions />} />
-            <Route path="/resources/masterclass" element={<Masterclass />} />
-            <Route path="/resources/planning-tool" element={<PlanningTool />} />
-            {/* Admin */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<AdminInsights />} />
-            {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
