@@ -14,7 +14,7 @@ const footerNav = {
     { label: "Ongoing Compliance Support", href: "/services/ongoing-compliance-support" },
     { label: "Supply Chain Transparency Review", href: "/services/supply-chain-transparency-review" },
     { label: "Regulatory Response Readiness", href: "/services/regulatory-response-readiness" },
-    { label: "AI-Assisted Green Claims Screening", href: "/ai-screening-tool" },
+    { label: "AI-Assisted Green Claims Screening", href: "/services/ai-assisted-green-claims-screening" },
   ],
   Resources: [
     { label: "Insights & Guides", href: "/resources" },
