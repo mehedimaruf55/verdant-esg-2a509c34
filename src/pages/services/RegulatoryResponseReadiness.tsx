@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageFeatureImage from "@/components/PageFeatureImage";
 import leafImg from "@/assets/leaf.png";
+import featureImg from "@/assets/regulatory-hero.jpg";
 
 const readinessPillars = [
   {
@@ -139,6 +141,8 @@ const RegulatoryResponseReadiness = () => (
         </motion.div>
       </div>
     </section>
+
+    <PageFeatureImage src={featureImg} alt="Institutional regulatory corridor" caption="Prepared before the letter arrives — because that's the only window when preparation still counts." />
 
     {/* THE STANDARD */}
     <section className="py-20 lg:py-28 bg-brand-white">

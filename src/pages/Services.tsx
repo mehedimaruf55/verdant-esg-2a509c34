@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, MessageSquare, Search, FileCheck, Link2, ShieldCheck } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageFeatureImage from "@/components/PageFeatureImage";
 import leafImg from "@/assets/leaf.png";
+import featureImg from "@/assets/services-hero.jpg";
 
 const systemItems = [
   { icon: MessageSquare, label: "The language you use" },
@@ -101,6 +103,8 @@ const Services = () => (
         </motion.p>
       </div>
     </section>
+
+    <PageFeatureImage src={featureImg} alt="Reviewing marketing and sustainability materials" caption="From aspirational language to defensible communication — reviewed with the standards regulators apply." />
 
     {/* WHERE IS THE RISK */}
     <section className="py-20 lg:py-28 bg-brand-white">

@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageFeatureImage from "@/components/PageFeatureImage";
 import leafImg from "@/assets/leaf.png";
+import featureImg from "@/assets/green-claims-audit-hero.jpg";
 
 const focusCards = [
   {
@@ -152,6 +154,8 @@ const GreenClaimsRiskAudit = () => (
         </motion.div>
       </div>
     </section>
+
+    <PageFeatureImage src={featureImg} alt="Forensic review of a sustainability report" caption="Every claim gets stress-tested against the standards regulators actually apply." />
 
     {/* THE APPROACH */}
     <section className="py-20 lg:py-28 bg-brand-white">

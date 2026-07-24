@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Search, ShieldCheck, AlertTriangle } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageFeatureImage from "@/components/PageFeatureImage";
 import leafImg from "@/assets/leaf.png";
+import guideImg from "@/assets/guide-hero.jpg";
 
 const timeline = [
   {
@@ -234,6 +236,8 @@ const EightGreenwashingRisks = () => {
           </motion.p>
         </div>
       </section>
+
+      <PageFeatureImage src={guideImg} alt="An open guidebook on greenwashing risk" caption="A working guide — for teams reviewing sustainability language before it reaches the public." />
 
       {/* ARTICLE BODY WITH TOC */}
       <section className="py-16 lg:py-24 bg-brand-white">

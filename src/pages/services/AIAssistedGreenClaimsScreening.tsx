@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageFeatureImage from "@/components/PageFeatureImage";
 import leafImg from "@/assets/leaf.png";
+import featureImg from "@/assets/ai-screening-hero.jpg";
 
 const capabilities = [
   {
@@ -180,6 +182,8 @@ const AIAssistedGreenClaimsScreening = () => (
         </motion.div>
       </div>
     </section>
+
+    <PageFeatureImage src={featureImg} alt="AI-assisted screening of environmental claims" caption="An assistive first pass — surfacing risk patterns before a human reviewer applies judgment." />
 
     {/* THE PROBLEM */}
     <section className="py-20 lg:py-28 bg-brand-white">

@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageFeatureImage from "@/components/PageFeatureImage";
 import leafImg from "@/assets/leaf.png";
+import featureImg from "@/assets/supply-chain-hero.jpg";
 
 const triggers = [
   {
@@ -136,6 +138,8 @@ const SupplyChainTransparencyReview = () => (
         </motion.div>
       </div>
     </section>
+
+    <PageFeatureImage src={featureImg} alt="Traceable raw materials from a transparent supply chain" caption="Sourcing, processing, certification — reviewed against the claims your marketing puts in public view." />
 
     {/* WHERE THE PROBLEM STARTS */}
     <section className="py-20 lg:py-28 bg-brand-white">
