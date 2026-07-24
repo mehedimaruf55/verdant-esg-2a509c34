@@ -21,10 +21,17 @@ const navLinks: NavItem[] = [
       { label: "Ongoing Compliance Support", href: "/services/ongoing-compliance-support" },
       { label: "Supply Chain Transparency Review", href: "/services/supply-chain-transparency-review" },
       { label: "Regulatory Response Readiness", href: "/services/regulatory-response-readiness" },
-      { label: "AI-Assisted Green Claims Screening", href: "/ai-screening-tool" },
+      { label: "AI-Assisted Green Claims Screening", href: "/services/ai-assisted-green-claims-screening" },
     ],
   },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      { label: "Insights & Guides", href: "/resources" },
+      { label: "8 Greenwashing Risks", href: "/resources/8-greenwashing-risks" },
+    ],
+  },
 ];
 
 /* ─── Dropdown (recursive, supports fly-out submenus) ─── */
