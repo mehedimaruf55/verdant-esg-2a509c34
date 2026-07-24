@@ -24,7 +24,14 @@ const navLinks: NavItem[] = [
       { label: "AI-Assisted Green Claims Screening", href: "/services/ai-assisted-green-claims-screening" },
     ],
   },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      { label: "Insights & Guides", href: "/resources" },
+      { label: "8 Greenwashing Risks", href: "/resources/8-greenwashing-risks" },
+    ],
+  },
 ];
 
 /* ─── Dropdown (recursive, supports fly-out submenus) ─── */
