@@ -32,7 +32,7 @@ const ServicesSection = () => {
       <div className="mx-auto max-w-7xl px-5 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           {/* Left Column: The Hook */}
-          <div className="lg:col-span-5 sticky top-32">
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const ServicesSection = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-green">
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-green-dark">
                   Risk Analysis
                 </span>
               </div>
@@ -56,9 +56,9 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="inline-flex items-center gap-4 p-4 rounded-2xl bg-brand-pale-green/30 border border-brand-green/10"
+                className="inline-flex items-center gap-4 p-4 rounded-2xl bg-brand-green-light/10 border border-brand-green-dark/10"
               >
-                <div className="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center text-brand-white">
+                <div className="w-12 h-12 rounded-full bg-brand-green-dark flex items-center justify-center text-brand-white">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m21 21-4.3-4.3"/><circle cx="10" cy="10" r="7"/><path d="M7 9l3 3 3-3"/></svg>
                 </div>
                 <div>
@@ -84,11 +84,11 @@ const ServicesSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
-                    whileHover={{ scale: 1.02, backgroundColor: "rgba(73, 145, 103, 0.05)" }}
+                    whileHover={{ scale: 1.02, backgroundColor: "hsl(var(--brand-green-light) / 0.1)" }}
                     className="group p-6 rounded-3xl border border-brand-black/5 bg-brand-white flex justify-between items-center transition-all duration-300 cursor-default"
                   >
                     <span className="text-lg font-heading font-bold text-brand-black">{term}</span>
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-green text-xs font-bold uppercase tracking-tighter">High Exposure</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-green-dark text-xs font-bold uppercase tracking-tighter">High Exposure</span>
                   </motion.div>
                 ))}
               </div>
@@ -101,15 +101,15 @@ const ServicesSection = () => {
               viewport={{ once: true }}
               className="relative overflow-hidden rounded-[2.5rem] bg-brand-black p-8 lg:p-12 text-brand-white"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green opacity-10 blur-[100px]" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green-dark opacity-10 blur-[100px]" />
               
               <div className="relative z-10">
                 <h3 className="text-2xl font-heading font-bold mb-8">Mandatory Substantiation</h3>
                 <div className="grid gap-6">
                   {requirements.map((req, i) => (
                     <div key={req} className="flex items-start gap-4">
-                      <div className="mt-1.5 w-5 h-5 rounded-full border border-brand-green/30 flex items-center justify-center shrink-0">
-                        <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                      <div className="mt-1.5 w-5 h-5 rounded-full border border-brand-green-light/30 flex items-center justify-center shrink-0">
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-green-light" />
                       </div>
                       <p className="text-brand-white/80 font-medium">{req}</p>
                     </div>
