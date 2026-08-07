@@ -28,99 +28,109 @@ const fadeUp = {
 
 const ServicesSection = () => {
   return (
-    <section id="red-zone" className="relative py-20 lg:py-36 overflow-hidden" style={{ background: "linear-gradient(135deg, #3a7a5a 0%, #499167 60%, #76f7bf 100%)" }}>
-      <motion.img
-        src={leafImg}
-        alt=""
-        className="absolute bottom-[5%] -left-[6%] w-[45vw] max-w-[600px] min-w-[200px] select-none pointer-events-none rotate-[-20deg] hidden sm:block opacity-[0.20]"
-        initial={{ opacity: 0, rotate: -25 }}
-        whileInView={{ opacity: 0.20, rotate: -20 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      />
-      <div className="hidden lg:block absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-brand-green-light opacity-[0.06] blur-[140px] pointer-events-none" />
-
-      <div className="mx-auto max-w-6xl px-5 lg:px-10 relative z-10">
-        {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-10 lg:mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="flex items-center gap-3 mb-4 lg:mb-6">
-              <motion.span className="inline-block w-8 h-[2px] rounded-full bg-brand-green-light origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} />
-              <span className="text-xs lg:text-sm font-semibold tracking-[0.18em] uppercase text-brand-green-light">
-                The 'Red Zone' Terminology
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.08] tracking-[-0.02em] text-brand-white">
-              Is your vocabulary creating liability?
-            </h2>
-          </motion.div>
-          <motion.p
-            className="text-sm lg:text-base text-brand-white/70 leading-[1.75] max-w-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            In the current regulatory environment, "absolute" claims must be accompanied by absolute proof. We specialise in de-risking high-stakes terminology.
-          </motion.p>
-        </div>
-
-        {/* Red zone terms */}
-        <motion.div
-          className="flex flex-wrap gap-3 lg:gap-4 mb-10 lg:mb-14"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-        >
-          {redZoneTerms.map((term) => (
-            <motion.span
-              key={term}
-              variants={fadeUp}
-              className="px-5 py-3 lg:px-7 lg:py-4 glass-dark rounded-full text-sm lg:text-base font-heading font-bold text-brand-white border border-brand-white/20 hover:border-brand-white/40 transition-colors duration-300"
+    <section id="red-zone" className="relative py-24 lg:py-40 overflow-hidden bg-brand-white">
+      <div className="mx-auto max-w-7xl px-5 lg:px-10 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          {/* Left Column: The Hook */}
+          <div className="lg:col-span-5 sticky top-32">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              {term}
-            </motion.span>
-          ))}
-        </motion.div>
-
-        {/* Requirements */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7 }}
-          className="glass-dark rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-12"
-        >
-          <p className="text-sm lg:text-base text-brand-white/80 leading-relaxed mb-6">
-            Such terms often call for:
-          </p>
-          <div className="grid sm:grid-cols-2 gap-4 lg:gap-5">
-            {requirements.map((req, i) => (
-              <motion.div
-                key={req}
-                className="flex items-start gap-3"
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-              >
-                <span className="mt-2 w-2 h-2 rounded-full bg-brand-green-light shrink-0" />
-                <span className="text-sm lg:text-base text-brand-white/90 font-medium leading-relaxed">
-                  {req}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-green">
+                  Risk Analysis
                 </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.05] tracking-[-0.03em] text-brand-black mb-8">
+                Is your vocabulary creating liability?
+              </h2>
+              <p className="text-lg text-brand-black/60 leading-relaxed mb-10 max-w-md">
+                In the current regulatory environment, "absolute" claims must be accompanied by absolute proof. We specialise in de-risking high-stakes terminology through rigorous substantiation.
+              </p>
+              
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="inline-flex items-center gap-4 p-4 rounded-2xl bg-brand-pale-green/30 border border-brand-green/10"
+              >
+                <div className="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center text-brand-white">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m21 21-4.3-4.3"/><circle cx="10" cy="10" r="7"/><path d="M7 9l3 3 3-3"/></svg>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-brand-black">Regulatory Triage</p>
+                  <p className="text-xs text-brand-black/50">Language Stress-Testing</p>
+                </div>
               </motion.div>
-            ))}
+            </motion.div>
           </div>
-          <p className="mt-6 text-sm text-brand-white/60 leading-relaxed italic">
-            Without this, they may be considered misleading due to ambiguity or lack of substantiation.
-          </p>
-        </motion.div>
+
+          {/* Right Column: The Interactive Elements */}
+          <div className="lg:col-span-7 space-y-12">
+            {/* Red Zone Terms Grid */}
+            <div className="space-y-6">
+              <span className="text-[10px] font-bold tracking-widest uppercase text-brand-black/40">
+                High-Risk 'Red Zone' Terms
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {redZoneTerms.map((term, i) => (
+                  <motion.div
+                    key={term}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    whileHover={{ scale: 1.02, backgroundColor: "rgba(73, 145, 103, 0.05)" }}
+                    className="group p-6 rounded-3xl border border-brand-black/5 bg-brand-white flex justify-between items-center transition-all duration-300 cursor-default"
+                  >
+                    <span className="text-lg font-heading font-bold text-brand-black">{term}</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-green text-xs font-bold uppercase tracking-tighter">High Exposure</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Requirements Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden rounded-[2.5rem] bg-brand-black p-8 lg:p-12 text-brand-white"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green opacity-10 blur-[100px]" />
+              
+              <div className="relative z-10">
+                <h3 className="text-2xl font-heading font-bold mb-8">Mandatory Substantiation</h3>
+                <div className="grid gap-6">
+                  {requirements.map((req, i) => (
+                    <div key={req} className="flex items-start gap-4">
+                      <div className="mt-1.5 w-5 h-5 rounded-full border border-brand-green/30 flex items-center justify-center shrink-0">
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                      </div>
+                      <p className="text-brand-white/80 font-medium">{req}</p>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-12 pt-8 border-t border-brand-white/10 flex items-center justify-between">
+                  <p className="text-sm text-brand-white/40 italic max-w-[280px]">
+                    Failure to provide clear evidence leads to immediate enforcement risk.
+                  </p>
+                  <motion.img 
+                    src={leafImg} 
+                    className="w-16 h-16 opacity-20 invert grayscale" 
+                    animate={{ rotate: [0, 5, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
