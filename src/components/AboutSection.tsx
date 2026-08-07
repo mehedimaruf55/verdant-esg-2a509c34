@@ -183,7 +183,7 @@ const AboutSection = () => {
               Your Exposure
             </span>
           </div>
-          <div className="grid md:grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {exposures.map((e, i) => (
               <motion.div
                 key={e.title}
@@ -191,12 +191,22 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl border border-border p-6 lg:p-7 bg-brand-grey-light/40 hover:bg-brand-grey-light/70 hover:border-brand-green-dark/20 transition-colors duration-300"
+                whileHover={{ y: -5, borderColor: "hsl(var(--brand-green-light) / 0.5)" }}
+                className="group relative rounded-[2rem] border border-black/5 p-8 lg:p-9 bg-brand-white shadow-sm hover:shadow-xl hover:shadow-brand-green-dark/5 transition-all duration-500"
               >
-                <h5 className="text-base lg:text-lg font-heading font-bold text-brand-black mb-3">
-                  {e.title}
-                </h5>
-                <p className="text-sm text-brand-grey leading-[1.75]">{e.text}</p>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-brand-green-light/10 rounded-bl-[4rem] opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="mb-6 w-12 h-12 rounded-2xl bg-brand-pale-green/30 flex items-center justify-center text-brand-green-dark">
+                    <span className="text-lg font-bold">0{i + 1}</span>
+                  </div>
+                  <h5 className="text-xl lg:text-2xl font-heading font-bold text-brand-black mb-4 group-hover:text-brand-green-dark transition-colors duration-300">
+                    {e.title}
+                  </h5>
+                  <p className="text-sm lg:text-base text-brand-grey leading-relaxed group-hover:text-brand-black transition-colors duration-300">
+                    {e.text}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
