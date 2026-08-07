@@ -87,7 +87,7 @@ const AboutSection = () => {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(135deg, rgba(58,122,90,0.88) 0%, rgba(58,122,90,0.72) 55%, rgba(30,70,50,0.85) 100%)",
+                "linear-gradient(135deg, hsl(var(--brand-green-dark) / 0.88) 0%, hsl(var(--brand-green-dark) / 0.72) 55%, hsl(var(--brand-green-dark) / 0.85) 100%)",
             }}
           />
 
