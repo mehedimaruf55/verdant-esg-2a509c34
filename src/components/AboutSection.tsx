@@ -249,7 +249,7 @@ const AboutSection = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7 }}
           className="mt-16 lg:mt-20 relative overflow-hidden rounded-2xl lg:rounded-3xl p-10 lg:p-14"
-          style={{ background: "linear-gradient(135deg, #3a7a5a 0%, #499167 100%)" }}
+          style={{ background: "linear-gradient(135deg, hsl(var(--brand-green-dark)) 0%, #499167 100%)" }}
         >
           <img
             src={leafImg}
