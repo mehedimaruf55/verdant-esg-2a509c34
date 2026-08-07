@@ -87,7 +87,7 @@ const AboutSection = () => {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(135deg, rgba(58,122,90,0.88) 0%, rgba(58,122,90,0.72) 55%, rgba(30,70,50,0.85) 100%)",
+                "linear-gradient(135deg, hsl(var(--brand-green-dark) / 0.88) 0%, hsl(var(--brand-green-dark) / 0.72) 55%, hsl(var(--brand-green-dark) / 0.85) 100%)",
             }}
           />
 
@@ -123,7 +123,7 @@ const AboutSection = () => {
 
               <a
                 href="#framework"
-                className="group inline-flex items-center gap-3 self-start md:self-end rounded-full bg-brand-white pl-6 pr-2 py-2 text-sm font-semibold text-brand-green-dark hover:bg-brand-green-light hover:text-brand-black transition-colors duration-300 shrink-0"
+                className="group inline-flex items-center gap-3 self-start md:self-end rounded-full bg-brand-white pl-6 pr-2 py-2 text-sm font-bold text-brand-green-dark hover:bg-brand-black hover:text-brand-white transition-all duration-300 shrink-0"
               >
                 More Details
                 <span className="w-9 h-9 rounded-full bg-brand-green-dark group-hover:bg-brand-black flex items-center justify-center transition-colors duration-300">
@@ -135,38 +135,68 @@ const AboutSection = () => {
         </motion.div>
 
         {/* Two-column body */}
-        <div className="mt-14 lg:mt-20 grid md:grid-cols-2 gap-10 lg:gap-16">
-          <div>
-            <h4 className="text-lg lg:text-xl font-heading font-bold text-brand-black mb-4">
-              Regulatory Focus
-            </h4>
-            <p className="text-sm lg:text-base text-brand-grey leading-[1.8] mb-5">
-              Regulators such as the CMA and ASA, applying the CAP Code, are shifting from voluntary guidance to strictly enforced disclosure. They now scrutinise:
+        <div className="mt-20 lg:mt-28 grid md:grid-cols-2 gap-12 lg:gap-24">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-brand-green-dark/5 flex items-center justify-center text-brand-green-dark">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <h4 className="text-xl lg:text-2xl font-heading font-bold text-brand-black">
+                Regulatory Focus
+              </h4>
+            </div>
+            <p className="text-base lg:text-lg text-brand-grey leading-relaxed mb-8">
+              Regulators such as the CMA and ASA are shifting from voluntary guidance to strictly enforced disclosure. They now scrutinise:
             </p>
-            <ul className="space-y-2.5">
+            <ul className="grid gap-4">
               {scrutiny.map((s) => (
-                <li key={s} className="flex items-start gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-green-dark shrink-0" />
-                  <span className="text-sm lg:text-base text-brand-black/80 font-medium">{s}</span>
+                <li key={s} className="group flex items-center gap-4 p-4 rounded-2xl bg-brand-grey-light/30 border border-transparent hover:border-brand-green-light/30 hover:bg-white hover:shadow-lg hover:shadow-brand-green-dark/5 transition-all duration-300">
+                  <span className="w-2 h-2 rounded-full bg-brand-green-dark shrink-0 group-hover:scale-125 transition-transform" />
+                  <span className="text-sm lg:text-base text-brand-black/80 font-semibold">{s}</span>
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
-            <h4 className="text-lg lg:text-xl font-heading font-bold text-brand-black mb-4">
-              The Compliance Standard
-            </h4>
-            <p className="text-sm lg:text-base text-brand-grey leading-[1.8] mb-5">
-              It is no longer enough for a claim to be technically true in a narrow sense. Environmental communication must also be:
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-brand-green-dark/5 flex items-center justify-center text-brand-green-dark">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4 className="text-xl lg:text-2xl font-heading font-bold text-brand-black">
+                The Compliance Standard
+              </h4>
+            </div>
+            <p className="text-base lg:text-lg text-brand-grey leading-relaxed mb-8">
+              It is no longer enough for a claim to be technically true. Environmental communication must be:
             </p>
-            <ul className="space-y-2.5">
-              {standards.map((s) => (
-                <li key={s} className="text-sm lg:text-base text-brand-black/80 font-medium border-l-2 border-brand-green-light pl-3 py-0.5">
-                  {s}
-                </li>
+            <div className="space-y-4">
+              {standards.map((s, i) => (
+                <motion.div 
+                  key={s} 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="relative p-5 rounded-2xl bg-brand-white border-l-4 border-brand-green-light shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <span className="text-sm lg:text-base text-brand-black/90 font-bold leading-snug">
+                    {s}
+                  </span>
+                </motion.div>
               ))}
-            </ul>
-          </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Exposure risks */}
@@ -183,7 +213,7 @@ const AboutSection = () => {
               Your Exposure
             </span>
           </div>
-          <div className="grid md:grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {exposures.map((e, i) => (
               <motion.div
                 key={e.title}
@@ -191,12 +221,22 @@ const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl border border-border p-6 lg:p-7 bg-brand-grey-light/40 hover:bg-brand-grey-light/70 hover:border-brand-green-dark/20 transition-colors duration-300"
+                whileHover={{ y: -5, borderColor: "hsl(var(--brand-green-light) / 0.5)" }}
+                className="group relative rounded-[2rem] border border-black/5 p-8 lg:p-9 bg-brand-white shadow-sm hover:shadow-xl hover:shadow-brand-green-dark/5 transition-all duration-500"
               >
-                <h5 className="text-base lg:text-lg font-heading font-bold text-brand-black mb-3">
-                  {e.title}
-                </h5>
-                <p className="text-sm text-brand-grey leading-[1.75]">{e.text}</p>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-brand-green-light/10 rounded-bl-[4rem] opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="mb-6 w-12 h-12 rounded-2xl bg-brand-pale-green/30 flex items-center justify-center text-brand-green-dark">
+                    <span className="text-lg font-bold">0{i + 1}</span>
+                  </div>
+                  <h5 className="text-xl lg:text-2xl font-heading font-bold text-brand-black mb-4 group-hover:text-brand-green-dark transition-colors duration-300">
+                    {e.title}
+                  </h5>
+                  <p className="text-sm lg:text-base text-brand-grey leading-relaxed group-hover:text-brand-black transition-colors duration-300">
+                    {e.text}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -209,7 +249,7 @@ const AboutSection = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7 }}
           className="mt-16 lg:mt-20 relative overflow-hidden rounded-2xl lg:rounded-3xl p-10 lg:p-14"
-          style={{ background: "linear-gradient(135deg, #3a7a5a 0%, #499167 100%)" }}
+          style={{ background: "linear-gradient(135deg, hsl(var(--brand-green-dark)) 0%, #499167 100%)" }}
         >
           <img
             src={leafImg}
