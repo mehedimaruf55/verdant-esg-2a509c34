@@ -123,7 +123,7 @@ const AboutSection = () => {
 
               <a
                 href="#framework"
-                className="group inline-flex items-center gap-3 self-start md:self-end rounded-full bg-brand-white pl-6 pr-2 py-2 text-sm font-semibold text-brand-green-dark hover:bg-brand-green-light hover:text-brand-black transition-colors duration-300 shrink-0"
+                className="group inline-flex items-center gap-3 self-start md:self-end rounded-full bg-brand-white pl-6 pr-2 py-2 text-sm font-bold text-brand-green-dark hover:bg-brand-black hover:text-brand-white transition-all duration-300 shrink-0"
               >
                 More Details
                 <span className="w-9 h-9 rounded-full bg-brand-green-dark group-hover:bg-brand-black flex items-center justify-center transition-colors duration-300">
